@@ -70,6 +70,24 @@
   <!-- Audio Element -->
   <audio id="bgMusic" preload="auto"></audio>
 
+  <!-- ==================== نافذة إشعار الساعة 12:01 يوم 7/11 ==================== -->
+  <div id="midnightModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-5 text-center">
+    <div class="glow-card rounded-3xl p-6 max-w-sm w-full border border-pink-500/40 pulse-glow flex flex-col items-center">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-3xl mb-4 shadow-lg">
+        💌
+      </div>
+      <h3 class="text-xl font-extrabold text-pink-300 mb-2">
+        دقّت الساعة 12:01 يا منمن! 🎂✨
+      </h3>
+      <p class="text-xs text-gray-300 leading-relaxed mb-5">
+        الرسالة الخاصة اللي ميمو كتبهالك من بدري فتحت دلوقتي خلاص.. كل سنة وأنتي طيبة يا روح قلبي 🤍
+      </p>
+      <button id="readMidnightMsgBtn" class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-sm text-white shadow-lg shadow-pink-500/30 active:scale-95 transition-transform">
+        اقري الرسالة دلوقتي 😘🤍
+      </button>
+    </div>
+  </div>
+
   <!-- ==================== 1. شاشة البداية والمفاجأة ==================== -->
   <div id="introScreen" class="fixed inset-0 z-50 bg-[#0b0714]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
     <div class="relative mb-6">
@@ -138,7 +156,7 @@
         </div>
       </div>
       <div id="todayCelebration" class="hidden text-pink-400 font-bold text-sm pt-2 animate-pulse">
-        🎉 النهاردة عيد ميلادك.. رسمي بقيتي 18 سنة يا إيمو! 🥳
+        🎉 النهاردة عيد ميلادك.. رسمي بقيتي 18 سنة يا منمن! 🥳
       </div>
     </section>
 
@@ -179,7 +197,7 @@
       </div>
     </section>
 
-    <!-- الرسالة الشخصية المكتوبة بتلقائية -->
+    <!-- الرسالة الترحيبية القصيرة -->
     <section class="glow-card rounded-3xl p-5 border border-white/10 relative overflow-hidden">
       <div class="absolute -top-6 -right-6 text-7xl text-purple-500/10 font-serif select-none pointer-events-none">18</div>
       <h3 class="text-sm font-bold text-pink-300 mb-2 flex items-center gap-1.5">
@@ -190,6 +208,47 @@
         <br><br>
         <span>عارف قد إيه تالتة ثانوي ضغط ومذاكرة وتعب، بس متأكد إنك قدها وهتفرحي بمجموعك وتدخلي ألسن عين شمس اللي بتحلمي بيها وتفرحينا كلنا. حبيت أعملك حاجة بسيطة تفرحك وتفكرك دايماً إن في حد بيدعيلك في كل خطوة.</span>
       </p>
+    </section>
+
+    <!-- ==================== رسالة ميمو الخاصة (تفتح يوم 7/11 الساعة 12:01 ص) ==================== -->
+    <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f122b] to-[#11091c] relative overflow-hidden">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="mail-heart" class="w-4 h-4 text-pink-400"></i>
+          <h3 class="text-sm font-bold text-white">رسالة من قلب ميمو لـ منمن 💌</h3>
+        </div>
+        <span id="msgStatusBadge" class="text-[10px] bg-pink-500/20 text-pink-300 font-semibold px-2 py-0.5 rounded-full border border-pink-500/30">
+          مقفولة لـ 7/11 🔒
+        </span>
+      </div>
+
+      <!-- الحالة 1: مقفولة قبل 7/11 الساعة 12:01 -->
+      <div id="secretMsgLocked" class="bg-black/30 p-4 rounded-2xl border border-white/5 text-center">
+        <div class="text-4xl mb-2 animate-pulse">🔒💌</div>
+        <p class="text-xs text-pink-300 font-bold mb-1">الرسالة دي مستنياكي يوم عيد ميلادك!</p>
+        <p class="text-[11px] text-gray-300 leading-relaxed mb-3">
+          كتبتلك كل اللي في قلبي من بدري عشان أكون رايق.. الرسالة دي هتفتح لوحدها تلقائياً يوم 7/11 الساعة 12:01 بالليل أول ما يبدأ عيد ميلادك 🤍✨
+        </p>
+        <button id="enableNotifyBtn" class="w-full py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/15 border border-pink-500/30 text-xs font-semibold text-pink-200 flex items-center justify-center gap-2 active:scale-95 transition-all">
+          <i data-lucide="bell-ring" class="w-4 h-4 text-pink-400"></i>
+          <span id="notifyBtnText">فعّلي الجرس عشان يجيلك إشعار أول ما تفتح 🔔</span>
+        </button>
+      </div>
+
+      <!-- الحالة 2: مفتوحة يوم 7/11 الساعة 12:01 -->
+      <div id="secretMsgUnlocked" class="hidden bg-black/40 p-4 rounded-2xl border border-pink-500/30">
+        <h4 class="text-base font-extrabold text-pink-400 mb-3">ل منمن 😘😘</h4>
+        <div class="text-xs text-gray-100 leading-7 space-y-3 text-right font-normal">
+          <p>بكتبهالك من بدري قوي عشان هبقى في الحفلة ومش عايز أفضل أكتب كل اللي في قلبي وأنا مشغول</p>
+          <p>كل سنة وأنتي طيبة وعقبال مليون سنة وأنتي معايا وأنتي مبسوطة يارب ودايماً منورة أيامي</p>
+          <p>أنا بحبك بجد والله وحسيت معاكي بحاجات غريبة ومريحة عمري ما حسيتها مع حد وبتفهميني من غير ما أتكلم ولو حتى بتكلم وبغلط زي الكيبورد اللي بايظ عندي ده بس هو مش بايظ الصراحة أنا اللي مش بعرف أتكلم كتير بس ببقى عايز أتكلم معاكي أنتي بس وحتى وإحنا في الكول لما بنقعد ساكتين ومش لاقيين كلام ونفضل نقول لبعض اممم امممم بكون في قمة انبساطي مش محتاج كلام كفاية عليا أسمع صوتك وأحس بوجودك معايا</p>
+          <p>كنت أتمنى تكوني جنبي كنت جبتلك هدية حلوة تفرحك وللأسف معرفتش أبعتلك حاجة أول حاجة خوفت أبعتهالك عشان البيت عندك وتاني حاجة حسيت هبقى مخيف لو عرفت مكانك بدري كده مع إنك مش بتخافي مني خالص وبعتيلي كل حاجة من غير أي حاجة وثالثاً مكنتش عارف لسه مهتمية بإيه كتير عشان أختار حاجة تحبيها وتليق بيكي</p>
+          <p>يارب تفضلي تحبيني زي ما بحبك كده دايماً</p>
+          <p>ومع إني معرفتش أبعتلك هدية في إيدك بس حاولت أعملك حاجة تفرحك مدة كبيرة لحد عيد ميلادك وانبسطت قوي بجد من فرحتك بالموقع اعتبريها هدية بسيطة وإن شاء الله أعوضك السنة اللي جاية بهدية كبيرة تحبيها وتفرح قلبك</p>
+          <p>وعارف قد إيه تالتة ثانوي ضغط وتعب ومذاكرة بس متأكد إنك شاطرة وقدها ومستني اليوم اللي هفرح فيه بمجموعك ودخولك ألسن إن شاء الله</p>
+          <p class="font-bold text-pink-300 pt-1">كل سنة وأنتي طيبة ومعايا يا حبيبتي 🤍✨</p>
+        </div>
+      </div>
     </section>
 
     <!-- هدية 1: مساعد المذاكرة والذكاء الاصطناعي Google AI Pro -->
@@ -395,7 +454,29 @@
       });
     });
 
-    // ================= 2. شاشة البداية وتشغيل الموسيقى =================
+    // ================= 2. طلب إذن الإشعارات وتفعيل الجرس =================
+    const enableNotifyBtn = document.getElementById('enableNotifyBtn');
+    const notifyBtnText = document.getElementById('notifyBtnText');
+
+    function requestNotificationPermission() {
+      if (!("Notification" in window)) {
+        notifyBtnText.textContent = "تم تفعيل التنبيه داخل الموقع ✅";
+        return;
+      }
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          notifyBtnText.textContent = "تم تفعيل جرس الإشعارات بنجاح 🔔✅";
+        } else {
+          notifyBtnText.textContent = "التنبيه هيظهرلك جوه الموقع أول ما تفتح ✅";
+        }
+      });
+    }
+
+    if (enableNotifyBtn) {
+      enableNotifyBtn.addEventListener('click', requestNotificationPermission);
+    }
+
+    // ================= 3. شاشة البداية وتشغيل الموسيقى =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -405,16 +486,14 @@
       introScreen.classList.add('opacity-0', 'pointer-events-none');
       setTimeout(() => introScreen.remove(), 700);
 
-      // تشغيل الموسيقى فوراً مع أول ضغطة
       togglePlay();
 
-      // فرقعة كونفيتي احتفالية
       try {
         confetti({ particleCount: 70, spread: 60 });
       } catch (e) {}
     });
 
-    // ================= 3. نسخ العنوان =================
+    // ================= 4. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -424,13 +503,70 @@
       });
     });
 
-    // ================= 4. العداد التنازلي وفحص يوم 7/11 =================
+    // ================= 5. العداد التنازلي + فتح الرسالة الساعة 12:01 يوم 7/11 =================
+    let messageAlreadyTriggered = localStorage.getItem('eman_midnight_notified') === 'true';
+
+    function triggerMidnightCelebration() {
+      // إظهار نافذة الإشعار المنبثقة
+      const modal = document.getElementById('midnightModal');
+      modal.classList.remove('hidden');
+
+      // اهتزاز الموبايل لو متاح
+      if ("vibrate" in navigator) {
+        navigator.vibrate([300, 150, 300]);
+      }
+
+      // إرسال إشعار المتصفح الخارجي
+      if ("Notification" in window && Notification.permission === "granted") {
+        try {
+          new Notification("رسالة جديدة من ميمو لـ منمن 😘🤍", {
+            body: "دقّت الساعة 12:01.. كل سنة وأنتي طيبة يا حبيبتي، ادخلي اقري رسالتي ليكي ✨",
+            icon: "./eman.jpg"
+          });
+        } catch (e) {}
+      }
+
+      // احتفال كونفيتي
+      try {
+        confetti({ particleCount: 120, spread: 90 });
+      } catch (e) {}
+
+      localStorage.setItem('eman_midnight_notified', 'true');
+      messageAlreadyTriggered = true;
+    }
+
+    document.getElementById('readMidnightMsgBtn').addEventListener('click', () => {
+      document.getElementById('midnightModal').classList.add('hidden');
+      document.getElementById('secretMessageSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
     function updateCountdown() {
       const now = new Date();
       const currentYear = now.getFullYear();
-      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0); // 7 نوفمبر
+      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0); // 7 نوفمبر الساعة 12:00 بالليل
 
+      // فحص هل اليوم هو 7 نوفمبر
       const isTodayBirthday = (now.getMonth() === 10 && now.getDate() === 7);
+
+      // فحص هل الساعة عدت 12:01 صباحاً يوم 7 نوفمبر (أو بعده في نفس الشهر)
+      const isPast1201OnBirthday = (
+        now.getMonth() === 10 &&
+        (now.getDate() > 7 || (now.getDate() === 7 && (now.getHours() > 0 || now.getMinutes() >= 1)))
+      );
+
+      if (isPast1201OnBirthday) {
+        // فتح الرسالة الخاصة
+        document.getElementById('secretMsgLocked').classList.add('hidden');
+        document.getElementById('secretMsgUnlocked').classList.remove('hidden');
+        const badge = document.getElementById('msgStatusBadge');
+        badge.textContent = 'مفتوحة الآن 🤍✨';
+        badge.className = 'text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30';
+
+        // إطلاق الإشعار والـ Popup أول مرة تفتح فيها الساعة 12:01
+        if (!messageAlreadyTriggered) {
+          triggerMidnightCelebration();
+        }
+      }
 
       if (isTodayBirthday) {
         document.getElementById('timerContainer').classList.add('hidden');
@@ -450,7 +586,7 @@
       const diff = targetDate - now;
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / 1000 / 60) % 60);
+      const m = Math.floor((diff / (1000 / 60) % 60);
       const s = Math.floor((diff / 1000) % 60);
 
       document.getElementById('days').textContent = d;
@@ -461,7 +597,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // ================= 5. حفظ واسترجاع أمنية الـ 18 سنة =================
+    // ================= 6. حفظ واسترجاع أمنية الـ 18 سنة =================
     const savedWish = localStorage.getItem('eman_18_wish');
     if (savedWish) {
       document.getElementById('savedWishBox').classList.remove('hidden');
@@ -487,7 +623,7 @@
       } catch (e) {}
     });
 
-    // ================= 6. حركة النجوم بالخلفية =================
+    // ================= 7. حركة النجوم بالخلفية =================
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -528,8 +664,7 @@
     }
     animateStars();
 
-    // ================= 7. بالونات طائرة تفاعلية =================
-    const balloonColors = ['#ec4899', '#a855f7', '#6366f1', '#14b8a6', '#f43f5e'];
+    // ================= 8. بالونات طائرة تفاعلية =================
     const container = document.getElementById('balloonsContainer');
 
     function createBalloon() {
