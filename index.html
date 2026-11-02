@@ -1,563 +1,563 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>عيد ميلاد إيمان 18 🎂</title>
-  
-  <!-- Tailwind CSS & Lucide Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>عيد ميلاد إيمان 18 🎂</title>
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      font-family: 'Alexandria', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-    body {
-      background-color: #0b0714;
-      overflow-x: hidden;
-      touch-action: pan-y;
-    }
-    .glow-card {
-      background: rgba(22, 16, 38, 0.75);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
-    }
-    .pulse-glow {
-      animation: pulseGlow 2.5s infinite;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.35); }
-      50% { box-shadow: 0 0 35px rgba(236, 72, 153, 0.6); }
-    }
-    @keyframes floatBalloon {
-      0% { transform: translateY(110vh) rotate(0deg); opacity: 0.9; }
-      100% { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
-    }
-    .floating-balloon {
-      position: fixed;
-      pointer-events: auto;
-      cursor: pointer;
-      z-index: 15;
-      animation: floatBalloon linear infinite;
-    }
-    .cd-spin {
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-    .paused {
-      animation-play-state: paused;
-    }
-  </style>
+  <style>
+    * {
+      font-family: 'Alexandria', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #0b0714;
+      overflow-x: hidden;
+      touch-action: pan-y;
+    }
+    .glow-card {
+      background: rgba(22, 16, 38, 0.75);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+    }
+    .pulse-glow {
+      animation: pulseGlow 2.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.35); }
+      50% { box-shadow: 0 0 35px rgba(236, 72, 153, 0.6); }
+    }
+    @keyframes floatBalloon {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
+    }
+    .floating-balloon {
+      position: fixed;
+      pointer-events: auto;
+      cursor: pointer;
+      z-index: 15;
+      animation: floatBalloon linear infinite;
+    }
+    .cd-spin {
+      animation: spin 10s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+    .paused {
+      animation-play-state: paused;
+    }
+  </style>
 </head>
 <body class="text-white min-h-screen relative flex justify-center selection:bg-pink-500 selection:text-white">
 
-  <!-- Background Stars Canvas -->
-  <canvas id="starsCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <!-- Background Stars Canvas -->
+  <canvas id="starsCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Floating Balloons Container -->
-  <div id="balloonsContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
+  <!-- Floating Balloons Container -->
+  <div id="balloonsContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
 
-  <!-- Audio Element -->
-  <audio id="bgMusic" preload="auto"></audio>
+  <!-- Audio Element -->
+  <audio id="bgMusic" preload="auto"></audio>
 
-  <!-- ==================== 1. شاشة البداية والمفاجأة ==================== -->
-  <div id="introScreen" class="fixed inset-0 z-50 bg-[#0b0714]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
-    <div class="relative mb-6">
-      <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center pulse-glow text-4xl shadow-xl">
-        🎁
-      </div>
-    </div>
-    <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-300 mb-3">
-      منمن.. جاهزة للمفاجأة؟ 🙈
-    </h2>
-    <p class="text-gray-300 text-sm max-w-xs mb-8 leading-relaxed">
-      حضري السماعات وعلّي الصوت عشان الحاجة دي معمولة مخصوص ليكي ✨
-    </p>
-    <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 font-bold text-lg text-white shadow-lg shadow-purple-500/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3">
-      <span>أيوه جاهزة.. وريني! 🚀</span>
-      <i data-lucide="sparkles" class="w-5 h-5"></i>
-    </button>
-  </div>
+  <!-- ==================== 1. شاشة البداية والمفاجأة ==================== -->
+  <div id="introScreen" class="fixed inset-0 z-50 bg-[#0b0714]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
+    <div class="relative mb-6">
+      <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center pulse-glow text-4xl shadow-xl">
+        🎁
+      </div>
+    </div>
+    <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-300 mb-3">
+      منمن.. جاهزة للمفاجأة؟ 🙈
+    </h2>
+    <p class="text-gray-300 text-sm max-w-xs mb-8 leading-relaxed">
+      حضري السماعات وعلّي الصوت عشان الحاجة دي معمولة مخصوص ليكي ✨
+    </p>
+    <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 font-bold text-lg text-white shadow-lg shadow-purple-500/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3">
+      <span>أيوه جاهزة.. وريني! 🚀</span>
+      <i data-lucide="sparkles" class="w-5 h-5"></i>
+    </button>
+  </div>
 
-  <!-- ==================== المحتوى الأساسي للموبايل ==================== -->
-  <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-16">
+  <!-- ==================== المحتوى الأساسي للموبايل ==================== -->
+  <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-16">
 
-    <!-- Header Section: الاسم والصورة والسن -->
-    <header class="glow-card rounded-3xl p-4 flex items-center justify-between border border-white/10">
-      <div class="flex items-center gap-3">
-        <!-- صورتها الشخصية eman.jpg -->
-        <div class="relative w-14 h-14 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-pink-500 to-purple-500 shadow-md">
-          <img src="./eman.jpg" alt="Eman" class="w-full h-full object-cover rounded-[14px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';" />
-        </div>
-        <div>
-          <div class="flex items-center gap-1.5">
-            <h1 class="text-lg font-bold text-white">إيمان 🎂</h1>
-            <span class="text-xs bg-pink-500/20 text-pink-300 font-semibold px-2 py-0.5 rounded-full border border-pink-500/30">18 سنة</span>
-          </div>
-          <p class="text-xs text-gray-400 flex items-center gap-1">
-            <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-purple-400"></i>
-            <span>ألسن عين شمس إن شاء الله 🎓</span>
-          </p>
-        </div>
-      </div>
-      <div class="text-2xl animate-bounce">✨</div>
-    </header>
+    <!-- Header Section: الاسم والصورة والسن -->
+    <header class="glow-card rounded-3xl p-4 flex items-center justify-between border border-white/10">
+      <div class="flex items-center gap-3">
+        <!-- صورتها الشخصية eman.jpg -->
+        <div class="relative w-14 h-14 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-pink-500 to-purple-500 shadow-md">
+          <img src="./eman.jpg" alt="Eman" class="w-full h-full object-cover rounded-[14px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';" />
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-lg font-bold text-white">إيمان 🎂</h1>
+            <span class="text-xs bg-pink-500/20 text-pink-300 font-semibold px-2 py-0.5 rounded-full border border-pink-500/30">18 سنة</span>
+          </div>
+          <p class="text-xs text-gray-400 flex items-center gap-1">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-purple-400"></i>
+            <span>ألسن عين شمس إن شاء الله 🎓</span>
+          </p>
+        </div>
+      </div>
+      <div class="text-2xl animate-bounce">✨</div>
+    </header>
 
-    <!-- العداد التنازلي لـ 7/11 -->
-    <section class="glow-card rounded-3xl p-4 text-center border border-purple-500/20">
-      <p id="countdownTitle" class="text-xs font-semibold text-purple-300 mb-2.5 flex items-center justify-center gap-1.5">
-        <i data-lucide="clock" class="w-4 h-4"></i>
-        <span>العد التنازلي ليوم 7/11 رسمياً 18 سنة ⏳</span>
-      </p>
-      <div id="timerContainer" class="grid grid-cols-4 gap-2">
-        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
-          <span id="days" class="block text-xl font-extrabold text-pink-400">--</span>
-          <span class="text-[10px] text-gray-400">يوم</span>
-        </div>
-        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
-          <span id="hours" class="block text-xl font-extrabold text-purple-400">--</span>
-          <span class="text-[10px] text-gray-400">ساعة</span>
-        </div>
-        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
-          <span id="minutes" class="block text-xl font-extrabold text-indigo-400">--</span>
-          <span class="text-[10px] text-gray-400">دقيقة</span>
-        </div>
-        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
-          <span id="seconds" class="block text-xl font-extrabold text-teal-400">--</span>
-          <span class="text-[10px] text-gray-400">ثانية</span>
-        </div>
-      </div>
-      <div id="todayCelebration" class="hidden text-pink-400 font-bold text-sm pt-2 animate-pulse">
-        🎉 النهاردة عيد ميلادك.. رسمي بقيتي 18 سنة يا إيمو! 🥳
-      </div>
-    </section>
+    <!-- العداد التنازلي لـ 7/11 -->
+    <section class="glow-card rounded-3xl p-4 text-center border border-purple-500/20">
+      <p id="countdownTitle" class="text-xs font-semibold text-purple-300 mb-2.5 flex items-center justify-center gap-1.5">
+        <i data-lucide="clock" class="w-4 h-4"></i>
+        <span>العد التنازلي ليوم 7/11 رسمياً 18 سنة ⏳</span>
+      </p>
+      <div id="timerContainer" class="grid grid-cols-4 gap-2">
+        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
+          <span id="days" class="block text-xl font-extrabold text-pink-400">--</span>
+          <span class="text-[10px] text-gray-400">يوم</span>
+        </div>
+        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
+          <span id="hours" class="block text-xl font-extrabold text-purple-400">--</span>
+          <span class="text-[10px] text-gray-400">ساعة</span>
+        </div>
+        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
+          <span id="minutes" class="block text-xl font-extrabold text-indigo-400">--</span>
+          <span class="text-[10px] text-gray-400">دقيقة</span>
+        </div>
+        <div class="bg-black/30 rounded-xl p-2 border border-white/5">
+          <span id="seconds" class="block text-xl font-extrabold text-teal-400">--</span>
+          <span class="text-[10px] text-gray-400">ثانية</span>
+        </div>
+      </div>
+      <div id="todayCelebration" class="hidden text-pink-400 font-bold text-sm pt-2 animate-pulse">
+        🎉 النهاردة عيد ميلادك.. رسمي بقيتي 18 سنة يا إيمو! 🥳
+      </div>
+    </section>
 
-    <!-- مشغل المزيكا: 7 أغاني لعامر منيب + أغنية العيد ميلاد -->
-    <section class="glow-card rounded-3xl p-4 border border-white/10">
-      <div class="flex items-center justify-between mb-3">
-        <div class="flex items-center gap-2">
-          <i data-lucide="disc" class="w-4 h-4 text-pink-400"></i>
-          <span class="text-xs font-bold text-gray-200">ألبوم عامر منيب 🎧</span>
-        </div>
-        <span id="songBadge" class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full border border-purple-500/30">
-          تراك 1 من 8
-        </span>
-      </div>
+    <!-- مشغل المزيكا: 7 أغاني لعامر منيب + أغنية العيد ميلاد -->
+    <section class="glow-card rounded-3xl p-4 border border-white/10">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="disc" class="w-4 h-4 text-pink-400"></i>
+          <span class="text-xs font-bold text-gray-200">ألبوم عامر منيب 🎧</span>
+        </div>
+        <span id="songBadge" class="text-[10px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full border border-purple-500/30">
+          تراك 1 من 8
+        </span>
+      </div>
 
-      <div class="flex items-center gap-3 bg-black/30 p-3 rounded-2xl border border-white/5">
-        <div id="cdDisc" class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-800 to-pink-600 flex items-center justify-center cd-spin paused shadow-md border-2 border-purple-400/30 shrink-0">
-          <div class="w-4 h-4 rounded-full bg-[#0b0714] border border-white/40"></div>
-        </div>
-        <div class="flex-1 overflow-hidden text-right">
-          <h4 id="songTitle" class="text-sm font-bold text-white truncate">عامر منيب - حلم عمري</h4>
-          <p id="songArtist" class="text-[11px] text-pink-300 truncate">الأغنية اللي بتحبيها 🤍</p>
-        </div>
-        <button id="playPauseBtn" class="w-10 h-10 rounded-xl bg-pink-500 hover:bg-pink-600 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-lg shadow-pink-500/30 transition-transform">
-          <i id="playIcon" data-lucide="play" class="w-5 h-5 fill-current"></i>
-        </button>
-      </div>
+      <div class="flex items-center gap-3 bg-black/30 p-3 rounded-2xl border border-white/5">
+        <div id="cdDisc" class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-800 to-pink-600 flex items-center justify-center cd-spin paused shadow-md border-2 border-purple-400/30 shrink-0">
+          <div class="w-4 h-4 rounded-full bg-[#0b0714] border border-white/40"></div>
+        </div>
+        <div class="flex-1 overflow-hidden text-right">
+          <h4 id="songTitle" class="text-sm font-bold text-white truncate">عامر منيب - حلم عمري</h4>
+          <p id="songArtist" class="text-[11px] text-pink-300 truncate">الأغنية اللي بتحبيها 🤍</p>
+        </div>
+        <button id="playPauseBtn" class="w-10 h-10 rounded-xl bg-pink-500 hover:bg-pink-600 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-lg shadow-pink-500/30 transition-transform">
+          <i id="playIcon" data-lucide="play" class="w-5 h-5 fill-current"></i>
+        </button>
+      </div>
 
-      <div class="flex items-center justify-between gap-2 mt-3">
-        <button id="prevBtn" class="flex-1 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-gray-300 flex items-center justify-center gap-1 active:scale-95 transition-all">
-          <i data-lucide="skip-back" class="w-4 h-4"></i>
-          <span>السابقة</span>
-        </button>
-        <button id="nextBtn" class="flex-1 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-gray-300 flex items-center justify-center gap-1 active:scale-95 transition-all">
-          <span>التالية</span>
-          <i data-lucide="skip-forward" class="w-4 h-4"></i>
-        </button>
-      </div>
-    </section>
+      <div class="flex items-center justify-between gap-2 mt-3">
+        <button id="prevBtn" class="flex-1 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-gray-300 flex items-center justify-center gap-1 active:scale-95 transition-all">
+          <i data-lucide="skip-back" class="w-4 h-4"></i>
+          <span>السابقة</span>
+        </button>
+        <button id="nextBtn" class="flex-1 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-gray-300 flex items-center justify-center gap-1 active:scale-95 transition-all">
+          <span>التالية</span>
+          <i data-lucide="skip-forward" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </section>
 
-    <!-- الرسالة الشخصية المكتوبة بتلقائية -->
-    <section class="glow-card rounded-3xl p-5 border border-white/10 relative overflow-hidden">
-      <div class="absolute -top-6 -right-6 text-7xl text-purple-500/10 font-serif select-none pointer-events-none">18</div>
-      <h3 class="text-sm font-bold text-pink-300 mb-2 flex items-center gap-1.5">
-        <span>كل سنة وأنتي طيبة يا إيمو 🤍</span>
-      </h3>
-      <p class="text-xs text-gray-200 leading-relaxed space-y-2">
-        <span>سنة جديدة داخلة عليها.. ودعتي الـ 17 وخلاص بقيتي 18 سنة! </span>
-        <br><br>
-        <span>عارف قد إيه تالتة ثانوي ضغط ومذاكرة وتعب، بس متأكد إنك قدها وهتفرحي بمجموعك وتدخلي ألسن عين شمس اللي بتحلمي بيها وتفرحينا كلنا. حبيت أعملك حاجة بسيطة تفرحك وتفكرك دايماً إن في حد بيدعيلك في كل خطوة.</span>
-      </p>
-    </section>
+    <!-- الرسالة الشخصية المكتوبة بتلقائية -->
+    <section class="glow-card rounded-3xl p-5 border border-white/10 relative overflow-hidden">
+      <div class="absolute -top-6 -right-6 text-7xl text-purple-500/10 font-serif select-none pointer-events-none">18</div>
+      <h3 class="text-sm font-bold text-pink-300 mb-2 flex items-center gap-1.5">
+        <span>كل سنة وأنتي طيبة يا إيمو 🤍</span>
+      </h3>
+      <p class="text-xs text-gray-200 leading-relaxed space-y-2">
+        <span>سنة جديدة داخلة عليها.. ودعتي الـ 17 وخلاص بقيتي 18 سنة! </span>
+        <br><br>
+        <span>عارف قد إيه تالتة ثانوي ضغط ومذاكرة وتعب، بس متأكد إنك قدها وهتفرحي بمجموعك وتدخلي ألسن عين شمس اللي بتحلمي بيها وتفرحينا كلنا. حبيت أعملك حاجة بسيطة تفرحك وتفكرك دايماً إن في حد بيدعيلك في كل خطوة.</span>
+      </p>
+    </section>
 
-    <!-- هدية 1: مساعد المذاكرة والذكاء الاصطناعي Google AI Pro -->
-    <section class="glow-card rounded-3xl p-5 border border-indigo-500/30 bg-gradient-to-b from-[#12162e] to-[#0c0f1d] relative overflow-hidden">
-      <div class="flex items-center justify-between mb-3">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 border border-indigo-500/30">
-            <i data-lucide="brain-circuit" class="w-4 h-4"></i>
-          </div>
-          <h3 class="text-sm font-bold text-white">مساعد المذاكرة: Google AI Pro 🚀</h3>
-        </div>
-        <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-semibold px-2 py-0.5 rounded-full border border-indigo-500/30">
-          سعة 5TB + Pro
-        </span>
-      </div>
+    <!-- هدية 1: مساعد المذاكرة والذكاء الاصطناعي Google AI Pro -->
+    <section class="glow-card rounded-3xl p-5 border border-indigo-500/30 bg-gradient-to-b from-[#12162e] to-[#0c0f1d] relative overflow-hidden">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 border border-indigo-500/30">
+            <i data-lucide="brain-circuit" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white">مساعد المذاكرة: Google AI Pro 🚀</h3>
+        </div>
+        <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-semibold px-2 py-0.5 rounded-full border border-indigo-500/30">
+          سعة 5TB + Pro
+        </span>
+      </div>
 
-      <p class="text-xs text-gray-300 mb-3 leading-relaxed">
-        أقوى ذكاء اصطناعي وسحابة تخزين مخصوص عشان يسندك في ضغط وتلخيصات تالتة ثانوي ويجهّزك للكلية براحة بال 📚✨
-      </p>
+      <p class="text-xs text-gray-300 mb-3 leading-relaxed">
+        أقوى ذكاء اصطناعي وسحابة تخزين مخصوص عشان يسندك في ضغط وتلخيصات تالتة ثانوي ويجهّزك للكلية براحة بال 📚✨
+      </p>
 
-      <!-- مميزات الاشتراك في كبسولات -->
-      <div class="grid grid-cols-2 gap-2 mb-4">
-        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
-          <i data-lucide="hard-drive" class="w-4 h-4 text-blue-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت Google One</span>
-        </div>
-        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
-          <i data-lucide="sparkles" class="w-4 h-4 text-purple-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced الذكي</span>
-        </div>
-        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
-          <i data-lucide="book-open" class="w-4 h-4 text-amber-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">NotebookLM لتلخيص المناهج</span>
-        </div>
-        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
-          <i data-lucide="search-check" class="w-4 h-4 text-teal-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Deep Research للبحوث</span>
-        </div>
-      </div>
+      <!-- مميزات الاشتراك في كبسولات -->
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
+          <i data-lucide="hard-drive" class="w-4 h-4 text-blue-400 shrink-0"></i>
+          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت Google One</span>
+        </div>
+        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-purple-400 shrink-0"></i>
+          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced الذكي</span>
+        </div>
+        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
+          <i data-lucide="book-open" class="w-4 h-4 text-amber-400 shrink-0"></i>
+          <span class="text-[11px] text-gray-200 font-medium">NotebookLM لتلخيص المناهج</span>
+        </div>
+        <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
+          <i data-lucide="search-check" class="w-4 h-4 text-teal-400 shrink-0"></i>
+          <span class="text-[11px] text-gray-200 font-medium">Deep Research للبحوث</span>
+        </div>
+      </div>
 
-      <p class="text-[11px] text-indigo-300/90 mb-3 bg-indigo-950/40 p-2.5 rounded-xl border border-indigo-800/30">
-        💡 يشمل أيضاً ميزات: Veo، Flow، Whisk، و Anti-Gravity مع سعة تخزين عملاقة لكل مذكراتك وملفاتك.
-      </p>
+      <p class="text-[11px] text-indigo-300/90 mb-3 bg-indigo-950/40 p-2.5 rounded-xl border border-indigo-800/30">
+        💡 يشمل أيضاً ميزات: Veo، Flow، Whisk، و Anti-Gravity مع سعة تخزين عملاقة لكل مذكراتك وملفاتك.
+      </p>
 
-      <a href="https://activation-market.shop/r/noF5AasC0B3s9Yzg0lIH7RECsusmGim-NvHcCKdVrFKPk21_3-ZapRPLqQrtErfgj0okbEybpfTohIjzaKKpS44" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 active:scale-95 transition-transform">
-        <span>تفعيل اشتراك Google AI Pro من هنا 🎁</span>
-        <i data-lucide="external-link" class="w-4 h-4"></i>
-      </a>
-    </section>
+      <a href="https://activation-market.shop/r/noF5AasC0B3s9Yzg0lIH7RECsusmGim-NvHcCKdVrFKPk21_3-ZapRPLqQrtErfgj0okbEybpfTohIjzaKKpS44" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 active:scale-95 transition-transform">
+        <span>تفعيل اشتراك Google AI Pro من هنا 🎁</span>
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+      </a>
+    </section>
 
-    <!-- هدية 2: Spotify Family Premium -->
-    <section class="glow-card rounded-3xl p-5 border border-emerald-500/30 bg-gradient-to-b from-[#131b17] to-[#0d141e]">
-      <div class="flex items-center justify-between mb-3">
-        <div class="flex items-center gap-2">
-          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
-          <h3 class="text-sm font-bold text-white">هديتك الصغيرة: Spotify Premium 🎧</h3>
-        </div>
-        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30">
-          اشتراك رسمي
-        </span>
-      </div>
-      <p class="text-xs text-gray-300 mb-4 leading-relaxed">
-        عشان تذاكري وتروقي براحتك من غير إعلانات سخيفة تقطع تركيزك في تالتة ثانوي 💆‍♀️
-      </p>
+    <!-- هدية 2: Spotify Family Premium -->
+    <section class="glow-card rounded-3xl p-5 border border-emerald-500/30 bg-gradient-to-b from-[#131b17] to-[#0d141e]">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+          <h3 class="text-sm font-bold text-white">هديتك الصغيرة: Spotify Premium 🎧</h3>
+        </div>
+        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30">
+          اشتراك رسمي
+        </span>
+      </div>
+      <p class="text-xs text-gray-300 mb-4 leading-relaxed">
+        عشان تذاكري وتروقي براحتك من غير إعلانات سخيفة تقطع تركيزك في تالتة ثانوي 💆‍♀️
+      </p>
 
-      <a href="https://www.spotify.com/eg-ar/family/join/invite/b2Z7a0879XZ48b2/" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform mb-3">
-        <span>تفعيل اشتراك Spotify من هنا</span>
-        <i data-lucide="external-link" class="w-4 h-4"></i>
-      </a>
+      <a href="https://www.spotify.com/eg-ar/family/join/invite/b2Z7a0879XZ48b2/" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform mb-3">
+        <span>تفعيل اشتراك Spotify من هنا</span>
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+      </a>
 
-      <!-- كارت العنوان المطلوب -->
-      <div class="bg-black/40 rounded-2xl p-3 border border-emerald-500/20">
-        <div class="flex items-center justify-between text-xs text-gray-300 mb-1.5">
-          <span class="text-emerald-300 font-semibold">العنوان المطلوب للاشتراك:</span>
-          <button id="copyAddressBtn" class="text-[11px] bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-lg flex items-center gap-1 active:scale-95 transition-all">
-            <i data-lucide="copy" class="w-3 h-3"></i>
-            <span id="copyText">نسخ</span>
-          </button>
-        </div>
-        <p id="addressContent" class="text-xs text-gray-200 font-mono select-all bg-black/60 p-2 rounded-lg border border-white/5 break-all">
-          New Cairo Tunnel, New Cairo 1, Cairo Governorate 4721010, Egypt
-        </p>
-      </div>
-    </section>
+      <!-- كارت العنوان المطلوب -->
+      <div class="bg-black/40 rounded-2xl p-3 border border-emerald-500/20">
+        <div class="flex items-center justify-between text-xs text-gray-300 mb-1.5">
+          <span class="text-emerald-300 font-semibold">العنوان المطلوب للاشتراك:</span>
+          <button id="copyAddressBtn" class="text-[11px] bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded-lg flex items-center gap-1 active:scale-95 transition-all">
+            <i data-lucide="copy" class="w-3 h-3"></i>
+            <span id="copyText">نسخ</span>
+          </button>
+        </div>
+        <p id="addressContent" class="text-xs text-gray-200 font-mono select-all bg-black/60 p-2 rounded-lg border border-white/5 break-all">
+          New Cairo Tunnel, New Cairo 1, Cairo Governorate 4721010, Egypt
+        </p>
+      </div>
+    </section>
 
-    <!-- كبسولة الأمنيات والشموع (تفتح يوم 7/11 فقط) -->
-    <section class="glow-card rounded-3xl p-5 border border-purple-500/20 text-center">
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <i data-lucide="sparkle" class="w-4 h-4 text-yellow-400"></i>
-        <h3 class="text-sm font-bold text-white">كبسولة أمنيات الـ 18 سنة 🎂✨</h3>
-      </div>
+    <!-- كبسولة الأمنيات والشموع (تفتح يوم 7/11 فقط) -->
+    <section class="glow-card rounded-3xl p-5 border border-purple-500/20 text-center">
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <i data-lucide="sparkle" class="w-4 h-4 text-yellow-400"></i>
+        <h3 class="text-sm font-bold text-white">كبسولة أمنيات الـ 18 سنة 🎂✨</h3>
+      </div>
 
-      <!-- الحالة 1: قبل يوم 7/11 (مقفولة) -->
-      <div id="candlesLocked" class="bg-black/30 p-4 rounded-2xl border border-white/5">
-        <div class="text-4xl mb-2">🔒🎂</div>
-        <p class="text-xs text-yellow-300 font-semibold mb-1">الشموع والكبسولة مقفولين دلوقتي!</p>
-        <p class="text-[11px] text-gray-400 leading-relaxed">
-          الشموع هتتولع وتتطفي حصرياً يوم 7/11 لما تدق الساعة 12 بالليل عشان تكتبي أمنيتك للـ 18 سنة وتتحفظ هنا للسنة الجاية بإذن الله 🤍
-        </p>
-      </div>
+      <!-- الحالة 1: قبل يوم 7/11 (مقفولة) -->
+      <div id="candlesLocked" class="bg-black/30 p-4 rounded-2xl border border-white/5">
+        <div class="text-4xl mb-2">🔒🎂</div>
+        <p class="text-xs text-yellow-300 font-semibold mb-1">الشموع والكبسولة مقفولين دلوقتي!</p>
+        <p class="text-[11px] text-gray-400 leading-relaxed">
+          الشموع هتتولع وتتطفي حصرياً يوم 7/11 لما تدق الساعة 12 بالليل عشان تكتبي أمنيتك للـ 18 سنة وتتحفظ هنا للسنة الجاية بإذن الله 🤍
+        </p>
+      </div>
 
-      <!-- الحالة 2: مفتوحة يوم 7/11 -->
-      <div id="candlesUnlocked" class="hidden bg-black/30 p-4 rounded-2xl border border-pink-500/30">
-        <div class="text-4xl mb-2 animate-bounce cursor-pointer" id="blowCandlesBtn" title="دوسي عشان تطفي الشمع!">
-          🎂🕯️
-        </div>
-        <p class="text-xs text-pink-300 font-semibold mb-3">دوسي على التورتة واطفي الشمع، واكتبي أمنيتك للسنة دي ✨</p>
-        
-        <div class="flex flex-col gap-2">
-          <textarea id="wishInput" rows="3" placeholder="أمنيتي لسنة الـ 18 (مثلاً: ادخل ألسن عين شمس بمجموع عالي)..." class="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500"></textarea>
-          <button id="saveWishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-xs text-white active:scale-95 transition-all flex items-center justify-center gap-1.5">
-            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-            <span>حفظ الأمنية في كبسولة السنة الجاية 🔒</span>
-          </button>
-        </div>
-        <div id="savedWishBox" class="hidden mt-3 p-3 bg-purple-900/30 rounded-xl border border-purple-400/20 text-xs text-purple-200">
-          <span class="block text-[10px] text-gray-400 mb-1">أمنيتك المحفوظة للسنة الجاية:</span>
-          <span id="savedWishText" class="font-semibold text-white"></span>
-        </div>
-      </div>
-    </section>
+      <!-- الحالة 2: مفتوحة يوم 7/11 -->
+      <div id="candlesUnlocked" class="hidden bg-black/30 p-4 rounded-2xl border border-pink-500/30">
+        <div class="text-4xl mb-2 animate-bounce cursor-pointer" id="blowCandlesBtn" title="دوسي عشان تطفي الشمع!">
+          🎂🕯️
+        </div>
+        <p class="text-xs text-pink-300 font-semibold mb-3">دوسي على التورتة واطفي الشمع، واكتبي أمنيتك للسنة دي ✨</p>
+        
+        <div class="flex flex-col gap-2">
+          <textarea id="wishInput" rows="3" placeholder="أمنيتي لسنة الـ 18 (مثلاً: ادخل ألسن عين شمس بمجموع عالي)..." class="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500"></textarea>
+          <button id="saveWishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-xs text-white active:scale-95 transition-all flex items-center justify-center gap-1.5">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+            <span>حفظ الأمنية في كبسولة السنة الجاية 🔒</span>
+          </button>
+        </div>
+        <div id="savedWishBox" class="hidden mt-3 p-3 bg-purple-900/30 rounded-xl border border-purple-400/20 text-xs text-purple-200">
+          <span class="block text-[10px] text-gray-400 mb-1">أمنيتك المحفوظة للسنة الجاية:</span>
+          <span id="savedWishText" class="font-semibold text-white"></span>
+        </div>
+      </div>
+    </section>
 
-    <!-- زر الواتساب للتواصل والرد -->
-    <section class="glow-card rounded-3xl p-4 border border-emerald-500/20">
-      <a href="https://wa.me/201147584829?text=%D8%B9%D8%AC%D8%A8%D8%AA%D9%86%D9%8A%20%D8%AC%D8%AF%D8%A7%D9%8B%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A3%D8%A9%20%D9%8A%D8%A7%20%D9%85%D9%8A%D8%AF%D9%88%20%D8%AA%D8%B3%D9%84%D9%85%20%D8%A7%D9%8A%D8%AF%D9%83%20%F0%9F%A5%B9%F0%9F%A4%8D" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
-        <i data-lucide="message-circle" class="w-5 h-5"></i>
-        <span>قوليلي رأيك في المفاجأة 💬🤍</span>
-      </a>
-    </section>
+    <!-- زر الواتساب للتواصل والرد -->
+    <section class="glow-card rounded-3xl p-4 border border-emerald-500/20">
+      <a href="https://wa.me/201147584829?text=%D8%B9%D8%AC%D8%A8%D8%AA%D9%86%D9%8A%20%D8%AC%D8%AF%D8%A7%D9%8B%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A3%D8%A9%20%D9%8A%D8%A7%20%D9%85%D9%8A%D8%AF%D9%88%20%D8%AA%D8%B3%D9%84%D9%85%20%D8%A7%D9%8A%D8%AF%D9%83%20%F0%9F%A5%B9%F0%9F%A4%8D" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <span>قوليلي رأيك في المفاجأة 💬🤍</span>
+      </a>
+    </section>
 
-    <!-- التوقيع والحقوق بالأسفل -->
-    <footer class="text-center pt-3 pb-6">
-      <p class="text-[11px] text-gray-400 font-medium tracking-wide">
-        Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍
-      </p>
-    </footer>
+    <!-- التوقيع والحقوق بالأسفل -->
+    <footer class="text-center pt-3 pb-6">
+      <p class="text-[11px] text-gray-400 font-medium tracking-wide">
+        Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍
+      </p>
+    </footer>
 
-  </main>
+  </main>
 
-  <!-- JavaScript الكود التفاعلي الكامل -->
-  <script>
-    lucide.createIcons();
+  <!-- JavaScript الكود التفاعلي الكامل -->
+  <script>
+    lucide.createIcons();
 
-    // ================= 1. قائمة الأغاني =================
-    const playlist = [
-      { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
-      { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
-      { title: "عامر منيب - يا قلبي", artist: "إحساس وذكريات ✨", file: "./song3.mp3" },
-      { title: "رامي صبري من اختيار منمن", artist: "من أرق الأغاني 🌸", file: "./song4.mp3" },
-      { title: "عامر منيب - أيام وليالي", artist: "تراك المذاكرة والروقان ☕", file: "./song5.mp3" },
-      { title: "عامر منيب - عارف", artist: "عامر منيب 🤍", file: "./song6.mp3" },
-      { title: "عامر منيب - فاكرني", artist: "تراك هادي 🎶", file: "./song7.mp3" },
-      { title: "سنة حلوة يا جميل 🎂", artist: "(أغنية عيد الميلاد الرسمية 🎉 (اختيار ميمو", file: "./birthday.mp3" }
-    ];
+    // ================= 1. قائمة الأغاني =================
+    const playlist = [
+      { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
+      { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
+      { title: "عامر منيب - يا قلبي", artist: "إحساس وذكريات ✨", file: "./song3.mp3" },
+      { title: "رامي صبري من اختيار منمن", artist: "من أرق الأغاني 🌸", file: "./song4.mp3" },
+      { title: "عامر منيب - أيام وليالي", artist: "تراك المذاكرة والروقان ☕", file: "./song5.mp3" },
+      { title: "عامر منيب - عارف", artist: "عامر منيب 🤍", file: "./song6.mp3" },
+      { title: "عامر منيب - فاكرني", artist: "تراك هادي 🎶", file: "./song7.mp3" },
+      { title: "سنة حلوة يا جميل 🎂", artist: "(أغنية عيد الميلاد الرسمية 🎉 (اختيار ميمو", file: "./birthday.mp3" }
+    ];
 
-    let currentTrack = 0;
-    const audio = document.getElementById('bgMusic');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const playIcon = document.getElementById('playIcon');
-    const cdDisc = document.getElementById('cdDisc');
-    const songTitle = document.getElementById('songTitle');
-    const songArtist = document.getElementById('songArtist');
-    const songBadge = document.getElementById('songBadge');
+    let currentTrack = 0;
+    const audio = document.getElementById('bgMusic');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const cdDisc = document.getElementById('cdDisc');
+    const songTitle = document.getElementById('songTitle');
+    const songArtist = document.getElementById('songArtist');
+    const songBadge = document.getElementById('songBadge');
 
-    function loadTrack(index) {
-      currentTrack = (index + playlist.length) % playlist.length;
-      audio.src = playlist[currentTrack].file;
-      songTitle.textContent = playlist[currentTrack].title;
-      songArtist.textContent = playlist[currentTrack].artist;
-      songBadge.textContent = `تراك ${currentTrack + 1} من ${playlist.length}`;
-    }
+    function loadTrack(index) {
+      currentTrack = (index + playlist.length) % playlist.length;
+      audio.src = playlist[currentTrack].file;
+      songTitle.textContent = playlist[currentTrack].title;
+      songArtist.textContent = playlist[currentTrack].artist;
+      songBadge.textContent = `تراك ${currentTrack + 1} من ${playlist.length}`;
+    }
 
-    function togglePlay() {
-      if (audio.paused) {
-        audio.play().then(() => {
-          cdDisc.classList.remove('paused');
-          playIcon.setAttribute('data-lucide', 'pause');
-          lucide.createIcons();
-        }).catch(e => console.log('Audio playback prevented', e));
-      } else {
-        audio.pause();
-        cdDisc.classList.add('paused');
-        playIcon.setAttribute('data-lucide', 'play');
-        lucide.createIcons();
-      }
-    }
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          cdDisc.classList.remove('paused');
+          playIcon.setAttribute('data-lucide', 'pause');
+          lucide.createIcons();
+        }).catch(e => console.log('Audio playback prevented', e));
+      } else {
+        audio.pause();
+        cdDisc.classList.add('paused');
+        playIcon.setAttribute('data-lucide', 'play');
+        lucide.createIcons();
+      }
+    }
 
-    playPauseBtn.addEventListener('click', togglePlay);
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      loadTrack(currentTrack + 1);
-      audio.play().then(() => {
-        cdDisc.classList.remove('paused');
-        playIcon.setAttribute('data-lucide', 'pause');
-        lucide.createIcons();
-      });
-    });
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      loadTrack(currentTrack - 1);
-      audio.play().then(() => {
-        cdDisc.classList.remove('paused');
-        playIcon.setAttribute('data-lucide', 'pause');
-        lucide.createIcons();
-      });
-    });
+    playPauseBtn.addEventListener('click', togglePlay);
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      loadTrack(currentTrack + 1);
+      audio.play().then(() => {
+        cdDisc.classList.remove('paused');
+        playIcon.setAttribute('data-lucide', 'pause');
+        lucide.createIcons();
+      });
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      loadTrack(currentTrack - 1);
+      audio.play().then(() => {
+        cdDisc.classList.remove('paused');
+        playIcon.setAttribute('data-lucide', 'pause');
+        lucide.createIcons();
+      });
+    });
 
-    // ================= 2. شاشة البداية وتشغيل الموسيقى =================
-    const introScreen = document.getElementById('introScreen');
-    const startBtn = document.getElementById('startBtn');
+    // ================= 2. شاشة البداية وتشغيل الموسيقى =================
+    const introScreen = document.getElementById('introScreen');
+    const startBtn = document.getElementById('startBtn');
 
-    loadTrack(0);
+    loadTrack(0);
 
-    startBtn.addEventListener('click', () => {
-      introScreen.classList.add('opacity-0', 'pointer-events-none');
-      setTimeout(() => introScreen.remove(), 700);
+    startBtn.addEventListener('click', () => {
+      introScreen.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => introScreen.remove(), 700);
 
-      // تشغيل الموسيقى فوراً مع أول ضغطة
-      togglePlay();
+      // تشغيل الموسيقى فوراً مع أول ضغطة
+      togglePlay();
 
-      // فرقعة كونفيتي احتفالية
-      try {
-        confetti({ particleCount: 70, spread: 60 });
-      } catch (e) {}
-    });
+      // فرقعة كونفيتي احتفالية
+      try {
+        confetti({ particleCount: 70, spread: 60 });
+      } catch (e) {}
+    });
 
-    // ================= 3. نسخ العنوان =================
-    document.getElementById('copyAddressBtn').addEventListener('click', () => {
-      const address = document.getElementById('addressContent').innerText.trim();
-      navigator.clipboard.writeText(address).then(() => {
-        const copyText = document.getElementById('copyText');
-        copyText.textContent = 'تم النسخ! ✅';
-        setTimeout(() => { copyText.textContent = 'نسخ'; }, 2000);
-      });
-    });
+    // ================= 3. نسخ العنوان =================
+    document.getElementById('copyAddressBtn').addEventListener('click', () => {
+      const address = document.getElementById('addressContent').innerText.trim();
+      navigator.clipboard.writeText(address).then(() => {
+        const copyText = document.getElementById('copyText');
+        copyText.textContent = 'تم النسخ! ✅';
+        setTimeout(() => { copyText.textContent = 'نسخ'; }, 2000);
+      });
+    });
 
-    // ================= 4. العداد التنازلي وفحص يوم 7/11 =================
-    function updateCountdown() {
-      const now = new Date();
-      const currentYear = now.getFullYear();
-      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0); // 7 نوفمبر
+    // ================= 4. العداد التنازلي وفحص يوم 7/11 =================
+    function updateCountdown() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0); // 7 نوفمبر
 
-      const isTodayBirthday = (now.getMonth() === 10 && now.getDate() === 7);
+      const isTodayBirthday = (now.getMonth() === 10 && now.getDate() === 7);
 
-      if (isTodayBirthday) {
-        document.getElementById('timerContainer').classList.add('hidden');
-        document.getElementById('countdownTitle').classList.add('hidden');
-        document.getElementById('todayCelebration').classList.remove('hidden');
+      if (isTodayBirthday) {
+        document.getElementById('timerContainer').classList.add('hidden');
+        document.getElementById('countdownTitle').classList.add('hidden');
+        document.getElementById('todayCelebration').classList.remove('hidden');
 
-        // فتح كبسولة الشموع
-        document.getElementById('candlesLocked').classList.add('hidden');
-        document.getElementById('candlesUnlocked').classList.remove('hidden');
-        return;
-      }
+        // فتح كبسولة الشموع
+        document.getElementById('candlesLocked').classList.add('hidden');
+        document.getElementById('candlesUnlocked').classList.remove('hidden');
+        return;
+      }
 
-      if (now > targetDate) {
-        targetDate = new Date(currentYear + 1, 10, 7, 0, 0, 0);
-      }
+      if (now > targetDate) {
+        targetDate = new Date(currentYear + 1, 10, 7, 0, 0, 0);
+      }
 
-      const diff = targetDate - now;
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / 1000 / 60) % 60);
-      const s = Math.floor((diff / 1000) % 60);
+      const diff = targetDate - now;
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / 1000 / 60) % 60);
+      const s = Math.floor((diff / 1000) % 60);
 
-      document.getElementById('days').textContent = d;
-      document.getElementById('hours').textContent = h;
-      document.getElementById('minutes').textContent = m;
-      document.getElementById('seconds').textContent = s;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+      document.getElementById('days').textContent = d;
+      document.getElementById('hours').textContent = h;
+      document.getElementById('minutes').textContent = m;
+      document.getElementById('seconds').textContent = s;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    // ================= 5. حفظ واسترجاع أمنية الـ 18 سنة =================
-    const savedWish = localStorage.getItem('eman_18_wish');
-    if (savedWish) {
-      document.getElementById('savedWishBox').classList.remove('hidden');
-      document.getElementById('savedWishText').textContent = savedWish;
-    }
+    // ================= 5. حفظ واسترجاع أمنية الـ 18 سنة =================
+    const savedWish = localStorage.getItem('eman_18_wish');
+    if (savedWish) {
+      document.getElementById('savedWishBox').classList.remove('hidden');
+      document.getElementById('savedWishText').textContent = savedWish;
+    }
 
-    document.getElementById('saveWishBtn').addEventListener('click', () => {
-      const wishVal = document.getElementById('wishInput').value.trim();
-      if (wishVal) {
-        localStorage.setItem('eman_18_wish', wishVal);
-        document.getElementById('savedWishBox').classList.remove('hidden');
-        document.getElementById('savedWishText').textContent = wishVal;
-        document.getElementById('wishInput').value = '';
-        try {
-          confetti({ particleCount: 80, spread: 70 });
-        } catch (e) {}
-      }
-    });
+    document.getElementById('saveWishBtn').addEventListener('click', () => {
+      const wishVal = document.getElementById('wishInput').value.trim();
+      if (wishVal) {
+        localStorage.setItem('eman_18_wish', wishVal);
+        document.getElementById('savedWishBox').classList.remove('hidden');
+        document.getElementById('savedWishText').textContent = wishVal;
+        document.getElementById('wishInput').value = '';
+        try {
+          confetti({ particleCount: 80, spread: 70 });
+        } catch (e) {}
+      }
+    });
 
-    document.getElementById('blowCandlesBtn').addEventListener('click', () => {
-      try {
-        confetti({ particleCount: 100, spread: 80 });
-      } catch (e) {}
-    });
+    document.getElementById('blowCandlesBtn').addEventListener('click', () => {
+      try {
+        confetti({ particleCount: 100, spread: 80 });
+      } catch (e) {}
+    });
 
-    // ================= 6. حركة النجوم بالخلفية =================
-    const canvas = document.getElementById('starsCanvas');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
+    // ================= 6. حركة النجوم بالخلفية =================
+    const canvas = document.getElementById('starsCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      stars = [];
-      for (let i = 0; i < 90; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5,
-          speedY: 0.15 + Math.random() * 0.35,
-          opacity: Math.random()
-        });
-      }
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = [];
+      for (let i = 0; i < 90; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          speedY: 0.15 + Math.random() * 0.35,
+          opacity: Math.random()
+        });
+      }
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ffffff";
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(star.opacity) * 0.4})`;
-        ctx.fill();
-        star.y -= star.speedY;
-        star.opacity += 0.03;
-        if (star.y < 0) {
-          star.y = canvas.height;
-          star.x = Math.random() * canvas.width;
-        }
-      });
-      requestAnimationFrame(animateStars);
-    }
-    animateStars();
+    function animateStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(star.opacity) * 0.4})`;
+        ctx.fill();
+        star.y -= star.speedY;
+        star.opacity += 0.03;
+        if (star.y < 0) {
+          star.y = canvas.height;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
 
-    // ================= 7. بالونات طائرة تفاعلية =================
-    const balloonColors = ['#ec4899', '#a855f7', '#6366f1', '#14b8a6', '#f43f5e'];
-    const container = document.getElementById('balloonsContainer');
+    // ================= 7. بالونات طائرة تفاعلية =================
+    const balloonColors = ['#ec4899', '#a855f7', '#6366f1', '#14b8a6', '#f43f5e'];
+    const container = document.getElementById('balloonsContainer');
 
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.className = 'floating-balloon text-3xl select-none';
-      balloon.style.left = `${Math.random() * 85 + 5}%`;
-      const duration = 12 + Math.random() * 8;
-      balloon.style.animationDuration = `${duration}s`;
-      balloon.textContent = Math.random() > 0.4 ? '🎈' : '💖';
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.className = 'floating-balloon text-3xl select-none';
+      balloon.style.left = `${Math.random() * 85 + 5}%`;
+      const duration = 12 + Math.random() * 8;
+      balloon.style.animationDuration = `${duration}s`;
+      balloon.textContent = Math.random() > 0.4 ? '🎈' : '💖';
 
-      balloon.addEventListener('click', (e) => {
-        try {
-          confetti({
-            particleCount: 15,
-            spread: 40,
-            origin: {
-              x: e.clientX / window.innerWidth,
-              y: e.clientY / window.innerHeight
-            }
-          });
-        } catch (err) {}
-        balloon.remove();
-      });
+      balloon.addEventListener('click', (e) => {
+        try {
+          confetti({
+            particleCount: 15,
+            spread: 40,
+            origin: {
+              x: e.clientX / window.innerWidth,
+              y: e.clientY / window.innerHeight
+            }
+          });
+        } catch (err) {}
+        balloon.remove();
+      });
 
-      container.appendChild(balloon);
-      setTimeout(() => balloon.remove(), duration * 1000);
-    }
-    setInterval(createBalloon, 2200);
-  </script>
+      container.appendChild(balloon);
+      setTimeout(() => balloon.remove(), duration * 1000);
+    }
+    setInterval(createBalloon, 2200);
+  </script>
 </body>
 </html>
