@@ -273,11 +273,11 @@
       <div class="grid grid-cols-2 gap-2 mb-4">
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="hard-drive" class="w-4 h-4 text-blue-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت Google One</span>
+          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="sparkles" class="w-4 h-4 text-purple-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced الذكي</span>
+          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="book-open" class="w-4 h-4 text-amber-400 shrink-0"></i>
@@ -285,7 +285,7 @@
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="search-check" class="w-4 h-4 text-teal-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Deep Research للبحوث</span>
+          <span class="text-[11px] text-gray-200 font-medium">Deep Research</span>
         </div>
       </div>
 
@@ -303,7 +303,7 @@
     <section class="glow-card rounded-3xl p-5 border border-emerald-500/30 bg-gradient-to-b from-[#131b17] to-[#0d141e]">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
-          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+          <i data-lucide="music" class="w-4 h-4 text-emerald-400"></i>
           <h3 class="text-sm font-bold text-white">هديتك الصغيرة: Spotify Premium 🎧</h3>
         </div>
         <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30">
@@ -332,6 +332,32 @@
           New Cairo Tunnel, New Cairo 1, Cairo Governorate 4721010, Egypt
         </p>
       </div>
+    </section>
+
+    <!-- هدية 3: اشتراك Duolingo Super لمدة سنة -->
+    <section class="glow-card rounded-3xl p-5 border border-lime-500/30 bg-gradient-to-b from-[#162211] to-[#0c1409]">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="bird" class="w-4 h-4 text-lime-400"></i>
+          <h3 class="text-sm font-bold text-white">هدية اللغات: Duolingo Super 🦉</h3>
+        </div>
+        <span class="text-[10px] bg-lime-500/20 text-lime-300 font-semibold px-2 py-0.5 rounded-full border border-lime-500/30">
+          سنة كاملة 
+        </span>
+      </div>
+      <p class="text-xs text-gray-300 mb-4 leading-relaxed">
+        عشان حلم "ألسن" يكمل، اشتراك ديولينجو سوبر لمدة سنة من غير إعلانات ولا قلوب تخلص.. عشان تظبطي اللغات براحتك 🌍✨
+      </p>
+
+      <a href="https://www.duolingo.com/redeem?code=AIRTEL27OCLSLYV" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-lime-500 hover:bg-lime-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-lime-500/30 active:scale-95 transition-transform mb-3">
+        <span>تفعيل اشتراك ديولينجو من هنا 🎁</span>
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+      </a>
+      
+      <p class="text-[10px] text-lime-300/80 text-center flex justify-center items-center gap-1">
+        <i data-lucide="info" class="w-3 h-3"></i>
+        <span>لو اللينك طلب حاجة، ارجعي لشات الواتساب هتلاقيني كاتبلك الطريقة 😉</span>
+      </p>
     </section>
 
     <!-- كبسولة الأمنيات والشموع (تفتح يوم 7/11 فقط) -->
@@ -507,16 +533,13 @@
     let messageAlreadyTriggered = localStorage.getItem('eman_midnight_notified') === 'true';
 
     function triggerMidnightCelebration() {
-      // إظهار نافذة الإشعار المنبثقة
       const modal = document.getElementById('midnightModal');
       modal.classList.remove('hidden');
 
-      // اهتزاز الموبايل لو متاح
       if ("vibrate" in navigator) {
         navigator.vibrate([300, 150, 300]);
       }
 
-      // إرسال إشعار المتصفح الخارجي
       if ("Notification" in window && Notification.permission === "granted") {
         try {
           new Notification("رسالة جديدة من ميمو لـ منمن 😘🤍", {
@@ -526,7 +549,6 @@
         } catch (e) {}
       }
 
-      // احتفال كونفيتي
       try {
         confetti({ particleCount: 120, spread: 90 });
       } catch (e) {}
@@ -548,21 +570,19 @@
       // فحص هل اليوم هو 7 نوفمبر
       const isTodayBirthday = (now.getMonth() === 10 && now.getDate() === 7);
 
-      // فحص هل الساعة عدت 12:01 صباحاً يوم 7 نوفمبر (أو بعده في نفس الشهر)
+      // فحص هل الساعة عدت 12:01 صباحاً يوم 7 نوفمبر
       const isPast1201OnBirthday = (
         now.getMonth() === 10 &&
         (now.getDate() > 7 || (now.getDate() === 7 && (now.getHours() > 0 || now.getMinutes() >= 1)))
       );
 
       if (isPast1201OnBirthday) {
-        // فتح الرسالة الخاصة
         document.getElementById('secretMsgLocked').classList.add('hidden');
         document.getElementById('secretMsgUnlocked').classList.remove('hidden');
         const badge = document.getElementById('msgStatusBadge');
         badge.textContent = 'مفتوحة الآن 🤍✨';
         badge.className = 'text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30';
 
-        // إطلاق الإشعار والـ Popup أول مرة تفتح فيها الساعة 12:01
         if (!messageAlreadyTriggered) {
           triggerMidnightCelebration();
         }
@@ -573,7 +593,6 @@
         document.getElementById('countdownTitle').classList.add('hidden');
         document.getElementById('todayCelebration').classList.remove('hidden');
 
-        // فتح كبسولة الشموع
         document.getElementById('candlesLocked').classList.add('hidden');
         document.getElementById('candlesUnlocked').classList.remove('hidden');
         return;
