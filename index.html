@@ -60,6 +60,11 @@
     .side-page {
       transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .tab-active {
+      background: rgba(236, 72, 153, 0.2);
+      border-color: rgba(236, 72, 153, 0.5);
+      color: #f472b6;
+    }
   </style>
 </head>
 <body class="text-white min-h-screen relative flex justify-center selection:bg-pink-500 selection:text-white">
@@ -115,15 +120,30 @@
       <div class="text-2xl animate-pulse">👑</div>
     </header>
 
-    <!-- كارت احتفالي دائم بالـ 18 سنة (بديل العداد المنتهي) -->
-    <section class="glow-card rounded-3xl p-4 text-center border border-pink-500/20 bg-gradient-to-r from-purple-950/20 via-pink-950/20 to-purple-950/20">
-      <div class="flex items-center justify-center gap-2 mb-1.5">
-        <span class="text-xl">🎂✨</span>
-        <h3 class="text-sm font-extrabold text-pink-300">سنة الـ 18 نورت بيكي يا روحي</h3>
+    <!-- ==================== ميزة بوابة أمنيات 11/11 ==================== -->
+    <section class="glow-card rounded-3xl p-5 border border-purple-400/30 bg-gradient-to-b from-[#1c1236] to-[#0d0a1f] relative overflow-hidden text-center">
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <span class="text-2xl animate-bounce">🌌</span>
+        <h3 class="text-sm font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200">
+          بوابة أمنيات 11:11 (Make a Wish) ✨
+        </h3>
       </div>
-      <p class="text-xs text-gray-300 leading-relaxed">
-        ودعتي الـ 17 وكبرتي وبقيتي 18 سنة رسمي.. يارب تكون سنة تحقيق حلمك وفرحتك بدخول ألسن وإحنا سوا دايماً 🤍
+      <p class="text-xs text-purple-200/90 leading-relaxed mb-3">
+        رقم 11:11 هو بوابة تحقيق الأماني وتطابق القلوب.. اكتبي أمنيتنا المشتركة لسنة الـ 18 وسيبها تتحفظ في البوابة 🤍
       </p>
+
+      <div class="flex flex-col gap-2">
+        <input id="wish1111Input" type="text" placeholder="أمنيتنا في 11:11 (مثلاً: نفضل سوا وندخل الكلية اللي بنحبها)..." class="w-full bg-black/50 border border-purple-500/30 rounded-xl p-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-pink-500" />
+        <button id="save1111WishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 font-bold text-xs text-white shadow-lg shadow-purple-500/20 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>حفظ أمنية 11:11 في البوابة 🔒✨</span>
+        </button>
+      </div>
+
+      <div id="saved1111Box" class="hidden mt-3 p-3 bg-purple-950/60 rounded-xl border border-pink-500/30 text-xs text-pink-200">
+        <span class="block text-[10px] text-gray-400 mb-1">أمنية 11:11 المحفوظة في البوابة:</span>
+        <span id="saved1111Text" class="font-bold text-white"></span>
+      </div>
     </section>
 
     <!-- مشغل المزيكا -->
@@ -180,29 +200,44 @@
       <button onclick="openDrawer('gamesDrawer')" class="glow-card p-3 rounded-2xl border border-cyan-500/30 flex flex-col items-center justify-center gap-1 hover:border-cyan-500 active:scale-95 transition-all text-center">
         <span class="text-2xl">🎲</span>
         <span class="text-[11px] font-bold text-cyan-300">ألعاب وأسئلة</span>
-        <span class="text-[9px] text-gray-400">20 سؤال ولعب</span>
+        <span class="text-[9px] text-gray-400">صراحة وتحديات</span>
       </button>
     </section>
 
-    <!-- جرعة طاقة لتالتة ثانوي -->
-    <section class="glow-card rounded-3xl p-4 border border-yellow-500/30 bg-gradient-to-r from-amber-950/20 to-purple-950/20 text-center">
-      <div class="flex items-center justify-between mb-2">
+    <!-- ==================== لوحة نوتات وتشجيع ميمو ومنمن ==================== -->
+    <section class="glow-card rounded-3xl p-5 border border-indigo-500/30">
+      <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
-          <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
-          <h3 class="text-xs font-bold text-white">جرعة طاقة ومساندة لتالتة ثانوي 🎓</h3>
+          <i data-lucide="sticky-note" class="w-4 h-4 text-indigo-400"></i>
+          <h3 class="text-xs font-bold text-white">نوتات ورسائل تشجيع تالتة ثانوي 📝</h3>
         </div>
-        <span class="text-[10px] text-yellow-300 bg-yellow-500/20 px-2 py-0.5 rounded-full border border-yellow-500/30">سند ميمو</span>
+        <span class="text-[10px] text-indigo-300 bg-indigo-500/20 px-2 py-0.5 rounded-full border border-indigo-500/30">سند ميمو</span>
       </div>
-      <p id="motivateText" class="text-xs text-gray-200 leading-relaxed min-h-[38px] flex items-center justify-center p-2 bg-black/40 rounded-xl border border-white/5 mb-3 font-medium">
-        دوسي على الزرار كل ما تحسي بضغط المذاكرة عشان تاخدي رسالة من ميمو ⚡
-      </p>
-      <button id="motivateBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 font-bold text-xs text-black shadow-lg shadow-yellow-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2">
-        <i data-lucide="sparkles" class="w-4 h-4"></i>
-        <span>هاتي جرعة طاقة يا ميمو 🚀</span>
-      </button>
+
+      <div id="notesContainer" class="flex flex-col gap-2.5 mb-3">
+        <!-- نوتة 1 مثبتة -->
+        <div class="p-3 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 rounded-xl border border-purple-500/20 text-xs text-gray-200 leading-relaxed">
+          <span class="block text-[10px] text-pink-300 font-bold mb-1">📌 كلمة الصباح من ميمو:</span>
+          "اصحي وسمي الله وركزي في حلمك.. كل صفحة بتذاكريها خطوة بتقربك من ألسن، وأنا في ضهرك دايماً وبدعيلك يا بنوتي 🤍🎓"
+        </div>
+        <!-- نوتة 2 مثبتة -->
+        <div class="p-3 bg-gradient-to-r from-pink-900/40 to-rose-900/40 rounded-xl border border-pink-500/20 text-xs text-gray-200 leading-relaxed">
+          <span class="block text-[10px] text-amber-300 font-bold mb-1">📌 تذكير وقت الضغط:</span>
+          "لو حسيتي بتعب، متستسلميش.. خدي بريك 10 دقايق، اسمعي تراك من هنا، وافتكري فرحتنا بالنتيجة سوا 🌸"
+        </div>
+      </div>
+
+      <!-- كتابة نوتة جديدة -->
+      <div class="flex gap-2">
+        <input id="noteInput" type="text" placeholder="اكتبي نوتة تفتكريها على المكتب..." class="flex-1 bg-black/40 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400" />
+        <button id="addNoteBtn" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-bold text-white active:scale-95 transition-transform flex items-center gap-1">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          <span>إضافة</span>
+        </button>
+      </div>
     </section>
 
-    <!-- ==================== رسالة عيد الميلاد (محفوظة ومفتوحة دايماً) ==================== -->
+    <!-- رسالة عيد الميلاد المحفوظة -->
     <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f122b] to-[#11091c] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -218,11 +253,11 @@
         <h4 class="text-base font-extrabold text-pink-400 mb-3">لـ منمن حبيبتي 😘😘</h4>
         <div class="text-xs text-gray-100 leading-7 space-y-3 text-right font-normal">
           <p>كل سنة وأنتي طيبة وعقبال مليون سنة وأنتي معايا وأنتي مبسوطة يارب ودايماً منورة أيامي 🤍</p>
-          <p>أنا بحبك بجد والله وحسيت معاكي بحاجات غريبة ومريحة عمري ما حسيتها مع حد وبتفهميني من غير ما أتكلم ولو حتى بتكلم وبغلط زي الكيبورد اللي بايظ عندي ده بس هو مش بايظ الصراحة أنا اللي مش بعرف أتكلم كتير بس ببقى عايز أتكلم معاكي أنتي بس وحتى وإحنا في الكول لما بنقعد ساكتين ومش لاقيين كلام ونفضل نقول لبعض اممم امممم بكون في قمة انبساطي مش محتاج كلام كفاية عليا أسمع صوتك وأحس بوجودك معايا[cite: 1]..</p>
-          <p>كنت أتمنى تكوني جنبي كنت جبتلك هدية حلوة تفرحك وللأسف معرفتش أبعتلك حاجة أول حاجة خوفت أبعتهالك عشان البيت عندك وتاني حاجة حسيت هبقى مخيف لو عرفت مكانك بدري كده مع إنك مش بتخافي مني خالص وبعتيلي كل حاجة من غير أي حاجة وثالثاً مكنتش عارف لسه مهتمية بإيه كتير عشان أختار حاجة تحبيها وتليق بيكي[cite: 1].</p>
-          <p>يارب تفضلي تحبيني زي ما بحبك كده دايماً[cite: 1].</p>
-          <p>ومع إني معرفتش أبعتلك هدية في إيدك بس حاولت أعملك حاجة تفرحك مدة كبيرة وانبسطت قوي بجد من فرحتك بالموقع اعتبريها هدية بسيطة وإن شاء الله أعوضك السنة اللي جاية بهدية كبيرة تحبيها وتفرح قلبك[cite: 1].</p>
-          <p>وعارف قد إيه تالتة ثانوي ضغط وتعب ومذاكرة بس متأكد إنك شاطرة وقدها ومستني اليوم اللي هفرح فيه بمجموعك ودخولك ألسن إن شاء الله[cite: 1].</p>
+          <p>أنا بحبك بجد والله وحسيت معاكي بحاجات غريبة ومريحة عمري ما حسيتها مع حد وبتفهميني من غير ما أتكلم ولو حتى بتكلم وبغلط زي الكيبورد اللي بايظ عندي ده بس هو مش بايظ الصراحة أنا اللي مش بعرف أتكلم كتير بس ببقى عايز أتكلم معاكي أنتي بس وحتى وإحنا في الكول لما بنقعد ساكتين ومش لاقيين كلام ونفضل نقول لبعض اممم امممم بكون في قمة انبساطي مش محتاج كلام كفاية عليا أسمع صوتك وأحس بوجودك معايا..</p>
+          <p>كنت أتمنى تكوني جنبي كنت جبتلك هدية حلوة تفرحك وللأسف معرفتش أبعتلك حاجة أول حاجة خوفت أبعتهالك عشان البيت عندك وتاني حاجة حسيت هبقى مخيف لو عرفت مكانك بدري كده مع إنك مش بتخافي مني خالص وبعتيلي كل حاجة من غير أي حاجة وثالثاً مكنتش عارف لسه مهتمية بإيه كتير عشان أختار حاجة تحبيها وتليق بيكي.</p>
+          <p>يارب تفضلي تحبيني زي ما بحبك كده دايماً.</p>
+          <p>ومع إني معرفتش أبعتلك هدية في إيدك بس حاولت أعملك حاجة تفرحك مدة كبيرة وانبسطت قوي بجد من فرحتك بالموقع اعتبريها هدية بسيطة وإن شاء الله أعوضك السنة اللي جاية بهدية كبيرة تحبيها وتفرح قلبك.</p>
+          <p>وعارف قد إيه تالتة ثانوي ضغط وتعب ومذاكرة بس متأكد إنك شاطرة وقدها ومستني اليوم اللي هفرح فيه بمجموعك ودخولك ألسن إن شاء الله.</p>
           <p class="font-bold text-pink-300 pt-1">كل سنة وأنتي طيبة ومعايا ومنورة دنيتي يا مراتي المستقبلية 💍🤍✨</p>
         </div>
       </div>
@@ -243,30 +278,30 @@
       </div>
 
       <p class="text-xs text-gray-300 mb-3 leading-relaxed">
-        أقوى ذكاء اصطناعي وسحابة تخزين مخصوص عشان يسندك في ضغط وتلخيصات تالتة ثانوي ويجهّزك للكلية براحة بال 📚✨[cite: 1]
+        أقوى ذكاء اصطناعي وسحابة تخزين مخصوص عشان يسندك في ضغط وتلخيصات تالتة ثانوي ويجهّزك للكلية براحة بال 📚✨
       </p>
 
       <div class="grid grid-cols-2 gap-2 mb-4">
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="hard-drive" class="w-4 h-4 text-blue-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت[cite: 1]</span>
+          <span class="text-[11px] text-gray-200 font-medium">سعة 5 تيرابايت</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="sparkles" class="w-4 h-4 text-purple-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced[cite: 1]</span>
+          <span class="text-[11px] text-gray-200 font-medium">Gemini Advanced</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="book-open" class="w-4 h-4 text-amber-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">NotebookLM للمناهج[cite: 1]</span>
+          <span class="text-[11px] text-gray-200 font-medium">NotebookLM للمناهج</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="search-check" class="w-4 h-4 text-teal-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">Deep Research[cite: 1]</span>
+          <span class="text-[11px] text-gray-200 font-medium">Deep Research</span>
         </div>
       </div>
 
       <a href="https://activation-market.shop/r/noF5AasC0B3s9Yzg0lIH7RECsusmGim-NvHcCKdVrFKPk21_3-ZapRPLqQrtErfgj0okbEybpfTohIjzaKKpS44" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 active:scale-95 transition-transform">
-        <span>تفعيل اشتراك Google AI Pro من هنا 🎁[cite: 1]</span>
+        <span>تفعيل اشتراك Google AI Pro من هنا 🎁</span>
         <i data-lucide="external-link" class="w-4 h-4"></i>
       </a>
     </section>
@@ -279,15 +314,15 @@
           <h3 class="text-sm font-bold text-white">هديتك الصغيرة: Spotify Premium 🎧</h3>
         </div>
         <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-500/30">
-          اشتراك رسمي[cite: 1]
+          اشتراك رسمي
         </span>
       </div>
       <p class="text-xs text-gray-300 mb-4 leading-relaxed">
-        عشان تذاكري وتروقي براحتك من غير إعلانات سخيفة تقطع تركيزك في تالتة ثانوي 💆‍♀️[cite: 1]
+        عشان تذاكري وتروقي براحتك من غير إعلانات سخيفة تقطع تركيزك في تالتة ثانوي 💆‍♀️
       </p>
 
       <a href="https://www.spotify.com/eg-ar/family/join/invite/b2Z7a0879XZ48b2/" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform mb-3">
-        <span>تفعيل اشتراك Spotify من هنا[cite: 1]</span>
+        <span>تفعيل اشتراك Spotify من هنا</span>
         <i data-lucide="external-link" class="w-4 h-4"></i>
       </a>
 
@@ -300,7 +335,7 @@
           </button>
         </div>
         <p id="addressContent" class="text-xs text-gray-200 font-mono select-all bg-black/60 p-2 rounded-lg border border-white/5 break-all">
-          New Cairo Tunnel, New Cairo 1, Cairo Governorate 4721010, Egypt[cite: 1]
+          New Cairo Tunnel, New Cairo 1, Cairo Governorate 4721010, Egypt
         </p>
       </div>
     </section>
@@ -313,39 +348,17 @@
           <h3 class="text-sm font-bold text-white">هدية اللغات: Duolingo Super 🦉</h3>
         </div>
         <span class="text-[10px] bg-lime-500/20 text-lime-300 font-semibold px-2 py-0.5 rounded-full border border-lime-500/30">
-          سنة كاملة[cite: 1]
+          سنة كاملة
         </span>
       </div>
       <p class="text-xs text-gray-300 mb-4 leading-relaxed">
-        عشان حلم "ألسن" يكمل، اشتراك ديولينجو سوبر لمدة سنة من غير إعلانات ولا قلوب تخلص.. عشان تظبطي اللغات براحتك 🌍✨[cite: 1]
+        عشان حلم "ألسن" يكمل، اشتراك ديولينجو سوبر لمدة سنة من غير إعلانات ولا قلوب تخلص.. عشان تظبطي اللغات براحتك 🌍✨
       </p>
 
       <a href="https://www.duolingo.com/redeem?code=AIRTEL27OCLSLYV" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-xl bg-lime-500 hover:bg-lime-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-lime-500/30 active:scale-95 transition-transform mb-3">
-        <span>تفعيل اشتراك ديولينجو من هنا 🎁[cite: 1]</span>
+        <span>تفعيل اشتراك ديولينجو من هنا 🎁</span>
         <i data-lucide="external-link" class="w-4 h-4"></i>
       </a>
-    </section>
-
-    <!-- كبسولة أمنية الـ 18 سنة (مفتوحة ومعروضة دايماً) -->
-    <section class="glow-card rounded-3xl p-5 border border-purple-500/20 text-center">
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <i data-lucide="sparkle" class="w-4 h-4 text-yellow-400"></i>
-        <h3 class="text-sm font-bold text-white">كبسولة أمنية الـ 18 سنة 🎂✨</h3>
-      </div>
-      <p class="text-xs text-gray-300 mb-3">الأمنية اللي كتبتيها في عيد ميلادك ومحفوظة هنا عشان تفضلي فاكراها وتحققيها 🤍</p>
-
-      <div class="flex flex-col gap-2">
-        <textarea id="wishInput" rows="2" placeholder="اكتبي أو عدلي أمنيتك لسنة الـ 18 هنا..." class="w-full bg-black/50 border border-white/10 rounded-xl p-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500"></textarea>
-        <button id="saveWishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-xs text-white active:scale-95 transition-all flex items-center justify-center gap-1.5">
-          <i data-lucide="save" class="w-3.5 h-3.5"></i>
-          <span>حفظ وتحديث الأمنية ✨</span>
-        </button>
-      </div>
-
-      <div id="savedWishBox" class="hidden mt-3 p-3 bg-purple-900/30 rounded-xl border border-purple-400/20 text-xs text-purple-200">
-        <span class="block text-[10px] text-gray-400 mb-1">أمنيتك المحفوظة لسنة الـ 18:</span>
-        <span id="savedWishText" class="font-semibold text-white"></span>
-      </div>
     </section>
 
     <!-- زر الواتساب -->
@@ -359,7 +372,7 @@
     <!-- Footer -->
     <footer class="text-center pt-3 pb-6">
       <p class="text-[11px] text-gray-400 font-medium tracking-wide">
-        Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍[cite: 1]
+        Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍
       </p>
     </footer>
 
@@ -379,57 +392,57 @@
       </div>
 
       <p class="text-xs text-gray-300 leading-relaxed">
-        كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة ميمو ليكي 🤍[cite: 1]
+        كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة ميمو ليكي 🤍
       </p>
 
       <div class="flex flex-col gap-3">
         <div class="glow-card rounded-2xl p-4 border border-pink-500/20 cursor-pointer" onclick="toggleLetter('letter1')">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-pink-200">افتحيها لما تكوني مخنوقة من المذاكرة 📚[cite: 1]</span>
+            <span class="text-xs font-bold text-pink-200">افتحيها لما تكوني مخنوقة من المذاكرة 📚</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-pink-400"></i>
           </div>
           <p id="letter1" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
-            خدي نفس عميق وسيبي القلم دقيقة.. تالتة ثانوي سنة مرهقة ومفيش شك في ده، بس افتكري دايماً إن تعبك ده مش ضايع. حلم ألسن عين شمس بيقرب كل يوم، وأنا واثق في شطارتك وعارف إنك قدها وهتفرحينا كلنا. ارتاحي 10 دقايق واشربي حاجة بتحبيها، وأنا في ضهرك دايماً 🤍✨[cite: 1]
+            خدي نفس عميق وسيبي القلم دقيقة.. تالتة ثانوي سنة مرهقة ومفيش شك في ده، بس افتكري دايماً إن تعبك ده مش ضايع. حلم ألسن عين شمس بيقرب كل يوم، وأنا واثق في شطارتك وعارف إنك قدها وهتفرحينا كلنا. ارتاحي 10 دقايق واشربي حاجة بتحبيها، وأنا في ضهرك دايماً 🤍✨
           </p>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border border-purple-500/20 cursor-pointer" onclick="toggleLetter('letter2')">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-purple-200">افتحيها لما أكون واحشك ونفسك تسمعي صوتي 🎧[cite: 1]</span>
+            <span class="text-xs font-bold text-purple-200">افتحيها لما أكون واحشك ونفسك تسمعي صوتي 🎧</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-purple-400"></i>
           </div>
           <p id="letter2" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
-            لو وحشتك دلوقتي يبقى تسيبي الموقع وتتصلي بيا فوراً من غير تردد! صوتك هو أكتر حاجة بترد فيا الروح، ومفيش أي وقت في اليوم ميبقاش مناسب عشان أسمع حسك حتى لو هنسكت ونقول "امممم" 🙈🤍[cite: 1]
+            لو وحشتك دلوقتي يبقى تسيبي الموقع وتتصلي بيا فوراً من غير تردد! صوتك هو أكتر حاجة بترد فيا الروح، ومفيش أي وقت في اليوم ميبقاش مناسب عشان أسمع حسك حتى لو هنسكت ونقول "امممم" 🙈🤍
           </p>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border border-rose-500/20 cursor-pointer" onclick="toggleLetter('letter3')">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-rose-200">افتحيها لما نكون متخانقين وزعلانة مني 🥺[cite: 1]</span>
+            <span class="text-xs font-bold text-rose-200">افتحيها لما نكون متخانقين وزعلانة مني 🥺</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-rose-400"></i>
           </div>
           <p id="letter3" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
-            حقك على راسي وعيني.. مفيش زعل بيننا يستاهل ثانية واحدة تبقي متضايقة مني فيها. حتى لو كنا متنرفزين أو بنناهف في الكلام، مكانتك في قلبي متتغيرش ولا بقدر على زعلك. تعالي قوليلي وأنا هصالح بنوتي فوراً 😘🤍[cite: 1]
+            حقك على راسي وعيني.. مفيش زعل بيننا يستاهل ثانية واحدة تبقي متضايقة مني فيها. حتى لو كنا متنرفزين أو بنناهف في الكلام، مكانتك في قلبي متتغيرش ولا بقدر على زعلك. تعالي قوليلي وأنا هصالح بنوتي فوراً 😘🤍
           </p>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border border-indigo-500/20 cursor-pointer" onclick="toggleLetter('letter4')">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-indigo-200">افتحيها لما تكوني محتاجة تحسي إنك غالية 🌸[cite: 1]</span>
+            <span class="text-xs font-bold text-indigo-200">افتحيها لما تكوني محتاجة تحسي إنك غالية 🌸</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-indigo-400"></i>
           </div>
           <p id="letter4" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
-            أنتي مش بس غالية.. أنتي أحلى حاجة دخلت حياتي وعوض ربنا الجميل. بحب طيبتك، هدوءك، وجنانك، وبحب كل تفصيلة فيكي. فخور بيكي في كل لحظة ويا بخت قلبي بيكي يا منمن 💍🤍[cite: 1]
+            أنتي مش بس غالية.. أنتي أحلى حاجة دخلت حياتي وعوض ربنا الجميل. بحب طيبتك، هدوءك، وجنانك، وبحب كل تفصيلة فيكي. فخور بيكي في كل لحظة ويا بخت قلبي بيكي يا منمن 💍🤍
           </p>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border border-teal-500/20 cursor-pointer" onclick="toggleLetter('letter5')">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-teal-200">افتحيها لما مش عارفة تنامي ودماغك بتفكر 🌙[cite: 1]</span>
+            <span class="text-xs font-bold text-teal-200">افتحيها لما مش عارفة تنامي ودماغك بتفكر 🌙</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-teal-400"></i>
           </div>
           <p id="letter5" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
-            اطفي النور وشدي الغطا، بطلي تفكير في بكرة وسيبي كل حاجة على ربنا.. نامي وأنتي مطمنة إني موجود في ضهرك ومش هسيبك، وتصبحي على خير يا نور عيني 😴✨[cite: 1]
+            اطفي النور وشدي الغطا، بطلي تفكير في بكرة وسيبي كل حاجة على ربنا.. نامي وأنتي مطمنة إني موجود في ضهرك ومش هسيبك، وتصبحي على خير يا نور عيني 😴✨
           </p>
         </div>
       </div>
@@ -450,62 +463,62 @@
       </div>
 
       <p class="text-xs text-gray-300 leading-relaxed">
-        الكوبونات دي ملكك حصرياً.. دوسي على أي كوبون عشان تستخدميه ويبعت لميمو أمر تنفيذي على واتساب فوراً 😉[cite: 1]
+        الكوبونات دي ملكك حصرياً.. دوسي على أي كوبون عشان تستخدميه ويبعت لميمو أمر تنفيذي على واتساب فوراً 😉
       </p>
 
       <div class="grid grid-cols-1 gap-3">
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-amber-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-amber-300">🍔 كوبون خروجة وأكلة على ذوق منمن</h3>
-            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full">ساري المفعول[cite: 1]</span>
+            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">تختاري المكان ونوع الأكل اللي نفسك فيه وميمو ملزم يعزمك ويوصلك وينفذ وهو مبتسم![cite: 1]</p>
+          <p class="text-xs text-gray-300 mb-3">تختاري المكان ونوع الأكل اللي نفسك فيه وميمو ملزم يعزمك ويوصلك وينفذ وهو مبتسم!</p>
           <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D9%82%D8%B1%D8%B1%D8%AA%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%83%D9%84%D8%A9%20%D8%B9%D9%84%D9%89%20%D8%B0%D9%88%D9%82%D9%8A%20%F0%9F%8D%94%F0%9F%A4%AD" target="_blank" class="w-full py-2 bg-amber-500 hover:bg-amber-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>استخدمي الكوبون دلوقتي[cite: 1]</span>
+            <span>استخدمي الكوبون دلوقتي</span>
           </a>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-pink-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-pink-300">🎧 كوبون فضفضة بدون مقاطعة</h3>
-            <span class="text-[10px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">ساري المفعول[cite: 1]</span>
+            <span class="text-[10px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">مكالمة كاملة تفضفضي وتشتكي من العالم والدروس، وميمو يسمع بس ويطبطب وميقولش غير "حقك عليا يا قلبي".[cite: 1]</p>
+          <p class="text-xs text-gray-300 mb-3">مكالمة كاملة تفضفضي وتشتكي من العالم والدروس، وميمو يسمع بس ويطبطب وميقولش غير "حقك عليا يا قلبي".</p>
           <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%A8%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D9%81%D8%B6%D9%81%D8%B6%D8%A9%20%D8%AF%D9%84%D9%88%D9%82%D8%AA%D9%8A..%20%D9%81%D8%B6%D9%8A%20%D9%86%D9%81%D8%B3%D9%83%20%D9%84%D9%84%D9%83%D9%88%D9%84%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%F0%9F%92%96" target="_blank" class="w-full py-2 bg-pink-500 hover:bg-pink-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>استخدمي الكوبون دلوقتي[cite: 1]</span>
+            <span>استخدمي الكوبون دلوقتي</span>
           </a>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-rose-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-rose-300">🤍 كوبون صلح فوري (يلغي أي زعل)</h3>
-            <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full">ساري المفعول[cite: 1]</span>
+            <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر ميمو يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.[cite: 1]</p>
+          <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر ميمو يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.</p>
           <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D9%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>استخدمي الكوبون دلوقتي[cite: 1]</span>
+            <span>استخدمي الكوبون دلوقتي</span>
           </a>
         </div>
 
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-emerald-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-emerald-300">🪄 كوبون أمنية خاصة مجابة</h3>
-            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">ساري المفعول[cite: 1]</span>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">طلب واحد مجاب بدون أي شروط أو مبررات.. اطلبي اللي يجي في بالك وميمو حينفذه.[cite: 1]</p>
+          <p class="text-xs text-gray-300 mb-3">طلب واحد مجاب بدون أي شروط أو مبررات.. اطلبي اللي يجي في بالك وميمو حينفذه.</p>
           <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D9%85%D8%B9%D8%A7%D9%8A%D8%A7%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A3%D9%85%D9%86%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D8%A8%D8%A9%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AD%D8%A7%D8%AC%D8%A9%20%D9%85%D8%AA%D9%82%D9%88%D9%84%D8%B4%20%D9%84%D8%A7%20%F0%9F%A7%9A%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8" target="_blank" class="w-full py-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>استخدمي الكوبون دلوقتي[cite: 1]</span>
+            <span>استخدمي الكوبون دلوقتي</span>
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== صفحة جانبية 3: ساحة الألعاب وكروت الأسئلة ==================== -->
+  <!-- ==================== صفحة جانبية 3: ساحة الألعاب التفاعلية ==================== -->
   <div id="gamesDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
     <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
@@ -518,76 +531,130 @@
         </button>
       </div>
 
-      <!-- كروت الأسئلة التفاعلية (20 سؤال) -->
-      <div class="glow-card rounded-3xl p-5 border border-cyan-500/30 text-center relative overflow-hidden bg-gradient-to-b from-[#0e172a] to-[#0b0f19]">
-        <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
-          <span class="text-cyan-300 font-bold flex items-center gap-1">
-            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
-            <span>كروت صراحة ونكش</span>
-          </span>
-          <span id="questionCounter" class="bg-cyan-500/20 text-cyan-300 px-2.5 py-0.5 rounded-full border border-cyan-500/30 text-[10px]">
-            سؤال 1 من 20
-          </span>
-        </div>
+      <!-- أزرار التابز (Tabs) لاختيار اللعبة -->
+      <div class="grid grid-cols-4 gap-1.5 p-1 bg-black/40 rounded-2xl border border-white/10 text-[11px] font-bold text-center">
+        <button id="tabBtn1" onclick="switchGameTab('tab1')" class="py-2 rounded-xl transition-all tab-active">🎯 صراحة</button>
+        <button id="tabBtn2" onclick="switchGameTab('tab2')" class="py-2 rounded-xl text-gray-400 transition-all">👥 مين فينا</button>
+        <button id="tabBtn3" onclick="switchGameTab('tab3')" class="py-2 rounded-xl text-gray-400 transition-all">⏱️ 5 ثواني</button>
+        <button id="tabBtn4" onclick="switchGameTab('tab4')" class="py-2 rounded-xl text-gray-400 transition-all">⚖️ لو خيروك</button>
+      </div>
 
-        <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
-          <p id="questionText" class="text-sm font-semibold text-gray-100 leading-relaxed">
-            لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍
-          </p>
-        </div>
+      <!-- ==================== TAB 1: كروت صراحة ونكش ==================== -->
+      <div id="tabContent1" class="flex flex-col gap-3">
+        <div class="glow-card rounded-3xl p-5 border border-pink-500/30 text-center bg-gradient-to-b from-[#191024] to-[#0c0714]">
+          <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
+            <span class="text-pink-300 font-bold">كروت صراحة ونكش</span>
+            <span id="truthCounter" class="bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full border border-pink-500/30 text-[10px]">سؤال 1</span>
+          </div>
 
-        <div class="flex gap-2">
-          <button id="nextQuestionBtn" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95 transition-transform">
+          <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+            <p id="truthText" class="text-sm font-semibold text-gray-100 leading-relaxed">
+              لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍
+            </p>
+          </div>
+
+          <button onclick="nextTruthCard()" class="w-full py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-pink-500/20 active:scale-95 transition-transform">
             <i data-lucide="dices" class="w-4 h-4"></i>
             <span>سؤال عشوائي جديد 🎲</span>
           </button>
         </div>
       </div>
 
-      <!-- ألعاب الكول -->
-      <h3 class="text-xs font-bold text-purple-300 flex items-center gap-1.5 mt-2">
-        <i data-lucide="gamepad-2" class="w-4 h-4"></i>
-        <span>ألعاب نلعبها وإحنا في الكول سوا:</span>
-      </h3>
-
-      <div class="flex flex-col gap-3">
-        <div class="glow-card rounded-2xl p-4 border border-purple-500/20">
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>👥 لعبة "مين فينا أكتر؟"</span>
-            </h4>
-            <span class="text-[9px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full">تحدي النطق</span>
+      <!-- ==================== TAB 2: مين فينا أكتر ==================== -->
+      <div id="tabContent2" class="hidden flex flex-col gap-3">
+        <div class="glow-card rounded-3xl p-5 border border-purple-500/30 text-center bg-gradient-to-b from-[#18112b] to-[#0d0718]">
+          <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
+            <span class="text-purple-300 font-bold">تحدي النطق: 1.. 2.. 3!</span>
+            <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full border border-purple-500/30 text-[10px]">مين فينا؟</span>
           </div>
-          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
-            واحد يقول موقف، وتعدوا 1.. 2.. 3، والاتنين تنطقوا "ميمو" أو "منمن" في نفس اللحظة!
-          </p>
-          <div class="text-[10px] text-purple-300 bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30 space-y-1">
-            <p>💡 أمثلة سريعة: مين بيتعصب أسرع؟ • مين هينام الأول في الفرح؟ • مين بياكل أكتر؟ • مين بيعاند ومبيقولش آسف بسرعة؟</p>
+
+          <p class="text-[11px] text-gray-300 mb-2">اقروا الموقف، وعدوا 1.. 2.. 3 وانطقوا "ميمو" أو "منمن" في نفس اللحظة:</p>
+
+          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+            <p id="whoText" class="text-base font-bold text-purple-200 leading-relaxed">
+              مين بيتعصب أسرع.. بس بيرجع يضحك ويهدى في ثانية؟ 😂
+            </p>
+          </div>
+
+          <button onclick="nextWhoCard()" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 active:scale-95 transition-transform">
+            <i data-lucide="sparkle" class="w-4 h-4"></i>
+            <span>موقف جديد لمين فينا 👥</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 3: تحدي الـ 5 ثواني بالعداد ==================== -->
+      <div id="tabContent3" class="hidden flex flex-col gap-3">
+        <div class="glow-card rounded-3xl p-5 border border-amber-500/30 text-center bg-gradient-to-b from-[#24160e] to-[#0f0a06]">
+          <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
+            <span class="text-amber-300 font-bold">تحدي السرعة والبديهة</span>
+            <span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/30 text-[10px]">الـ 5 ثواني</span>
+          </div>
+
+          <div class="min-h-[85px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-3">
+            <p id="fiveSecText" class="text-sm font-bold text-amber-200 leading-relaxed">
+              قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳
+            </p>
+          </div>
+
+          <!-- العداد الدائري/الرقمي -->
+          <div class="flex items-center justify-center my-2">
+            <div id="timerDisplay" class="w-16 h-16 rounded-full border-4 border-amber-500 flex items-center justify-center text-2xl font-black text-amber-400 shadow-lg shadow-amber-500/30 transition-all">
+              5
+            </div>
+          </div>
+
+          <div class="flex gap-2 mt-2">
+            <button id="startTimerBtn" onclick="startFiveSecTimer()" class="flex-1 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs active:scale-95 transition-transform">
+              ابدأ العداد ⏱️
+            </button>
+            <button onclick="nextFiveSecCard()" class="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs active:scale-95 transition-transform">
+              تحدي جديد 🔄
+            </button>
           </div>
         </div>
+      </div>
 
-        <div class="glow-card rounded-2xl p-4 border border-pink-500/20">
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>⏱️ لعبة الـ 5 ثواني</span>
-            </h4>
-            <span class="text-[9px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">سرعة بديهة</span>
+      <!-- ==================== TAB 4: لو خيروك ==================== -->
+      <div id="tabContent4" class="hidden flex flex-col gap-3">
+        <div class="glow-card rounded-3xl p-5 border border-cyan-500/30 text-center bg-gradient-to-b from-[#0c1825] to-[#060e17]">
+          <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
+            <span class="text-cyan-300 font-bold">اختيار إجباري (ممنوع الهروب!)</span>
+            <span class="bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-full border border-cyan-500/30 text-[10px]">لو خيروك</span>
           </div>
-          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
-            ميمو يطلب طلب (مثلاً: 3 حاجات بتخافي منها، أو 3 ممثلين بتحبيهم)، ولازم تجاوبي في 5 ثواني بس قبل ما ميمو يخلص العد!
-          </p>
+
+          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+            <p id="wyrText" class="text-sm font-bold text-cyan-200 leading-relaxed">
+              تسافري باريس لوحدك أسبوع كامل.. ولا نقضي يوم كامل في زحمة القاهرة سوا؟ 🚗✨
+            </p>
+          </div>
+
+          <button onclick="nextWyrCard()" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95 transition-transform">
+            <i data-lucide="scale" class="w-4 h-4"></i>
+            <span>موقف لو خيروك جديد ⚖️</span>
+          </button>
         </div>
+      </div>
 
-        <div class="glow-card rounded-2xl p-4 border border-indigo-500/20">
-          <div class="flex items-center justify-between mb-2">
-            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>⚖️ لعبة "لو خيّروك"</span>
-            </h4>
-            <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full">اختيار إجباري</span>
+      <!-- قسم إضافة سؤال أو تحدي من عندكم -->
+      <div class="glow-card rounded-2xl p-4 border border-white/10 bg-black/30">
+        <h4 class="text-xs font-bold text-pink-300 mb-2 flex items-center gap-1.5">
+          <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
+          <span>ضيفي سؤال أو تحدي جديد من عندك:</span>
+        </h4>
+        <div class="flex flex-col gap-2">
+          <select id="customTypeSelect" class="bg-black/60 border border-white/10 rounded-xl p-2 text-xs text-gray-300 focus:outline-none">
+            <option value="truth">🎯 لقسم أسئلة الصراحة</option>
+            <option value="who">👥 لقسم مين فينا</option>
+            <option value="fiveSec">⏱️ لقسم الـ 5 ثواني</option>
+            <option value="wyr">⚖️ لقسم لو خيروك</option>
+          </select>
+          <div class="flex gap-2">
+            <input id="customQuestionInput" type="text" placeholder="اكتبي السؤال هنا..." class="flex-1 bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500" />
+            <button onclick="addCustomQuestion()" class="px-4 py-2 bg-pink-600 hover:bg-pink-500 rounded-xl text-xs font-bold text-white active:scale-95 transition-all">
+              إضافة
+            </button>
           </div>
-          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
-            تخيير بين أمرين صعبين وممنوع إجابة "ولا واحدة" أو "الاتنين" (مثلاً: تسافري باريس لوحدك ولا نقضي يوم في الزحمة سوا؟).
-          </p>
         </div>
       </div>
 
@@ -598,7 +665,7 @@
   <script>
     lucide.createIcons();
 
-    // 1. قائمة الأغاني
+    // ================= 1. مشغل الأغاني =================
     const playlist = [
       { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
       { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
@@ -660,7 +727,7 @@
       });
     });
 
-    // 2. التحكم في الصفحات الجانبية
+    // ================= 2. التحكم في الصفحات الجانبية =================
     function openDrawer(id) {
       const drawer = document.getElementById(id);
       drawer.classList.remove('translate-x-full');
@@ -679,8 +746,82 @@
       el.classList.toggle('hidden');
     }
 
-    // 3. كروت الـ 20 سؤال
-    const callQuestions = [
+    // ================= 3. ميزة بوابة أمنيات 11:11 =================
+    const saved1111 = localStorage.getItem('eman_1111_wish');
+    if (saved1111) {
+      document.getElementById('saved1111Box').classList.remove('hidden');
+      document.getElementById('saved1111Text').textContent = saved1111;
+      document.getElementById('wish1111Input').value = saved1111;
+    }
+
+    document.getElementById('save1111WishBtn').addEventListener('click', () => {
+      const val = document.getElementById('wish1111Input').value.trim();
+      if (val) {
+        localStorage.setItem('eman_1111_wish', val);
+        document.getElementById('saved1111Box').classList.remove('hidden');
+        document.getElementById('saved1111Text').textContent = val;
+        try { confetti({ particleCount: 70, spread: 60 }); } catch (e) {}
+      }
+    });
+
+    // ================= 4. لوحة نوتات المذاكرة =================
+    let userNotes = JSON.parse(localStorage.getItem('eman_memo_notes') || '[]');
+    const notesContainer = document.getElementById('notesContainer');
+
+    function renderNotes() {
+      // إبقاء النوتتين الثابتتين ومسح الباقي
+      const staticNotes = notesContainer.querySelectorAll('.border-purple-500\\/20, .border-pink-500\\/20');
+      notesContainer.innerHTML = '';
+      staticNotes.forEach(n => notesContainer.appendChild(n));
+
+      userNotes.forEach((note, idx) => {
+        const div = document.createElement('div');
+        div.className = 'p-3 bg-black/40 rounded-xl border border-indigo-500/30 text-xs text-gray-200 leading-relaxed flex items-center justify-between gap-2';
+        div.innerHTML = `
+          <span>📝 ${note}</span>
+          <button onclick="deleteNote(${idx})" class="text-gray-500 hover:text-rose-400 text-[10px]">حذف</button>
+        `;
+        notesContainer.appendChild(div);
+      });
+    }
+
+    document.getElementById('addNoteBtn').addEventListener('click', () => {
+      const input = document.getElementById('noteInput');
+      const val = input.value.trim();
+      if (val) {
+        userNotes.push(val);
+        localStorage.setItem('eman_memo_notes', JSON.stringify(userNotes));
+        input.value = '';
+        renderNotes();
+        try { confetti({ particleCount: 20, spread: 40 }); } catch (e) {}
+      }
+    });
+
+    function deleteNote(idx) {
+      userNotes.splice(idx, 1);
+      localStorage.setItem('eman_memo_notes', JSON.stringify(userNotes));
+      renderNotes();
+    }
+    renderNotes();
+
+    // ================= 5. ساحة الألعاب المحدثة (Tabs & Random Logic) =================
+    function switchGameTab(tabId) {
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`tabContent${i}`).classList.add('hidden');
+        document.getElementById(`tabBtn${i}`).classList.remove('tab-active');
+        document.getElementById(`tabBtn${i}`).classList.add('text-gray-400');
+      }
+      const activeIdx = tabId.replace('tab', '');
+      document.getElementById(`tabContent${activeIdx}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tabBtn${activeIdx}`);
+      activeBtn.classList.add('tab-active');
+      activeBtn.classList.remove('text-gray-400');
+      lucide.createIcons();
+    }
+
+    // مجموعات الأسئلة مع حفظ الإضافات محلياً
+    let truthList = JSON.parse(localStorage.getItem('custom_truth') || '[]');
+    let defaultTruths = [
       "لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍",
       "إيه أول انطباع أخدتيه عني أول ما بدأنا نتكلم، وإيه اللي اتغير فيه بعد ما عرفتيني بجد؟ 👀",
       "لو هتوصفيني لشخص ميعرفنيش في 3 كلمات بس.. هتختاري إيه؟ ✨",
@@ -702,39 +843,156 @@
       "بصراحة.. بتغيري عليا من إيه بالظبط حتى لو مش بتبيني قدامي؟ 🔥",
       "لو ليكي عندي طلب أو سؤال محرج وممنوع أهرب من إجابته.. هتسأليني إيه دلوقتي؟ 😉"
     ];
+    let allTruths = [...defaultTruths, ...truthList];
 
-    let currentQIndex = 0;
-    const qTextEl = document.getElementById('questionText');
-    const qCounterEl = document.getElementById('questionCounter');
-
-    document.getElementById('nextQuestionBtn').addEventListener('click', () => {
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * callQuestions.length);
-      } while (nextIndex === currentQIndex && callQuestions.length > 1);
-
-      currentQIndex = nextIndex;
-      qTextEl.textContent = callQuestions[currentQIndex];
-      qCounterEl.textContent = `سؤال ${currentQIndex + 1} من ${callQuestions.length}`;
+    function nextTruthCard() {
+      const idx = Math.floor(Math.random() * allTruths.length);
+      document.getElementById('truthText').textContent = allTruths[idx];
+      document.getElementById('truthCounter').textContent = `سؤال ${idx + 1}`;
       try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
-    });
+    }
 
-    // 4. جرعة طاقة
-    const motivQuotes = [
-      "تالتة ثانوي مرحلة، بس أنتي مستقبلك أكبر بكتير.. عافري عشان تلبسي روب ألسن عين شمس 🎓✨",
-      "كل صفحة بتذاكريها دلوقتي بتقربنا خطوة من فرحة المجموع الكبير.. كملي يا بطلة ميمو 💪🤍",
-      "فخور بيكي وبتعبك وبكل دقيقة بتقعديها على المكتب.. هانت جداً يا منمن والنتيجة هتفرحك 🌸",
-      "لما تحسي بالتعب افتكري ميمو بيدعيلك في ضهرك دايماً ومستني اليوم اللي هيرفع راسه بيكي 🤍",
-      "أنتي أشطر بنوتة، متخليش أي امتحان أو مادة تحبطك.. أنتي قدها وقدود 🚀"
+    // مين فينا
+    let whoList = JSON.parse(localStorage.getItem('custom_who') || '[]');
+    let defaultWho = [
+      "مين بيتعصب أسرع.. بس بيرجع يضحك ويهدى في ثانية؟ 😂",
+      "مين فينا هينام الأول في قاعة الفرح من كتر التعب؟ 😴",
+      "مين بياكل أكتر بس مبيبانش عليه نهائي؟ 🍕",
+      "مين بيعاند أكتر ومبيقولش كلمة 'آسف' بسرعة؟ 🙈",
+      "مين بيسرح ويفصل في نص الكول وهو باصص في السقف؟",
+      "مين بيتشتت من المذاكرة ويدخل يقلب في السوشيال ميديا أسرع؟ 📱",
+      "مين قلبه أرهف وممكن يزعل أو يدمع من كلمة بسيطة؟ 🥺",
+      "مين لو نزلنا مول هيصرف كل فلوسه على حاجات تافهة؟ 💸",
+      "مين بياخد وقت أطول بكتير عشان يجهز ويلبس قبل ما ينزل؟ 👗",
+      "مين اللي بيفضل يقول 'امممم.. امممم' أكتر في الكول؟ 🤍",
+      "مين اللي بيغير أكتر بس بيعمل نفسه بارد وعادي؟ 🔥",
+      "مين اللي هيصحى الأول يعمل فطار للتاني يوم الإجازة؟ 🍳"
     ];
-    let quoteIndex = 0;
-    document.getElementById('motivateBtn').addEventListener('click', () => {
-      quoteIndex = (quoteIndex + 1) % motivQuotes.length;
-      document.getElementById('motivateText').textContent = motivQuotes[quoteIndex];
-      try { confetti({ particleCount: 20, spread: 40 }); } catch (e) {}
-    });
+    let allWho = [...defaultWho, ...whoList];
 
-    // 5. شاشة البداية
+    function nextWhoCard() {
+      const idx = Math.floor(Math.random() * allWho.length);
+      document.getElementById('whoText').textContent = allWho[idx];
+      try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
+    }
+
+    // 5 ثواني
+    let fiveSecList = JSON.parse(localStorage.getItem('custom_fiveSec') || '[]');
+    let defaultFiveSec = [
+      "قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳",
+      "قولي 3 أكلات بتشهيكي في نص الليل في 5 ثواني! 🍔",
+      "قولي 3 لغات نفسك تتعلميهم في ألسن في 5 ثواني! 🌍",
+      "قولي 3 حاجات بتخافي منها موووت في 5 ثواني! 😱",
+      "قولي 3 أسماء دلع بتنادي بيهم ميمو في 5 ثواني! 🤍",
+      "قولي 3 حاجات بتخنقك في تالتة ثانوي في 5 ثواني! 📚",
+      "قولي 3 أماكن نفسك نسافرها سوا في 5 ثواني! ✈️",
+      "قولي 3 أغاني لعامر منيب أو رامي صبري في 5 ثواني! 🎧",
+      "قولي 3 صفات بتكرهي تشوفيها في أي شخص في 5 ثواني! 🚫",
+      "قولي 3 حاجات بتعدل مودك في ثانية في 5 ثواني! 🌸"
+    ];
+    let allFiveSec = [...defaultFiveSec, ...fiveSecList];
+
+    function nextFiveSecCard() {
+      const idx = Math.floor(Math.random() * allFiveSec.length);
+      document.getElementById('fiveSecText').textContent = allFiveSec[idx];
+      resetTimer();
+    }
+
+    // تايمر الـ 5 ثواني التفاعلي
+    let timerInterval = null;
+    let timeLeft = 5;
+    const timerDisplay = document.getElementById('timerDisplay');
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timeLeft = 5;
+      timerDisplay.textContent = '5';
+      timerDisplay.className = 'w-16 h-16 rounded-full border-4 border-amber-500 flex items-center justify-center text-2xl font-black text-amber-400 shadow-lg shadow-amber-500/30 transition-all';
+      document.getElementById('startTimerBtn').disabled = false;
+    }
+
+    function startFiveSecTimer() {
+      if (timerInterval) return;
+      resetTimer();
+      document.getElementById('startTimerBtn').disabled = true;
+
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+
+        if (timeLeft === 2) {
+          timerDisplay.className = 'w-16 h-16 rounded-full border-4 border-rose-500 flex items-center justify-center text-2xl font-black text-rose-400 shadow-lg shadow-rose-500/40 animate-pulse';
+        }
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          timerDisplay.textContent = '⏰';
+          if ("vibrate" in navigator) navigator.vibrate([200, 100, 200]);
+          try { confetti({ particleCount: 30, spread: 50 }); } catch (e) {}
+        }
+      }, 1000);
+    }
+
+    // لو خيروك
+    let wyrList = JSON.parse(localStorage.getItem('custom_wyr') || '[]');
+    let defaultWyr = [
+      "تسافري باريس لوحدك أسبوع كامل.. ولا نقضي يوم كامل في زحمة القاهرة سوا؟ 🚗✨",
+      "تذاكري 10 ساعات متواصلة بدون نوم.. ولا تقعدي في الكول مع ميمو وهو ساكت خالص؟ 🙈",
+      "تستغني عن الشوكولاتة سنة كاملة.. ولا تستغني عن مكالمات ميمو لمدة أسبوع؟ 🍫",
+      "تعرفي مستقبلك ومجموعك من دلوقتي.. ولا تسيبيها مفاجأة تفرحي بيها آخر السنة؟ 🎓",
+      "ميمو يطبخلك أكلة غريبة تضطري تاكليها كلها.. ولا تدفعي الحساب في أغلى مطعم؟ 😂",
+      "ميمو ميردش على رسايلك يوم كامل.. ولا يفضل يرن ويزن عليكي كل دقيقة؟ 📱",
+      "تختفي لمدة 24 ساعة ومحدش يلاقيكي.. ولا كل كلامك مع ميمو يتقال قدام العيلة؟ 😱"
+    ];
+    let allWyr = [...defaultWyr, ...wyrList];
+
+    function nextWyrCard() {
+      const idx = Math.floor(Math.random() * allWyr.length);
+      document.getElementById('wyrText').textContent = allWyr[idx];
+      try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
+    }
+
+    // إضافة سؤال مخصص وحفظه
+    function addCustomQuestion() {
+      const type = document.getElementById('customTypeSelect').value;
+      const input = document.getElementById('customQuestionInput');
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      if (type === 'truth') {
+        truthList.push(text);
+        localStorage.setItem('custom_truth', JSON.stringify(truthList));
+        allTruths.push(text);
+        document.getElementById('truthText').textContent = text;
+        switchGameTab('tab1');
+      } else if (type === 'who') {
+        whoList.push(text);
+        localStorage.setItem('custom_who', JSON.stringify(whoList));
+        allWho.push(text);
+        document.getElementById('whoText').textContent = text;
+        switchGameTab('tab2');
+      } else if (type === 'fiveSec') {
+        fiveSecList.push(text);
+        localStorage.setItem('custom_fiveSec', JSON.stringify(fiveSecList));
+        allFiveSec.push(text);
+        document.getElementById('fiveSecText').textContent = text;
+        switchGameTab('tab3');
+      } else if (type === 'wyr') {
+        wyrList.push(text);
+        localStorage.setItem('custom_wyr', JSON.stringify(wyrList));
+        allWyr.push(text);
+        document.getElementById('wyrText').textContent = text;
+        switchGameTab('tab4');
+      }
+
+      input.value = '';
+      try { confetti({ particleCount: 40, spread: 60 }); } catch (e) {}
+    }
+
+    // ================= 6. شاشة البداية =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -747,7 +1005,7 @@
       try { confetti({ particleCount: 50, spread: 60 }); } catch (e) {}
     });
 
-    // 6. نسخ العنوان
+    // ================= 7. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -757,25 +1015,7 @@
       });
     });
 
-    // 7. حفظ واسترجاع الأمنية
-    const savedWish = localStorage.getItem('eman_18_wish');
-    if (savedWish) {
-      document.getElementById('savedWishBox').classList.remove('hidden');
-      document.getElementById('savedWishText').textContent = savedWish;
-      document.getElementById('wishInput').value = savedWish;
-    }
-
-    document.getElementById('saveWishBtn').addEventListener('click', () => {
-      const wishVal = document.getElementById('wishInput').value.trim();
-      if (wishVal) {
-        localStorage.setItem('eman_18_wish', wishVal);
-        document.getElementById('savedWishBox').classList.remove('hidden');
-        document.getElementById('savedWishText').textContent = wishVal;
-        try { confetti({ particleCount: 60, spread: 60 }); } catch (e) {}
-      }
-    });
-
-    // 8. حركة النجوم
+    // ================= 8. حركة النجوم بالخلفية =================
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -816,7 +1056,7 @@
     }
     animateStars();
 
-    // 9. بالونات وقلوب عائمة
+    // ================= 9. بالونات وقلوب عائمة =================
     const container = document.getElementById('balloonsContainer');
     function createBalloon() {
       const balloon = document.createElement('div');
