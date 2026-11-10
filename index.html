@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>مكان منمن المفضل 🤍✨</title>
+  <title>مملكة منمن وميمو 🤍✨ | 11:11</title>
   
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,33 +20,22 @@
       -webkit-tap-highlight-color: transparent;
     }
     body {
-      background-color: #0b0714;
+      background-color: #08040d;
       overflow-x: hidden;
       touch-action: pan-y;
     }
     .glow-card {
-      background: rgba(22, 16, 38, 0.75);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+      background: rgba(20, 12, 34, 0.78);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(244, 114, 182, 0.12);
+      box-shadow: 0 12px 35px -10px rgba(168, 85, 247, 0.25);
     }
     .pulse-glow {
-      animation: pulseGlow 2.5s infinite;
+      animation: pulseGlow 3s infinite;
     }
     @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.35); }
-      50% { box-shadow: 0 0 35px rgba(236, 72, 153, 0.6); }
-    }
-    @keyframes floatBalloon {
-      0% { transform: translateY(110vh) rotate(0deg); opacity: 0.9; }
-      100% { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
-    }
-    .floating-balloon {
-      position: fixed;
-      pointer-events: auto;
-      cursor: pointer;
-      z-index: 15;
-      animation: floatBalloon linear infinite;
+      0%, 100% { box-shadow: 0 0 25px rgba(236, 72, 153, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.55); }
     }
     .cd-spin {
       animation: spin 10s linear infinite;
@@ -61,87 +50,94 @@
       transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .tab-active {
-      background: rgba(236, 72, 153, 0.2);
-      border-color: rgba(236, 72, 153, 0.5);
+      background: rgba(244, 114, 182, 0.22);
+      border-color: rgba(244, 114, 182, 0.6);
       color: #f472b6;
     }
   </style>
 </head>
 <body class="text-white min-h-screen relative flex justify-center selection:bg-pink-500 selection:text-white">
 
-  <!-- Background Stars Canvas -->
+  <!-- خلفية النجوم الرومانسية الهادئة -->
   <canvas id="starsCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Floating Balloons Container -->
-  <div id="balloonsContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
-
-  <!-- Audio Element -->
+  <!-- عنصر الصوت -->
   <audio id="bgMusic" preload="auto"></audio>
 
-  <!-- ==================== شاشة الدخول الهادية ==================== -->
-  <div id="introScreen" class="fixed inset-0 z-50 bg-[#0b0714]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
+  <!-- ==================== شاشة الدخول الهادئة ==================== -->
+  <div id="introScreen" class="fixed inset-0 z-50 bg-[#08040d]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
     <div class="relative mb-6">
-      <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center pulse-glow text-4xl shadow-xl">
+      <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-700 via-pink-600 to-rose-500 flex items-center justify-center pulse-glow text-4xl shadow-2xl">
         🤍
       </div>
     </div>
-    <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-300 mb-3">
-      نورتي مكانك الخاص يا منمن ✨
+    <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-200 mb-3">
+      مملكة منمن وميمو 🤍✨
     </h2>
     <p class="text-gray-300 text-sm max-w-xs mb-8 leading-relaxed">
-      شغلي السماعات وخدي هدنة من دوشة المذاكرة واليوم.. المكان ده معمول عشان يروق عليكي 🌸
+      مكاننا الهادي بعيد عن دوشة العالم وتعب المذاكرة.. معمولة بحب عشان تروق على قلبك 🌸
     </p>
-    <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 font-bold text-lg text-white shadow-lg shadow-purple-500/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3">
-      <span>ادخلي يا بنوتي 🎧🤍</span>
+    <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 font-bold text-lg text-white shadow-xl shadow-purple-600/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3">
+      <span>ادخلي يا روح قلبي 🎧🤍</span>
       <i data-lucide="sparkles" class="w-5 h-5"></i>
     </button>
   </div>
 
-  <!-- ==================== المحتوى الأساسي ==================== -->
+  <!-- ==================== المحتوى الأساسي للموبايل ==================== -->
   <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-16">
 
-    <!-- Header Section -->
-    <header class="glow-card rounded-3xl p-4 flex items-center justify-between border border-white/10">
+    <!-- الهيدر الشخصي -->
+    <header class="glow-card rounded-3xl p-4 flex items-center justify-between border border-pink-500/20">
       <div class="flex items-center gap-3">
-        <div class="relative w-14 h-14 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-pink-500 to-purple-500 shadow-md">
+        <div class="relative w-14 h-14 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-pink-500 via-purple-500 to-indigo-500 shadow-md">
           <img src="./eman.jpg" alt="Eman" class="w-full h-full object-cover rounded-[14px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';" />
         </div>
         <div>
           <div class="flex items-center gap-1.5">
             <h1 class="text-lg font-bold text-white">إيمان 🤍</h1>
-            <span class="text-xs bg-pink-500/20 text-pink-300 font-semibold px-2 py-0.5 rounded-full border border-pink-500/30">18 سنة</span>
+            <span class="text-[10px] bg-pink-500/20 text-pink-300 font-semibold px-2 py-0.5 rounded-full border border-pink-500/30">توأم روحي 11:11</span>
           </div>
-          <p class="text-xs text-gray-400 flex items-center gap-1">
+          <p class="text-xs text-gray-300 flex items-center gap-1 mt-0.5">
             <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-purple-400"></i>
             <span>ألسن عين شمس إن شاء الله 🎓</span>
           </p>
         </div>
       </div>
-      <div class="text-2xl animate-pulse">👑</div>
+      <div class="text-2xl animate-pulse">💍</div>
     </header>
 
-    <!-- ==================== ميزة بوابة أمنيات 11/11 ==================== -->
-    <section class="glow-card rounded-3xl p-5 border border-purple-400/30 bg-gradient-to-b from-[#1c1236] to-[#0d0a1f] relative overflow-hidden text-center">
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <span class="text-2xl animate-bounce">🌌</span>
-        <h3 class="text-sm font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-amber-200">
-          بوابة أمنيات 11:11 (Make a Wish) ✨
-        </h3>
+    <!-- ==================== كارت ورسالة 11/11 الخاصة بالحب ==================== -->
+    <section class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#211033] via-[#150a24] to-[#0a0512] relative overflow-hidden">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-bounce">🌌</span>
+          <h2 class="text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-200 to-amber-200">
+            بوابة 11:11 | يوم توأم الروح ✨
+          </h2>
+        </div>
+        <span class="text-[10px] bg-purple-500/25 text-purple-200 px-2.5 py-0.5 rounded-full border border-purple-400/30 font-bold">
+          Make a Wish
+        </span>
       </div>
-      <p class="text-xs text-purple-200/90 leading-relaxed mb-3">
-        رقم 11:11 هو بوابة تحقيق الأماني وتطابق القلوب.. اكتبي أمنيتنا المشتركة لسنة الـ 18 وسيبها تتحفظ في البوابة 🤍
-      </p>
 
+      <!-- نص رسالة 11/11 -->
+      <div class="bg-black/40 p-3.5 rounded-2xl border border-pink-500/20 text-xs text-gray-200 leading-relaxed space-y-2 mb-4 text-right">
+        <p class="font-bold text-pink-300">لـ نصفي التاني وتوأم روحي منمن 🤍:</p>
+        <p>11:11 مش مجرد رقم ولا تريند عابر.. في اللحظة دي بالذات الكون بيشهد إنك روحي التانية اللي كنت مستنيها طول عمري. ربنا جمعنا مش صدفة، كل تفصيلة فيكي بتطمني وبتفهمني من غير كلام.</p>
+        <p>في 11/11 بتمنى نفضل سوا، وسند لبعض في كل خطوة، ونحقق كل حلم بنرسمه سوا وتدخلي الكلية اللي بتحلمي بيها وتكوني منورة بيتي وحياتي دايماً 💍✨</p>
+      </div>
+
+      <!-- حفظ أمنية 11:11 -->
       <div class="flex flex-col gap-2">
-        <input id="wish1111Input" type="text" placeholder="أمنيتنا في 11:11 (مثلاً: نفضل سوا وندخل الكلية اللي بنحبها)..." class="w-full bg-black/50 border border-purple-500/30 rounded-xl p-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-pink-500" />
-        <button id="save1111WishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 font-bold text-xs text-white shadow-lg shadow-purple-500/20 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
+        <input id="wish1111Input" type="text" placeholder="اكتبي أمنيتنا المشتركة في 11:11 هنا..." class="w-full bg-black/60 border border-purple-500/30 rounded-xl p-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500" />
+        <button id="save1111WishBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 font-bold text-xs text-white shadow-lg shadow-purple-600/30 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
           <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
           <span>حفظ أمنية 11:11 في البوابة 🔒✨</span>
         </button>
       </div>
 
-      <div id="saved1111Box" class="hidden mt-3 p-3 bg-purple-950/60 rounded-xl border border-pink-500/30 text-xs text-pink-200">
-        <span class="block text-[10px] text-gray-400 mb-1">أمنية 11:11 المحفوظة في البوابة:</span>
+      <div id="saved1111Box" class="hidden mt-3 p-3 bg-purple-950/70 rounded-xl border border-pink-500/40 text-xs text-pink-200">
+        <span class="block text-[10px] text-gray-400 mb-1">أمنيتنا المحفوظة في بوابة 11:11:</span>
         <span id="saved1111Text" class="font-bold text-white"></span>
       </div>
     </section>
@@ -160,7 +156,7 @@
 
       <div class="flex items-center gap-3 bg-black/30 p-3 rounded-2xl border border-white/5">
         <div id="cdDisc" class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-800 to-pink-600 flex items-center justify-center cd-spin paused shadow-md border-2 border-purple-400/30 shrink-0">
-          <div class="w-4 h-4 rounded-full bg-[#0b0714] border border-white/40"></div>
+          <div class="w-4 h-4 rounded-full bg-[#08040d] border border-white/40"></div>
         </div>
         <div class="flex-1 overflow-hidden text-right">
           <h4 id="songTitle" class="text-sm font-bold text-white truncate">عامر منيب - حلم عمري</h4>
@@ -204,41 +200,53 @@
       </button>
     </section>
 
-    <!-- ==================== لوحة نوتات وتشجيع ميمو ومنمن ==================== -->
+    <!-- ==================== كارت جرعة طاقة تالتة ثانوي (30 جملة) ==================== -->
+    <section class="glow-card rounded-3xl p-5 border border-amber-500/30 bg-gradient-to-r from-amber-950/25 via-purple-950/25 to-pink-950/25 text-center">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+          <h3 class="text-xs font-bold text-white">جرعة طاقة وسند لتالتة ثانوي 🎓</h3>
+        </div>
+        <span id="quoteBadge" class="text-[10px] text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/30 font-semibold">
+          رسالة 1 من 30
+        </span>
+      </div>
+
+      <div class="min-h-[75px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-3">
+        <p id="motivateText" class="text-xs text-gray-100 font-medium leading-relaxed">
+          اصحي وسمي الله.. كل سطر بتذاكريه خطوة حقيقية بتقربك من روب ألسن عين شمس 🎓🤍
+        </p>
+      </div>
+
+      <button id="motivateBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-purple-600 font-bold text-xs text-white shadow-lg shadow-amber-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2">
+        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+        <span>هاتي جرعة طاقة تانية يا ميمو ⚡</span>
+      </button>
+    </section>
+
+    <!-- ==================== لوحة نوتات المذاكرة الخاصة بـ منمن ==================== -->
     <section class="glow-card rounded-3xl p-5 border border-indigo-500/30">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
           <i data-lucide="sticky-note" class="w-4 h-4 text-indigo-400"></i>
-          <h3 class="text-xs font-bold text-white">نوتات ورسائل تشجيع تالتة ثانوي 📝</h3>
+          <h3 class="text-xs font-bold text-white">نوتات ومذكرات منمن 📝</h3>
         </div>
-        <span class="text-[10px] text-indigo-300 bg-indigo-500/20 px-2 py-0.5 rounded-full border border-indigo-500/30">سند ميمو</span>
+        <span class="text-[10px] text-indigo-300 bg-indigo-500/20 px-2 py-0.5 rounded-full border border-indigo-500/30">مذكراتي</span>
       </div>
 
-      <div id="notesContainer" class="flex flex-col gap-2.5 mb-3">
-        <!-- نوتة 1 مثبتة -->
-        <div class="p-3 bg-gradient-to-r from-purple-900/40 to-indigo-900/40 rounded-xl border border-purple-500/20 text-xs text-gray-200 leading-relaxed">
-          <span class="block text-[10px] text-pink-300 font-bold mb-1">📌 كلمة الصباح من ميمو:</span>
-          "اصحي وسمي الله وركزي في حلمك.. كل صفحة بتذاكريها خطوة بتقربك من ألسن، وأنا في ضهرك دايماً وبدعيلك يا بنوتي 🤍🎓"
-        </div>
-        <!-- نوتة 2 مثبتة -->
-        <div class="p-3 bg-gradient-to-r from-pink-900/40 to-rose-900/40 rounded-xl border border-pink-500/20 text-xs text-gray-200 leading-relaxed">
-          <span class="block text-[10px] text-amber-300 font-bold mb-1">📌 تذكير وقت الضغط:</span>
-          "لو حسيتي بتعب، متستسلميش.. خدي بريك 10 دقايق، اسمعي تراك من هنا، وافتكري فرحتنا بالنتيجة سوا 🌸"
-        </div>
-      </div>
+      <div id="notesContainer" class="flex flex-col gap-2 mb-3 max-h-48 overflow-y-auto pr-1"></div>
 
-      <!-- كتابة نوتة جديدة -->
       <div class="flex gap-2">
-        <input id="noteInput" type="text" placeholder="اكتبي نوتة تفتكريها على المكتب..." class="flex-1 bg-black/40 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400" />
-        <button id="addNoteBtn" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-bold text-white active:scale-95 transition-transform flex items-center gap-1">
+        <input id="noteInput" type="text" placeholder="اكتبي نوتة تفتكريها على المكتب..." class="flex-1 bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400" />
+        <button id="addNoteBtn" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-xs font-bold text-white active:scale-95 transition-transform flex items-center gap-1">
           <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-          <span>إضافة</span>
+          <span>حفظ</span>
         </button>
       </div>
     </section>
 
     <!-- رسالة عيد الميلاد المحفوظة -->
-    <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f122b] to-[#11091c] relative overflow-hidden">
+    <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f102c] to-[#0e0717] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
           <i data-lucide="mail-heart" class="w-4 h-4 text-pink-400"></i>
@@ -363,7 +371,7 @@
 
     <!-- زر الواتساب -->
     <section class="glow-card rounded-3xl p-4 border border-emerald-500/20">
-      <a href="https://wa.me/201147584829?text=%D8%A3%D9%86%D8%A7%20%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D8%A7%D9%84%D9%85%D9%88%D9%82%D8%B9%20%D8%A8%D8%AA%D8%A7%D8%B9%D9%86%D8%A7%20%D9%8A%D8%A7%20%D9%85%D9%8A%D9%85%D9%88%20%D9%88%D8%A8%D8%B3%D9%85%D8%B9%20%D8%A3%D8%BA%D8%A7%D9%86%D9%8A%20%E2%9D%A4%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
+      <a href="https://wa.me/201147584829?text=%D8%A3%D9%86%D8%A7%20%D9%81%D8%A7%D8%AA%D8%AD%D8%A9%20%D9%85%D9%85%D9%84%D9%83%D8%AA%D9%86%D8%A7%20%D9%8A%D8%A7%20%D9%85%D9%8A%D9%85%D9%88%20%D9%88%D8%A8%D8%B3%D9%85%D8%B9%20%D8%A3%D8%BA%D8%A7%D9%86%D9%8A%20%E2%9D%A4%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
         <i data-lucide="message-circle" class="w-5 h-5"></i>
         <span>كلمي ميمو على الواتساب 💬🤍</span>
       </a>
@@ -372,14 +380,14 @@
     <!-- Footer -->
     <footer class="text-center pt-3 pb-6">
       <p class="text-[11px] text-gray-400 font-medium tracking-wide">
-        Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍
+        Made with endless love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍✨
       </p>
     </footer>
 
   </main>
 
   <!-- ==================== صفحة جانبية 1: كبسولات افتحيها لما.. ==================== -->
-  <div id="capsulesDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+  <div id="capsulesDrawer" class="side-page fixed inset-0 z-50 bg-[#08040d]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
     <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div class="flex items-center gap-2">
@@ -450,7 +458,7 @@
   </div>
 
   <!-- ==================== صفحة جانبية 2: كوبونات الدلع ==================== -->
-  <div id="couponsDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+  <div id="couponsDrawer" class="side-page fixed inset-0 z-50 bg-[#08040d]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
     <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div class="flex items-center gap-2">
@@ -519,7 +527,7 @@
   </div>
 
   <!-- ==================== صفحة جانبية 3: ساحة الألعاب التفاعلية ==================== -->
-  <div id="gamesDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+  <div id="gamesDrawer" class="side-page fixed inset-0 z-50 bg-[#08040d]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
     <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div class="flex items-center gap-2">
@@ -532,14 +540,14 @@
       </div>
 
       <!-- أزرار التابز (Tabs) لاختيار اللعبة -->
-      <div class="grid grid-cols-4 gap-1.5 p-1 bg-black/40 rounded-2xl border border-white/10 text-[11px] font-bold text-center">
+      <div class="grid grid-cols-4 gap-1.5 p-1 bg-black/50 rounded-2xl border border-white/10 text-[11px] font-bold text-center">
         <button id="tabBtn1" onclick="switchGameTab('tab1')" class="py-2 rounded-xl transition-all tab-active">🎯 صراحة</button>
         <button id="tabBtn2" onclick="switchGameTab('tab2')" class="py-2 rounded-xl text-gray-400 transition-all">👥 مين فينا</button>
         <button id="tabBtn3" onclick="switchGameTab('tab3')" class="py-2 rounded-xl text-gray-400 transition-all">⏱️ 5 ثواني</button>
         <button id="tabBtn4" onclick="switchGameTab('tab4')" class="py-2 rounded-xl text-gray-400 transition-all">⚖️ لو خيروك</button>
       </div>
 
-      <!-- ==================== TAB 1: كروت صراحة ونكش ==================== -->
+      <!-- TAB 1: كروت صراحة ونكش -->
       <div id="tabContent1" class="flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-pink-500/30 text-center bg-gradient-to-b from-[#191024] to-[#0c0714]">
           <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
@@ -547,7 +555,7 @@
             <span id="truthCounter" class="bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full border border-pink-500/30 text-[10px]">سؤال 1</span>
           </div>
 
-          <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+          <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-4">
             <p id="truthText" class="text-sm font-semibold text-gray-100 leading-relaxed">
               لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍
             </p>
@@ -560,7 +568,7 @@
         </div>
       </div>
 
-      <!-- ==================== TAB 2: مين فينا أكتر ==================== -->
+      <!-- TAB 2: مين فينا أكتر -->
       <div id="tabContent2" class="hidden flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-purple-500/30 text-center bg-gradient-to-b from-[#18112b] to-[#0d0718]">
           <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
@@ -570,7 +578,7 @@
 
           <p class="text-[11px] text-gray-300 mb-2">اقروا الموقف، وعدوا 1.. 2.. 3 وانطقوا "ميمو" أو "منمن" في نفس اللحظة:</p>
 
-          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-4">
             <p id="whoText" class="text-base font-bold text-purple-200 leading-relaxed">
               مين بيتعصب أسرع.. بس بيرجع يضحك ويهدى في ثانية؟ 😂
             </p>
@@ -583,7 +591,7 @@
         </div>
       </div>
 
-      <!-- ==================== TAB 3: تحدي الـ 5 ثواني بالعداد ==================== -->
+      <!-- TAB 3: تحدي الـ 5 ثواني بالعداد -->
       <div id="tabContent3" class="hidden flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-amber-500/30 text-center bg-gradient-to-b from-[#24160e] to-[#0f0a06]">
           <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
@@ -591,13 +599,12 @@
             <span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/30 text-[10px]">الـ 5 ثواني</span>
           </div>
 
-          <div class="min-h-[85px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-3">
+          <div class="min-h-[85px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-3">
             <p id="fiveSecText" class="text-sm font-bold text-amber-200 leading-relaxed">
               قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳
             </p>
           </div>
 
-          <!-- العداد الدائري/الرقمي -->
           <div class="flex items-center justify-center my-2">
             <div id="timerDisplay" class="w-16 h-16 rounded-full border-4 border-amber-500 flex items-center justify-center text-2xl font-black text-amber-400 shadow-lg shadow-amber-500/30 transition-all">
               5
@@ -615,7 +622,7 @@
         </div>
       </div>
 
-      <!-- ==================== TAB 4: لو خيروك ==================== -->
+      <!-- TAB 4: لو خيروك -->
       <div id="tabContent4" class="hidden flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-cyan-500/30 text-center bg-gradient-to-b from-[#0c1825] to-[#060e17]">
           <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
@@ -623,7 +630,7 @@
             <span class="bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-full border border-cyan-500/30 text-[10px]">لو خيروك</span>
           </div>
 
-          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+          <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-4">
             <p id="wyrText" class="text-sm font-bold text-cyan-200 leading-relaxed">
               تسافري باريس لوحدك أسبوع كامل.. ولا نقضي يوم كامل في زحمة القاهرة سوا؟ 🚗✨
             </p>
@@ -637,20 +644,20 @@
       </div>
 
       <!-- قسم إضافة سؤال أو تحدي من عندكم -->
-      <div class="glow-card rounded-2xl p-4 border border-white/10 bg-black/30">
+      <div class="glow-card rounded-2xl p-4 border border-white/10 bg-black/40">
         <h4 class="text-xs font-bold text-pink-300 mb-2 flex items-center gap-1.5">
           <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
           <span>ضيفي سؤال أو تحدي جديد من عندك:</span>
         </h4>
         <div class="flex flex-col gap-2">
-          <select id="customTypeSelect" class="bg-black/60 border border-white/10 rounded-xl p-2 text-xs text-gray-300 focus:outline-none">
+          <select id="customTypeSelect" class="bg-black/70 border border-white/10 rounded-xl p-2 text-xs text-gray-300 focus:outline-none">
             <option value="truth">🎯 لقسم أسئلة الصراحة</option>
             <option value="who">👥 لقسم مين فينا</option>
             <option value="fiveSec">⏱️ لقسم الـ 5 ثواني</option>
             <option value="wyr">⚖️ لقسم لو خيروك</option>
           </select>
           <div class="flex gap-2">
-            <input id="customQuestionInput" type="text" placeholder="اكتبي السؤال هنا..." class="flex-1 bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500" />
+            <input id="customQuestionInput" type="text" placeholder="اكتبي السؤال هنا..." class="flex-1 bg-black/60 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500" />
             <button onclick="addCustomQuestion()" class="px-4 py-2 bg-pink-600 hover:bg-pink-500 rounded-xl text-xs font-bold text-white active:scale-95 transition-all">
               إضافة
             </button>
@@ -661,11 +668,11 @@
     </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript الكود التفاعلي الكامل -->
   <script>
     lucide.createIcons();
 
-    // ================= 1. مشغل الأغاني =================
+    // ================= 1. قائمة الأغاني =================
     const playlist = [
       { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
       { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
@@ -746,7 +753,7 @@
       el.classList.toggle('hidden');
     }
 
-    // ================= 3. ميزة بوابة أمنيات 11:11 =================
+    // ================= 3. ميزة بوابة 11:11 =================
     const saved1111 = localStorage.getItem('eman_1111_wish');
     if (saved1111) {
       document.getElementById('saved1111Box').classList.remove('hidden');
@@ -760,26 +767,73 @@
         localStorage.setItem('eman_1111_wish', val);
         document.getElementById('saved1111Box').classList.remove('hidden');
         document.getElementById('saved1111Text').textContent = val;
-        try { confetti({ particleCount: 70, spread: 60 }); } catch (e) {}
+        try { confetti({ particleCount: 75, spread: 65 }); } catch (e) {}
       }
     });
 
-    // ================= 4. لوحة نوتات المذاكرة =================
+    // ================= 4. الـ 30 جملة تحفيزية لتالتة ثانوي =================
+    const studyQuotes = [
+      "اصحي وسمي الله.. كل سطر بتذاكريه خطوة حقيقية بتقربك من روب ألسن عين شمس 🎓🤍",
+      "متقلقيش من بكرة، ربنا شايف تعبك وميمو سهران بيدعيلك في كل سجدة ✨",
+      "لما تحسي بضغط، افتكري إنك بنوتة قوية وشاطرة وهتفرحينا كلنا بمجموعك 💪",
+      "تالتة ثانوي مجرد محطة، ومستقبلك وضحكتك أهم من أي ضغط، وإنتي قدها وهتعديها 🌸",
+      "خدي نفس عميق واشربي شاي دافي وريحي ضهرك 5 دقايق، متضغطيش على أعصابك ☕",
+      "فرحة يوم النتيجة تستاهل كل دقيقة تعب دلوقتي.. متخيلة شكلك وإنتي بتزغرطي؟ 🥳",
+      "فخور بيكي وبتعبك وبكل صفحة بتقعدي عليها.. إنتي بتعملي اللي عليكي وزيادة 🤍",
+      "حلمك بيقرب خطوة بخطوة.. كل كلمة بتتحفظ بتشهد على شطارتك وصبرك 📚",
+      "وراكي راجل ساندك ومستني اليوم اللي يفتخر بيكي قدام الدنيا كلها 💍",
+      "الامتحانات والدروس هتعدي وهتبقى مجرد ذكريات نضحك عليها وإحنا بنلف في شوارع القاهرة سوا 🚗",
+      "لو كان ينفع أذاكر مكانك كنت عملتها، بس واثق إن مخ منمن أذكى من أي منهج 😉",
+      "خلي ثقتك في ربنا ملهاش حدود.. تعبك ده محفوظ وهيتعوض بفرحة ملهاش آخر ✨",
+      "خطوة ورا خطوة.. هانت يا بطلة، الأيام بتجري والنتيجة الحلوة مستنياكي ⏳",
+      "نامي كويس وارتاحي، السهر الكتير بيسرق التركيز، وميمو عايزك دايماً مصحصحة 😴",
+      "أنتي مش ماشية لوحدك في الرحلة دي.. تعبك تعبي، ونجاحك هو أكبر فرحة لقلبي 🤍",
+      "بطلي توتر وخوف، الخوف بيضيع الطاقة.. خدي نفس هادي وتوكلي على الله 🌸",
+      "لما تحسي بملل.. غمضي عينك وتخيلي أول يوم ليكي في مدرجات ألسن عين شمس 🎓✨",
+      "حتى لو مادة رمت عليكي ورخمت، أنتي أشطر منها وهتلميها وتجيبي الدرجة النهائية 💪",
+      "متقارنيش نفسك بحد، إنتي ليكي طريقك وشطارتك، وبنوتي مميزة عن الكل في عيني 🤍",
+      "كلمة 'مبروك يا إيمان' في الصيف الجاي هتمحي أي ضغط مريتي بيه السنة دي 🥹",
+      "افردي وشك القمر ده وإنتي بتذاكري، ميمو مبيحبش يشوف بنوته شايلة الهم أبداً 😘",
+      "كل ما تزهقي افتكري إن في حياة كاملة ومستقبل حلو مستنينا نبنيه سوا 🏡",
+      "الاستمرار والمراجعة بهدوء هما سر الشطارة، خدي وقتك ومتقلقيش 📖",
+      "إنتي مش بس شاطرة، إنتي عندك عزيمة وإصرار يهدوا جبال 🤍",
+      "ميمو في ضهرك، في أي ثانية تحتاجي تفضفضي أو تشتكي أنا سامعك ومستنيكي 🎧",
+      "المجهود عليكي والتوفيق من ربنا، وإنتي عملتي أقصى ما عندك فريحي قلبك 🤍",
+      "مفيش لغة هتقف قدامك، ديولينجو معاكي وميمو في ضهرك وألسن جاهزة ليكي 🦉✨",
+      "اهتمي بصحتك وبأكلك، شطارتك محتاجة طاقة ونشاط دايماً 🍎",
+      "الأيام الصعبة بتصنع شخصيات قوية، والسنة دي هتخليكي فخورة بنفسك العمر كله ✨",
+      "بحبك وبثق فيكي لأبعد الحدود.. شدي حيلك يا أستاذة ألسن ونور عيني 🤍🎓"
+    ];
+
+    let currentQuoteIdx = 0;
+    document.getElementById('motivateBtn').addEventListener('click', () => {
+      let nextIdx;
+      do {
+        nextIdx = Math.floor(Math.random() * studyQuotes.length);
+      } while (nextIdx === currentQuoteIdx && studyQuotes.length > 1);
+
+      currentQuoteIdx = nextIdx;
+      document.getElementById('motivateText').textContent = studyQuotes[currentQuoteIdx];
+      document.getElementById('quoteBadge').textContent = `رسالة ${currentQuoteIdx + 1} من ${studyQuotes.length}`;
+      try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
+    });
+
+    // ================= 5. نوتات ومذكرات منمن =================
     let userNotes = JSON.parse(localStorage.getItem('eman_memo_notes') || '[]');
     const notesContainer = document.getElementById('notesContainer');
 
     function renderNotes() {
-      // إبقاء النوتتين الثابتتين ومسح الباقي
-      const staticNotes = notesContainer.querySelectorAll('.border-purple-500\\/20, .border-pink-500\\/20');
       notesContainer.innerHTML = '';
-      staticNotes.forEach(n => notesContainer.appendChild(n));
-
+      if (userNotes.length === 0) {
+        notesContainer.innerHTML = '<p class="text-[11px] text-gray-500 text-center py-2">مفيش نوتات لسه.. اكتبي اللي تحبيه هنا 🌸</p>';
+        return;
+      }
       userNotes.forEach((note, idx) => {
         const div = document.createElement('div');
-        div.className = 'p-3 bg-black/40 rounded-xl border border-indigo-500/30 text-xs text-gray-200 leading-relaxed flex items-center justify-between gap-2';
+        div.className = 'p-2.5 bg-black/40 rounded-xl border border-indigo-500/20 text-xs text-gray-200 flex items-center justify-between gap-2';
         div.innerHTML = `
-          <span>📝 ${note}</span>
-          <button onclick="deleteNote(${idx})" class="text-gray-500 hover:text-rose-400 text-[10px]">حذف</button>
+          <span class="break-all">📌 ${note}</span>
+          <button onclick="deleteNote(${idx})" class="text-rose-400 hover:text-rose-300 text-[10px] shrink-0 font-bold">حذف</button>
         `;
         notesContainer.appendChild(div);
       });
@@ -789,7 +843,7 @@
       const input = document.getElementById('noteInput');
       const val = input.value.trim();
       if (val) {
-        userNotes.push(val);
+        userNotes.unshift(val);
         localStorage.setItem('eman_memo_notes', JSON.stringify(userNotes));
         input.value = '';
         renderNotes();
@@ -804,7 +858,7 @@
     }
     renderNotes();
 
-    // ================= 5. ساحة الألعاب المحدثة (Tabs & Random Logic) =================
+    // ================= 6. ساحة الألعاب (الأسئلة الغنية 20+) =================
     function switchGameTab(tabId) {
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`tabContent${i}`).classList.add('hidden');
@@ -819,7 +873,7 @@
       lucide.createIcons();
     }
 
-    // مجموعات الأسئلة مع حفظ الإضافات محلياً
+    // كروت صراحة
     let truthList = JSON.parse(localStorage.getItem('custom_truth') || '[]');
     let defaultTruths = [
       "لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍",
@@ -841,18 +895,22 @@
       "إيه التصرف أو الحركة اللي لو عملتها بتخليكي تبتسمي وتنسي أي زعل في ثانية؟ 🌸",
       "لو عملوا رواية أو كتاب عن قصة تعارفنا.. تفتكري نسمي الكتاب ده إيه؟ 📖",
       "بصراحة.. بتغيري عليا من إيه بالظبط حتى لو مش بتبيني قدامي؟ 🔥",
-      "لو ليكي عندي طلب أو سؤال محرج وممنوع أهرب من إجابته.. هتسأليني إيه دلوقتي؟ 😉"
+      "لو ليكي عندي طلب أو سؤال محرج وممنوع أهرب من إجابته.. هتسأليني إيه دلوقتي؟ 😉",
+      "لو خيروكي تختاري لقبي المفضل بين (ميمو، حبيبي، راجلي، بنوتي).. هتختاري تناديني إيه علطول؟ 🤍",
+      "إيه أكتر حاجة في شخصيتي بتحسي إنها بتطمنك وتديكي أمان؟ ✨",
+      "تفتكري لو كنا اتقابلنا من سنين زمان وإحنا صغيرين، كنا هنحب بعض بردو؟ 🥺",
+      "إيه أكتر عادة بعملها وبتعرفي منها إني متضايق أو بفكر في حاجة من غير ما أنطق؟ 👀"
     ];
     let allTruths = [...defaultTruths, ...truthList];
 
     function nextTruthCard() {
       const idx = Math.floor(Math.random() * allTruths.length);
       document.getElementById('truthText').textContent = allTruths[idx];
-      document.getElementById('truthCounter').textContent = `سؤال ${idx + 1}`;
+      document.getElementById('truthCounter').textContent = `سؤال ${idx + 1} من ${allTruths.length}`;
       try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
     }
 
-    // مين فينا
+    // مين فينا أكتر
     let whoList = JSON.parse(localStorage.getItem('custom_who') || '[]');
     let defaultWho = [
       "مين بيتعصب أسرع.. بس بيرجع يضحك ويهدى في ثانية؟ 😂",
@@ -866,7 +924,15 @@
       "مين بياخد وقت أطول بكتير عشان يجهز ويلبس قبل ما ينزل؟ 👗",
       "مين اللي بيفضل يقول 'امممم.. امممم' أكتر في الكول؟ 🤍",
       "مين اللي بيغير أكتر بس بيعمل نفسه بارد وعادي؟ 🔥",
-      "مين اللي هيصحى الأول يعمل فطار للتاني يوم الإجازة؟ 🍳"
+      "مين اللي هيصحى الأول يعمل فطار للتاني يوم الإجازة؟ 🍳",
+      "مين اللي ممكن يعمل مصيبة ويلبسها للتاني بهزار؟ 😈",
+      "مين اللي بيفتكر التواريخ والتفاصيل الصغيرة أكتر؟ 📅",
+      "مين اللي بيحب الصور والسيلفي أكتر ومبيزهقش منها؟ 📸",
+      "مين اللي بيقعد يناهف ويفتح مواضيع نقاش متخلصش؟ 🗣️",
+      "مين اللي بيعرف يصالح التاني بطريقة أذكى وأحلى؟ 🌸",
+      "مين اللي هيقعد يفاصل في الأسعار لما ننزل نشتري حاجات البيت؟ 🛒",
+      "مين اللي لو اتقفل علينا باب الأوضة هيتوتر ويخاف أسرع؟ 🚪",
+      "مين اللي بيحب الدلع والاهتمام أكتر حتى لو مش باين عليه؟ 🧸"
     ];
     let allWho = [...defaultWho, ...whoList];
 
@@ -876,7 +942,7 @@
       try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
     }
 
-    // 5 ثواني
+    // تحدي الـ 5 ثواني
     let fiveSecList = JSON.parse(localStorage.getItem('custom_fiveSec') || '[]');
     let defaultFiveSec = [
       "قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳",
@@ -888,7 +954,17 @@
       "قولي 3 أماكن نفسك نسافرها سوا في 5 ثواني! ✈️",
       "قولي 3 أغاني لعامر منيب أو رامي صبري في 5 ثواني! 🎧",
       "قولي 3 صفات بتكرهي تشوفيها في أي شخص في 5 ثواني! 🚫",
-      "قولي 3 حاجات بتعدل مودك في ثانية في 5 ثواني! 🌸"
+      "قولي 3 حاجات بتعدل مودك في ثانية في 5 ثواني! 🌸",
+      "قولي 3 ألوان تحبي تدهني بيها شقتنا في المستقبل في 5 ثواني! 🎨",
+      "قولي 3 أنواع شوكولاتة بتعشقيهم في 5 ثواني! 🍫",
+      "قولي 3 مميزات شايفة إنها في ميمو ومش عند حد في 5 ثواني! ✨",
+      "قولي 3 حاجات بتاخديهم معاكي كل ما تنزلي الدرس في 5 ثواني! 🎒",
+      "قولي 3 مقالب نفسك تعمليهم في ميمو في 5 ثواني! 😜",
+      "قولي 3 كلمات بتكرريهم كتير وإنتي بتتكلمي في 5 ثواني! 🗣️",
+      "قولي 3 مشروبات سخنة بتدفيكي في الشتا في 5 ثواني! ☕",
+      "قولي 3 حاجات لو صحيتي لقيتيها في أوضتك هتطيري من الفرحة في 5 ثواني! 🎁",
+      "قولي 3 صفات بتحبيهم في شخصيتك في 5 ثواني! 👑",
+      "قولي 3 تصرفات لو ميمو عملهم بتموتي من الضحك في 5 ثواني! 😂"
     ];
     let allFiveSec = [...defaultFiveSec, ...fiveSecList];
 
@@ -898,7 +974,6 @@
       resetTimer();
     }
 
-    // تايمر الـ 5 ثواني التفاعلي
     let timerInterval = null;
     let timeLeft = 5;
     const timerDisplay = document.getElementById('timerDisplay');
@@ -944,7 +1019,18 @@
       "تعرفي مستقبلك ومجموعك من دلوقتي.. ولا تسيبيها مفاجأة تفرحي بيها آخر السنة؟ 🎓",
       "ميمو يطبخلك أكلة غريبة تضطري تاكليها كلها.. ولا تدفعي الحساب في أغلى مطعم؟ 😂",
       "ميمو ميردش على رسايلك يوم كامل.. ولا يفضل يرن ويزن عليكي كل دقيقة؟ 📱",
-      "تختفي لمدة 24 ساعة ومحدش يلاقيكي.. ولا كل كلامك مع ميمو يتقال قدام العيلة؟ 😱"
+      "تختفي لمدة 24 ساعة ومحدش يلاقيكي.. ولا كل كلامك مع ميمو يتقال قدام العيلة؟ 😱",
+      "نعيش في كوخ هادي على البحر.. ولا في شقة واسعة وسط دوشة المدينة؟ 🌊",
+      "تبقي شايفة كل اللي بيفكر فيه ميمو.. ولا ميمو هو اللي يعرف كل اللي في سرك؟ 🔮",
+      "تمسحي كل أبلكيشنز الموبايل ماعدا الواتساب.. ولا تسيبي كل البرامج بس من غير نت؟ 📵",
+      "تنزلي خروجة بلبس البيت والبيجامة.. ولا تقعدي أسبوع كامل من غير مراية؟ 🪞",
+      "تكتشفي إن ميمو كاتبلك جواب بخط إيده 10 صفحات.. ولا يجبلك بوكيه ورد عملاق؟ 💐",
+      "نلعب ألعاب ذكاء وتخسري دايماً.. ولا نلعب لعبة حظ وتكسبيني وتغيظيني؟ 🎯",
+      "تنسي كل تفاصيل أول مكالمة بيننا.. ولا تنسي أول خناقة عدت علينا؟ 🎧",
+      "تفضلي صاحية 48 ساعة متواصلة.. ولا تنامي 16 ساعة وتصحي تلاقي امتحاناتك بدأت؟ ⏰",
+      "تحضري فرحنا في مكان مفتوح وسط الهوا.. ولا في قاعة كلاسيك مقفولة وفخمة؟ 🕊️",
+      "تطبخي إنتي كل يوم أكلة جديدة.. ولا ميمو يطلبلك دليفري على ذوقه كل يوم؟ 🍕",
+      "تكوني بتعرفي كل اللغات في العالم بطلاقة.. ولا تقدري تسافري أي مكان في ثانية؟ ✈️"
     ];
     let allWyr = [...defaultWyr, ...wyrList];
 
@@ -954,7 +1040,7 @@
       try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
     }
 
-    // إضافة سؤال مخصص وحفظه
+    // إضافة سؤال أو تحدي مخصص
     function addCustomQuestion() {
       const type = document.getElementById('customTypeSelect').value;
       const input = document.getElementById('customQuestionInput');
@@ -992,7 +1078,7 @@
       try { confetti({ particleCount: 40, spread: 60 }); } catch (e) {}
     }
 
-    // ================= 6. شاشة البداية =================
+    // ================= 7. شاشة الدخول =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -1005,7 +1091,7 @@
       try { confetti({ particleCount: 50, spread: 60 }); } catch (e) {}
     });
 
-    // ================= 7. نسخ العنوان =================
+    // ================= 8. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -1015,7 +1101,7 @@
       });
     });
 
-    // ================= 8. حركة النجوم بالخلفية =================
+    // ================= 9. خلفية النجوم الرومانسية الهادئة =================
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -1024,12 +1110,12 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       stars = [];
-      for (let i = 0; i < 80; i++) {
+      for (let i = 0; i < 90; i++) {
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 1.5,
-          speedY: 0.15 + Math.random() * 0.35,
+          speedY: 0.12 + Math.random() * 0.3,
           opacity: Math.random()
         });
       }
@@ -1039,14 +1125,13 @@
 
     function animateStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ffffff";
       stars.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(star.opacity) * 0.4})`;
+        ctx.fillStyle = `rgba(244, 114, 182, ${0.25 + Math.sin(star.opacity) * 0.45})`;
         ctx.fill();
         star.y -= star.speedY;
-        star.opacity += 0.03;
+        star.opacity += 0.025;
         if (star.y < 0) {
           star.y = canvas.height;
           star.x = Math.random() * canvas.width;
@@ -1055,35 +1140,6 @@
       requestAnimationFrame(animateStars);
     }
     animateStars();
-
-    // ================= 9. بالونات وقلوب عائمة =================
-    const container = document.getElementById('balloonsContainer');
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.className = 'floating-balloon text-3xl select-none';
-      balloon.style.left = `${Math.random() * 85 + 5}%`;
-      const duration = 12 + Math.random() * 8;
-      balloon.style.animationDuration = `${duration}s`;
-      balloon.textContent = Math.random() > 0.4 ? '🎈' : '💖';
-
-      balloon.addEventListener('click', (e) => {
-        try {
-          confetti({
-            particleCount: 15,
-            spread: 40,
-            origin: {
-              x: e.clientX / window.innerWidth,
-              y: e.clientY / window.innerHeight
-            }
-          });
-        } catch (err) {}
-        balloon.remove();
-      });
-
-      container.appendChild(balloon);
-      setTimeout(() => balloon.remove(), duration * 1000);
-    }
-    setInterval(createBalloon, 2500);
   </script>
 </body>
 </html>
