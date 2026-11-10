@@ -57,6 +57,9 @@
     .paused {
       animation-play-state: paused;
     }
+    .side-page {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   </style>
 </head>
 <body class="text-white min-h-screen relative flex justify-center selection:bg-pink-500 selection:text-white">
@@ -70,7 +73,7 @@
   <!-- Audio Element -->
   <audio id="bgMusic" preload="auto"></audio>
 
-  <!-- ==================== نافذة إشعار الساعة 12:01 يوم 7/11 ==================== -->
+  <!-- ==================== نافذة إشعار الساعة 12:01 ==================== -->
   <div id="midnightModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-5 text-center">
     <div class="glow-card rounded-3xl p-6 max-w-sm w-full border border-pink-500/40 pulse-glow flex flex-col items-center">
       <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-3xl mb-4 shadow-lg">
@@ -88,7 +91,7 @@
     </div>
   </div>
 
-  <!-- ==================== 1. شاشة البداية والمفاجأة ==================== -->
+  <!-- ==================== شاشة البداية والمفاجأة ==================== -->
   <div id="introScreen" class="fixed inset-0 z-50 bg-[#0b0714]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
     <div class="relative mb-6">
       <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center pulse-glow text-4xl shadow-xl">
@@ -107,13 +110,12 @@
     </button>
   </div>
 
-  <!-- ==================== المحتوى الأساسي للموبايل ==================== -->
+  <!-- ==================== المحتوى الأساسي ==================== -->
   <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-16">
 
-    <!-- Header Section: الاسم والصورة والسن -->
+    <!-- Header Section -->
     <header class="glow-card rounded-3xl p-4 flex items-center justify-between border border-white/10">
       <div class="flex items-center gap-3">
-        <!-- صورتها الشخصية eman.jpg -->
         <div class="relative w-14 h-14 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-pink-500 to-purple-500 shadow-md">
           <img src="./eman.jpg" alt="Eman" class="w-full h-full object-cover rounded-[14px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';" />
         </div>
@@ -131,7 +133,7 @@
       <div class="text-2xl animate-bounce">✨</div>
     </header>
 
-    <!-- العداد التنازلي لـ 7/11 -->
+    <!-- العداد التنازلي -->
     <section class="glow-card rounded-3xl p-4 text-center border border-purple-500/20">
       <p id="countdownTitle" class="text-xs font-semibold text-purple-300 mb-2.5 flex items-center justify-center gap-1.5">
         <i data-lucide="clock" class="w-4 h-4"></i>
@@ -160,7 +162,7 @@
       </div>
     </section>
 
-    <!-- مشغل المزيكا: 7 أغاني لعامر منيب + أغنية العيد ميلاد -->
+    <!-- مشغل المزيكا -->
     <section class="glow-card rounded-3xl p-4 border border-white/10">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -197,6 +199,45 @@
       </div>
     </section>
 
+    <!-- ==================== شريط الوصول السريع للصفحات الجانبية ==================== -->
+    <section class="grid grid-cols-3 gap-2">
+      <button onclick="openDrawer('capsulesDrawer')" class="glow-card p-3 rounded-2xl border border-pink-500/30 flex flex-col items-center justify-center gap-1 hover:border-pink-500 active:scale-95 transition-all text-center">
+        <span class="text-2xl">💌</span>
+        <span class="text-[11px] font-bold text-pink-300">افتحيها لما..</span>
+        <span class="text-[9px] text-gray-400">كبسولات مشاعر</span>
+      </button>
+
+      <button onclick="openDrawer('couponsDrawer')" class="glow-card p-3 rounded-2xl border border-amber-500/30 flex flex-col items-center justify-center gap-1 hover:border-amber-500 active:scale-95 transition-all text-center">
+        <span class="text-2xl">🎟️</span>
+        <span class="text-[11px] font-bold text-amber-300">كوبونات دلع</span>
+        <span class="text-[9px] text-gray-400">طلبات مجابة</span>
+      </button>
+
+      <button onclick="openDrawer('quizDrawer')" class="glow-card p-3 rounded-2xl border border-cyan-500/30 flex flex-col items-center justify-center gap-1 hover:border-cyan-500 active:scale-95 transition-all text-center">
+        <span class="text-2xl">🎮</span>
+        <span class="text-[11px] font-bold text-cyan-300">لعبة إحنا</span>
+        <span class="text-[9px] text-gray-400">كويز حب وهزار</span>
+      </button>
+    </section>
+
+    <!-- جرعة طاقة لتالتة ثانوي -->
+    <section class="glow-card rounded-3xl p-4 border border-yellow-500/30 bg-gradient-to-r from-amber-950/20 to-purple-950/20 text-center">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
+          <h3 class="text-xs font-bold text-white">جرعة طاقة ومساندة لتالتة ثانوي 🎓</h3>
+        </div>
+        <span class="text-[10px] text-yellow-300 bg-yellow-500/20 px-2 py-0.5 rounded-full border border-yellow-500/30">سند ميمو</span>
+      </div>
+      <p id="motivateText" class="text-xs text-gray-200 leading-relaxed min-h-[38px] flex items-center justify-center p-2 bg-black/40 rounded-xl border border-white/5 mb-3 font-medium">
+        دوسي على الزرار كل ما تحسي بضغط المذاكرة عشان تاخدي رسالة من ميمو ⚡
+      </p>
+      <button id="motivateBtn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 font-bold text-xs text-black shadow-lg shadow-yellow-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>هاتي جرعة طاقة يا ميمو 🚀</span>
+      </button>
+    </section>
+
     <!-- الرسالة الترحيبية القصيرة -->
     <section class="glow-card rounded-3xl p-5 border border-white/10 relative overflow-hidden">
       <div class="absolute -top-6 -right-6 text-7xl text-purple-500/10 font-serif select-none pointer-events-none">18</div>
@@ -210,7 +251,7 @@
       </p>
     </section>
 
-    <!-- ==================== رسالة ميمو الخاصة (تفتح يوم 7/11 الساعة 12:01 ص) ==================== -->
+    <!-- رسالة ميمو الخاصة (تفتح يوم 7/11 الساعة 12:01 ص) -->
     <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f122b] to-[#11091c] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -222,7 +263,6 @@
         </span>
       </div>
 
-      <!-- الحالة 1: مقفولة قبل 7/11 الساعة 12:01 -->
       <div id="secretMsgLocked" class="bg-black/30 p-4 rounded-2xl border border-white/5 text-center">
         <div class="text-4xl mb-2 animate-pulse">🔒💌</div>
         <p class="text-xs text-pink-300 font-bold mb-1">الرسالة دي مستنياكي يوم عيد ميلادك!</p>
@@ -235,7 +275,6 @@
         </button>
       </div>
 
-      <!-- الحالة 2: مفتوحة يوم 7/11 الساعة 12:01 -->
       <div id="secretMsgUnlocked" class="hidden bg-black/40 p-4 rounded-2xl border border-pink-500/30">
         <h4 class="text-base font-extrabold text-pink-400 mb-3">ل منمن 😘😘</h4>
         <div class="text-xs text-gray-100 leading-7 space-y-3 text-right font-normal">
@@ -269,7 +308,6 @@
         أقوى ذكاء اصطناعي وسحابة تخزين مخصوص عشان يسندك في ضغط وتلخيصات تالتة ثانوي ويجهّزك للكلية براحة بال 📚✨
       </p>
 
-      <!-- مميزات الاشتراك في كبسولات -->
       <div class="grid grid-cols-2 gap-2 mb-4">
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="hard-drive" class="w-4 h-4 text-blue-400 shrink-0"></i>
@@ -281,7 +319,7 @@
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="book-open" class="w-4 h-4 text-amber-400 shrink-0"></i>
-          <span class="text-[11px] text-gray-200 font-medium">NotebookLM لتلخيص المناهج</span>
+          <span class="text-[11px] text-gray-200 font-medium">NotebookLM للمناهج</span>
         </div>
         <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 flex items-center gap-2">
           <i data-lucide="search-check" class="w-4 h-4 text-teal-400 shrink-0"></i>
@@ -293,7 +331,7 @@
         💡 يشمل أيضاً ميزات: Veo، Flow، Whisk، و Anti-Gravity مع سعة تخزين عملاقة لكل مذكراتك وملفاتك.
       </p>
 
-      <a href="https://activation-market.shop/r/noF5AasC0B3s9Yzg0lIH7RECsusmGim-NvHcCKdVrFKPk21_3-ZapRPLqQrtErfgj0okbEybpfTohIjzaKKpS44" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 active:scale-95 transition-transform">
+      <a href="https://activation-market.shop/r/noF5AasC0B3s9Yzg0lIH7RECsusmGim-NvHcCKdVrFKPk21_3-ZapRPLqQrtErfgj0okbEybpfTohIjzaKKpS44" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 active:scale-95 transition-transform">
         <span>تفعيل اشتراك Google AI Pro من هنا 🎁</span>
         <i data-lucide="external-link" class="w-4 h-4"></i>
       </a>
@@ -319,7 +357,6 @@
         <i data-lucide="external-link" class="w-4 h-4"></i>
       </a>
 
-      <!-- كارت العنوان المطلوب -->
       <div class="bg-black/40 rounded-2xl p-3 border border-emerald-500/20">
         <div class="flex items-center justify-between text-xs text-gray-300 mb-1.5">
           <span class="text-emerald-300 font-semibold">العنوان المطلوب للاشتراك:</span>
@@ -334,7 +371,7 @@
       </div>
     </section>
 
-    <!-- هدية 3: اشتراك Duolingo Super لمدة سنة -->
+    <!-- هدية 3: اشتراك Duolingo Super -->
     <section class="glow-card rounded-3xl p-5 border border-lime-500/30 bg-gradient-to-b from-[#162211] to-[#0c1409]">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -360,14 +397,13 @@
       </p>
     </section>
 
-    <!-- كبسولة الأمنيات والشموع (تفتح يوم 7/11 فقط) -->
+    <!-- كبسولة الأمنيات والشموع -->
     <section class="glow-card rounded-3xl p-5 border border-purple-500/20 text-center">
       <div class="flex items-center justify-center gap-2 mb-2">
         <i data-lucide="sparkle" class="w-4 h-4 text-yellow-400"></i>
         <h3 class="text-sm font-bold text-white">كبسولة أمنيات الـ 18 سنة 🎂✨</h3>
       </div>
 
-      <!-- الحالة 1: قبل يوم 7/11 (مقفولة) -->
       <div id="candlesLocked" class="bg-black/30 p-4 rounded-2xl border border-white/5">
         <div class="text-4xl mb-2">🔒🎂</div>
         <p class="text-xs text-yellow-300 font-semibold mb-1">الشموع والكبسولة مقفولين دلوقتي!</p>
@@ -376,7 +412,6 @@
         </p>
       </div>
 
-      <!-- الحالة 2: مفتوحة يوم 7/11 -->
       <div id="candlesUnlocked" class="hidden bg-black/30 p-4 rounded-2xl border border-pink-500/30">
         <div class="text-4xl mb-2 animate-bounce cursor-pointer" id="blowCandlesBtn" title="دوسي عشان تطفي الشمع!">
           🎂🕯️
@@ -399,13 +434,13 @@
 
     <!-- زر الواتساب للتواصل والرد -->
     <section class="glow-card rounded-3xl p-4 border border-emerald-500/20">
-      <a href="https://wa.me/201147584829?text=%D8%B9%D8%AC%D8%A8%D8%AA%D9%86%D9%8A%20%D8%AC%D8%AF%D8%A7%D9%8B%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A3%D8%A9%20%D9%8A%D8%A7%20%D9%85%D9%8A%D8%AF%D9%88%20%D8%AA%D8%B3%D9%84%D9%85%20%D8%A7%D9%8A%D8%AF%D9%83%20%F0%9F%A5%B9%F0%9F%A4%8D" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
+      <a href="https://wa.me/201147584829?text=%D8%B9%D8%AC%D8%A8%D8%AA%D9%86%D9%8A%20%D8%AC%D8%AF%D8%A7%D9%8B%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A3%D8%A9%20%D9%8A%D8%A7%20%D9%85%D9%8A%D8%AF%D9%88%20%D8%AA%D8%B3%D9%84%D9%85%20%D8%A7%D9%8A%D8%AF%D9%83%20%F0%9F%A5%B9%F0%9F%A4%8D" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
         <i data-lucide="message-circle" class="w-5 h-5"></i>
         <span>قوليلي رأيك في المفاجأة 💬🤍</span>
       </a>
     </section>
 
-    <!-- التوقيع والحقوق بالأسفل -->
+    <!-- Footer -->
     <footer class="text-center pt-3 pb-6">
       <p class="text-[11px] text-gray-400 font-medium tracking-wide">
         Made with love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍
@@ -414,7 +449,228 @@
 
   </main>
 
-  <!-- JavaScript الكود التفاعلي الكامل -->
+  <!-- ==================== صفحة جانبية 1: كبسولات افتحيها لما.. ==================== -->
+  <div id="capsulesDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+    <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">💌</span>
+          <h2 class="text-base font-extrabold text-pink-300">كبسولات: افتحيها لما..</h2>
+        </div>
+        <button onclick="closeDrawer('capsulesDrawer')" class="p-2 rounded-xl bg-white/10 text-gray-300 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-300 leading-relaxed">
+        كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة ميمو ليكي 🤍
+      </p>
+
+      <!-- قائمة الكبسولات -->
+      <div class="flex flex-col gap-3">
+        <!-- كبسولة 1 -->
+        <div class="glow-card rounded-2xl p-4 border border-pink-500/20 cursor-pointer" onclick="toggleLetter('letter1')">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-pink-200">افتحيها لما تكوني مخنوقة من المذاكرة 📚</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-pink-400"></i>
+          </div>
+          <p id="letter1" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
+            خدي نفس عميق وسيبي القلم دقيقة.. تالتة ثانوي سنة مرهقة ومفيش شك في ده، بس افتكري دايماً إن تعبك ده مش ضايع. حلم ألسن عين شمس بيقرب كل يوم، وأنا واثق في شطارتك وعارف إنك قدها وهتفرحينا كلنا. ارتاحي 10 دقايق واشربي حاجة بتحبيها، وأنا في ضهرك دايماً 🤍✨
+          </p>
+        </div>
+
+        <!-- كبسولة 2 -->
+        <div class="glow-card rounded-2xl p-4 border border-purple-500/20 cursor-pointer" onclick="toggleLetter('letter2')">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-purple-200">افتحيها لما أكون واحشك ونفسك تسمعي صوتي 🎧</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-purple-400"></i>
+          </div>
+          <p id="letter2" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
+            لو وحشتك دلوقتي يبقى تسيبي الموقع وتتصلي بيا فوراً من غير تردد! صوتك هو أكتر حاجة بترد فيا الروح، ومفيش أي وقت في اليوم ميبقاش مناسب عشان أسمع حسك حتى لو هنسكت ونقول "امممم" 🙈🤍
+          </p>
+        </div>
+
+        <!-- كبسولة 3 -->
+        <div class="glow-card rounded-2xl p-4 border border-rose-500/20 cursor-pointer" onclick="toggleLetter('letter3')">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-200">افتحيها لما نكون متخانقين وزعلانة مني 🥺</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-rose-400"></i>
+          </div>
+          <p id="letter3" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
+            حقك على راسي وعيني.. مفيش زعل بيننا يستاهل ثانية واحدة تبقي متضايقة مني فيها. حتى لو كنا متنرفزين أو بنناهف في الكلام، مكانتك في قلبي متتغيرش ولا بقدر على زعلك. تعالي قوليلي وأنا هصالح بنوتي فوراً 😘🤍
+          </p>
+        </div>
+
+        <!-- كبسولة 4 -->
+        <div class="glow-card rounded-2xl p-4 border border-indigo-500/20 cursor-pointer" onclick="toggleLetter('letter4')">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-200">افتحيها لما تكوني محتاجة تحسي إنك غالية 🌸</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-indigo-400"></i>
+          </div>
+          <p id="letter4" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
+            أنتي مش بس غالية.. أنتي أحلى حاجة دخلت حياتي وعوض ربنا الجميل. بحب طيبتك، هدوءك، وجنانك، وبحب كل تفصيلة فيكي. فخور بيكي في كل لحظة ويا بخت قلبي بيكي يا منمن 💍🤍
+          </p>
+        </div>
+
+        <!-- كبسولة 5 -->
+        <div class="glow-card rounded-2xl p-4 border border-teal-500/20 cursor-pointer" onclick="toggleLetter('letter5')">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-teal-200">افتحيها لما مش عارفة تنامي ودماغك بتفكر 🌙</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-teal-400"></i>
+          </div>
+          <p id="letter5" class="hidden mt-3 pt-3 border-t border-white/10 text-xs text-gray-200 leading-relaxed">
+            اطفي النور وشدي الغطا، بطلي تفكير في بكرة وسيبي كل حاجة على ربنا.. نامي وأنتي مطمنة إني موجود في ضهرك ومش هسيبك، وتصبحي على خير يا نور عيني 😴✨
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== صفحة جانبية 2: كوبونات الدلع ==================== -->
+  <div id="couponsDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+    <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎟️</span>
+          <h2 class="text-base font-extrabold text-amber-300">دفتر كوبونات الدلع</h2>
+        </div>
+        <button onclick="closeDrawer('couponsDrawer')" class="p-2 rounded-xl bg-white/10 text-gray-300 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-300 leading-relaxed">
+        الكوبونات دي ملكك حصرياً.. دوسي على أي كوبون عشان تستخدميه ويبعت لميمو أمر تنفيذي على واتساب فوراً 😉
+      </p>
+
+      <div class="grid grid-cols-1 gap-3">
+        <!-- كوبون 1 -->
+        <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-amber-500/40 relative">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-sm font-bold text-amber-300">🍔 كوبون خروجة وأكلة على ذوق منمن</h3>
+            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
+          </div>
+          <p class="text-xs text-gray-300 mb-3">تختاري المكان ونوع الأكل اللي نفسك فيه وميمو ملزم يعزمك ويوصلك وينفذ وهو مبتسم!</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D9%82%D8%B1%D8%B1%D8%AA%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%83%D9%84%D8%A9%20%D8%B9%D9%84%D9%89%20%D8%B0%D9%88%D9%82%D9%8A%20%F0%9F%8D%94%F0%9F%A4%AD" target="_blank" class="w-full py-2 bg-amber-500 hover:bg-amber-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>استخدمي الكوبون دلوقتي</span>
+          </a>
+        </div>
+
+        <!-- كوبون 2 -->
+        <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-pink-500/40 relative">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-sm font-bold text-pink-300">🎧 كوبون فضفضة بدون مقاطعة</h3>
+            <span class="text-[10px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
+          </div>
+          <p class="text-xs text-gray-300 mb-3">مكالمة كاملة تفضفضي وتشتكي من العالم والدروس، وميمو يسمع بس ويطبطب وميقولش غير "حقك عليا يا قلبي".</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%A8%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D9%81%D8%B6%D9%81%D8%B6%D8%A9%20%D8%AF%D9%84%D9%88%D9%82%D8%AA%D9%8A..%20%D9%81%D8%B6%D9%8A%20%D9%86%D9%81%D8%B3%D9%83%20%D9%84%D9%84%D9%83%D9%88%D9%84%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%F0%9F%92%96" target="_blank" class="w-full py-2 bg-pink-500 hover:bg-pink-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>استخدمي الكوبون دلوقتي</span>
+          </a>
+        </div>
+
+        <!-- كوبون 3 -->
+        <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-rose-500/40 relative">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-sm font-bold text-rose-300">🤍 كوبون صلح فوري (يلغي أي زعل)</h3>
+            <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
+          </div>
+          <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر ميمو يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D9%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>استخدمي الكوبون دلوقتي</span>
+          </a>
+        </div>
+
+        <!-- كوبون 4 -->
+        <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-emerald-500/40 relative">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-sm font-bold text-emerald-300">🪄 كوبون أمنية خاصة مجابة</h3>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
+          </div>
+          <p class="text-xs text-gray-300 mb-3">طلب واحد مجاب بدون أي شروط أو مبررات.. اطلبي اللي يجي في بالك وميمو حينفذه.</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D9%85%D8%B9%D8%A7%D9%8A%D8%A7%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A3%D9%85%D9%86%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D8%A8%D8%A9%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AD%D8%A7%D8%AC%D8%A9%20%D9%85%D8%AA%D9%82%D9%88%D9%84%D8%B4%20%D9%84%D8%A7%20%F0%9F%A7%9A%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8" target="_blank" class="w-full py-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            <span>استخدمي الكوبون دلوقتي</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== صفحة جانبية 3: لعبة إحنا ومنمن ==================== -->
+  <div id="quizDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+    <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎮</span>
+          <h2 class="text-base font-extrabold text-cyan-300">لعبة كويز إحنا ومنمن</h2>
+        </div>
+        <button onclick="closeDrawer('quizDrawer')" class="p-2 rounded-xl bg-white/10 text-gray-300 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between bg-black/40 p-3 rounded-2xl border border-white/5">
+        <span class="text-xs text-gray-300 font-medium">النتيجة:</span>
+        <span id="quizScore" class="text-sm font-extrabold text-cyan-400">0 من 4</span>
+      </div>
+
+      <!-- الأسئلة -->
+      <div id="quizContainer" class="flex flex-col gap-4">
+
+        <!-- س 1 -->
+        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q1Box">
+          <h3 class="text-xs font-bold text-white mb-2.5">1. مشروب منمن الرسمي وقت الروقان والمذاكرة؟ ☕</h3>
+          <div class="flex flex-col gap-2">
+            <button onclick="answerQuiz(1, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) شاي بالنعناع أو شاي بلبن دافي ☕✨</button>
+            <button onclick="answerQuiz(1, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) قهوة سادة بدون سكر</button>
+            <button onclick="answerQuiz(1, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) عصير مانجو مع ثلج</button>
+          </div>
+        </div>
+
+        <!-- س 2 -->
+        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q2Box">
+          <h3 class="text-xs font-bold text-white mb-2.5">2. لو منمن قلبت وبقت نكدية فجأة.. إيه الحل السحري لميمو؟ 🥺</h3>
+          <div class="flex flex-col gap-2">
+            <button onclick="answerQuiz(2, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) يسيبها تهدى لوحدها وميكلمهاش</button>
+            <button onclick="answerQuiz(2, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) يقولها "يا بنوتي وحقك عليا" ويدلعها فوراً 🤍</button>
+            <button onclick="answerQuiz(2, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) يقعد يناهف ويتخانق معاها</button>
+          </div>
+        </div>
+
+        <!-- س 3 -->
+        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q3Box">
+          <h3 class="text-xs font-bold text-white mb-2.5">3. الخروجة اللي نفسنا نعملها بعد ما تدخلي ألسن إن شاء الله؟ 🎓</h3>
+          <div class="flex flex-col gap-2">
+            <button onclick="answerQuiz(3, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) نلف في شوارع القاهرة بالليل وناكل أكل بنحبه 🚗✨</button>
+            <button onclick="answerQuiz(3, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) نقعد في مكتبة نذاكر</button>
+            <button onclick="answerQuiz(3, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) نروح ملاهي أطفال</button>
+          </div>
+        </div>
+
+        <!-- س 4 -->
+        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q4Box">
+          <h3 class="text-xs font-bold text-white mb-2.5">4. أكتر كلمة ميمو بيقولها وبتفرح قلب منمن؟ 💍</h3>
+          <div class="flex flex-col gap-2">
+            <button onclick="answerQuiz(4, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) مراتي وبنوتي الصغيرة اللي ماليش غيرها 🤍</button>
+            <button onclick="answerQuiz(4, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) تمام يا ستي</button>
+            <button onclick="answerQuiz(4, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) ماشي الحال</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="quizReward" class="hidden glow-card rounded-2xl p-4 border border-emerald-500/30 text-center animate-bounce">
+        <span class="text-3xl">🎉🤍</span>
+        <h4 class="text-sm font-bold text-emerald-300 mt-1">شطورة يا قلبي.. قفلتي كويز إحنا!</h4>
+        <p class="text-xs text-gray-200 mt-1">حافظين بعض صم وعقبال ما نفضل سوا العمر كله يارب ✨</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
   <script>
     lucide.createIcons();
 
@@ -480,29 +736,71 @@
       });
     });
 
-    // ================= 2. طلب إذن الإشعارات وتفعيل الجرس =================
-    const enableNotifyBtn = document.getElementById('enableNotifyBtn');
-    const notifyBtnText = document.getElementById('notifyBtnText');
+    // ================= 2. التحكم في الصفحات الجانبية (Drawers) =================
+    function openDrawer(id) {
+      const drawer = document.getElementById(id);
+      drawer.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
 
-    function requestNotificationPermission() {
-      if (!("Notification" in window)) {
-        notifyBtnText.textContent = "تم تفعيل التنبيه داخل الموقع ✅";
-        return;
+    function closeDrawer(id) {
+      const drawer = document.getElementById(id);
+      drawer.classList.add('translate-x-full');
+      document.body.style.overflow = 'auto';
+    }
+
+    function toggleLetter(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    // ================= 3. لعبة الكويز =================
+    let score = 0;
+    let answered = {};
+
+    function answerQuiz(qNum, isCorrect, btn) {
+      if (answered[qNum]) return;
+      answered[qNum] = true;
+
+      const parent = btn.parentElement;
+      const allBtns = parent.querySelectorAll('button');
+      allBtns.forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        btn.classList.remove('bg-white/5');
+        btn.classList.add('bg-emerald-600', 'text-white', 'font-bold');
+        score++;
+        try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
+      } else {
+        btn.classList.remove('bg-white/5');
+        btn.classList.add('bg-rose-600', 'text-white');
       }
-      Notification.requestPermission().then(permission => {
-        if (permission === "granted") {
-          notifyBtnText.textContent = "تم تفعيل جرس الإشعارات بنجاح 🔔✅";
-        } else {
-          notifyBtnText.textContent = "التنبيه هيظهرلك جوه الموقع أول ما تفتح ✅";
-        }
-      });
+
+      document.getElementById('quizScore').textContent = `${score} من 4`;
+
+      if (Object.keys(answered).length === 4) {
+        document.getElementById('quizReward').classList.remove('hidden');
+        try { confetti({ particleCount: 90, spread: 70 }); } catch (e) {}
+      }
     }
 
-    if (enableNotifyBtn) {
-      enableNotifyBtn.addEventListener('click', requestNotificationPermission);
-    }
+    // ================= 4. زرار جرعة طاقة تالتة ثانوي =================
+    const motivQuotes = [
+      "تالتة ثانوي مرحلة، بس أنتي مستقبلك أكبر بكتير.. عافري عشان تلبسي روب ألسن عين شمس 🎓✨",
+      "كل صفحة بتذاكريها دلوقتي بتقربنا خطوة من فرحة المجموع الكبير.. كملي يا بطلة ميمو 💪🤍",
+      "فخور بيكي وبتعبك وبكل دقيقة بتقعديها على المكتب.. هانت جداً يا منمن والنتيجة هتفرحك 🌸",
+      "لما تحسي بالتعب افتكري ميمو بيدعيلك في ضهرك دايماً ومستني اليوم اللي هيرفع راسه بيكي 🤍",
+      "أنتي أشطر بنوتة، متخليش أي امتحان أو مادة تحبطك.. أنتي قدها وقدود 🚀"
+    ];
+    let quoteIndex = 0;
+    document.getElementById('motivateBtn').addEventListener('click', () => {
+      quoteIndex = (quoteIndex + 1) % motivQuotes.length;
+      document.getElementById('motivateText').textContent = motivQuotes[quoteIndex];
+      try { confetti({ particleCount: 20, spread: 40 }); } catch (e) {}
+    });
 
-    // ================= 3. شاشة البداية وتشغيل الموسيقى =================
+    // ================= 5. شاشة البداية وتشغيل الموسيقى =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -511,15 +809,11 @@
     startBtn.addEventListener('click', () => {
       introScreen.classList.add('opacity-0', 'pointer-events-none');
       setTimeout(() => introScreen.remove(), 700);
-
       togglePlay();
-
-      try {
-        confetti({ particleCount: 70, spread: 60 });
-      } catch (e) {}
+      try { confetti({ particleCount: 70, spread: 60 }); } catch (e) {}
     });
 
-    // ================= 4. نسخ العنوان =================
+    // ================= 6. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -529,7 +823,7 @@
       });
     });
 
-    // ================= 5. العداد التنازلي + فتح الرسالة الساعة 12:01 يوم 7/11 =================
+    // ================= 7. العداد التنازلي والرسالة السرية =================
     let messageAlreadyTriggered = localStorage.getItem('eman_midnight_notified') === 'true';
 
     function triggerMidnightCelebration() {
@@ -549,10 +843,7 @@
         } catch (e) {}
       }
 
-      try {
-        confetti({ particleCount: 120, spread: 90 });
-      } catch (e) {}
-
+      try { confetti({ particleCount: 120, spread: 90 }); } catch (e) {}
       localStorage.setItem('eman_midnight_notified', 'true');
       messageAlreadyTriggered = true;
     }
@@ -565,12 +856,9 @@
     function updateCountdown() {
       const now = new Date();
       const currentYear = now.getFullYear();
-      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0); // 7 نوفمبر
+      let targetDate = new Date(currentYear, 10, 7, 0, 0, 0);
 
-      // فحص هل اليوم هو 7 نوفمبر
       const isTodayBirthday = (now.getMonth() === 10 && now.getDate() === 7);
-
-      // فحص هل الساعة عدت 12:01 صباحاً يوم 7 نوفمبر
       const isPast1201OnBirthday = (
         now.getMonth() === 10 &&
         (now.getDate() > 7 || (now.getDate() === 7 && (now.getHours() > 0 || now.getMinutes() >= 1)))
@@ -592,7 +880,6 @@
         document.getElementById('timerContainer').classList.add('hidden');
         document.getElementById('countdownTitle').classList.add('hidden');
         document.getElementById('todayCelebration').classList.remove('hidden');
-
         document.getElementById('candlesLocked').classList.add('hidden');
         document.getElementById('candlesUnlocked').classList.remove('hidden');
         return;
@@ -616,7 +903,7 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // ================= 6. حفظ واسترجاع أمنية الـ 18 سنة =================
+    // ================= 8. حفظ واسترجاع الأمنية =================
     const savedWish = localStorage.getItem('eman_18_wish');
     if (savedWish) {
       document.getElementById('savedWishBox').classList.remove('hidden');
@@ -630,19 +917,15 @@
         document.getElementById('savedWishBox').classList.remove('hidden');
         document.getElementById('savedWishText').textContent = wishVal;
         document.getElementById('wishInput').value = '';
-        try {
-          confetti({ particleCount: 80, spread: 70 });
-        } catch (e) {}
+        try { confetti({ particleCount: 80, spread: 70 }); } catch (e) {}
       }
     });
 
     document.getElementById('blowCandlesBtn').addEventListener('click', () => {
-      try {
-        confetti({ particleCount: 100, spread: 80 });
-      } catch (e) {}
+      try { confetti({ particleCount: 100, spread: 80 }); } catch (e) {}
     });
 
-    // ================= 7. حركة النجوم بالخلفية =================
+    // ================= 9. حركة النجوم بالخلفية =================
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
@@ -683,9 +966,8 @@
     }
     animateStars();
 
-    // ================= 8. بالونات طائرة تفاعلية =================
+    // ================= 10. بالونات طائرة =================
     const container = document.getElementById('balloonsContainer');
-
     function createBalloon() {
       const balloon = document.createElement('div');
       balloon.className = 'floating-balloon text-3xl select-none';
