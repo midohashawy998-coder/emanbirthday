@@ -199,7 +199,7 @@
       </div>
     </section>
 
-    <!-- ==================== شريط الوصول السريع للصفحات الجانبية ==================== -->
+    <!-- شريط الوصول السريع للصفحات الجانبية -->
     <section class="grid grid-cols-3 gap-2">
       <button onclick="openDrawer('capsulesDrawer')" class="glow-card p-3 rounded-2xl border border-pink-500/30 flex flex-col items-center justify-center gap-1 hover:border-pink-500 active:scale-95 transition-all text-center">
         <span class="text-2xl">💌</span>
@@ -213,10 +213,10 @@
         <span class="text-[9px] text-gray-400">طلبات مجابة</span>
       </button>
 
-      <button onclick="openDrawer('quizDrawer')" class="glow-card p-3 rounded-2xl border border-cyan-500/30 flex flex-col items-center justify-center gap-1 hover:border-cyan-500 active:scale-95 transition-all text-center">
-        <span class="text-2xl">🎮</span>
-        <span class="text-[11px] font-bold text-cyan-300">لعبة إحنا</span>
-        <span class="text-[9px] text-gray-400">كويز حب وهزار</span>
+      <button onclick="openDrawer('gamesDrawer')" class="glow-card p-3 rounded-2xl border border-cyan-500/30 flex flex-col items-center justify-center gap-1 hover:border-cyan-500 active:scale-95 transition-all text-center">
+        <span class="text-2xl">🎲</span>
+        <span class="text-[11px] font-bold text-cyan-300">ألعاب وأسئلة</span>
+        <span class="text-[9px] text-gray-400">20 سؤال ولعب</span>
       </button>
     </section>
 
@@ -290,7 +290,7 @@
       </div>
     </section>
 
-    <!-- هدية 1: مساعد المذاكرة والذكاء الاصطناعي Google AI Pro -->
+    <!-- هدية 1: Google AI Pro -->
     <section class="glow-card rounded-3xl p-5 border border-indigo-500/30 bg-gradient-to-b from-[#12162e] to-[#0c0f1d] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -432,7 +432,7 @@
       </div>
     </section>
 
-    <!-- زر الواتساب للتواصل والرد -->
+    <!-- زر الواتساب -->
     <section class="glow-card rounded-3xl p-4 border border-emerald-500/20">
       <a href="https://wa.me/201147584829?text=%D8%B9%D8%AC%D8%A8%D8%AA%D9%86%D9%8A%20%D8%AC%D8%AF%D8%A7%D9%8B%20%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%AC%D8%A3%D8%A9%20%D9%8A%D8%A7%20%D9%85%D9%8A%D8%AF%D9%88%20%D8%AA%D8%B3%D9%84%D9%85%20%D8%A7%D9%8A%D8%AF%D9%83%20%F0%9F%A5%B9%F0%9F%A4%8D" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform">
         <i data-lucide="message-circle" class="w-5 h-5"></i>
@@ -466,9 +466,7 @@
         كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة ميمو ليكي 🤍
       </p>
 
-      <!-- قائمة الكبسولات -->
       <div class="flex flex-col gap-3">
-        <!-- كبسولة 1 -->
         <div class="glow-card rounded-2xl p-4 border border-pink-500/20 cursor-pointer" onclick="toggleLetter('letter1')">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-pink-200">افتحيها لما تكوني مخنوقة من المذاكرة 📚</span>
@@ -479,7 +477,6 @@
           </p>
         </div>
 
-        <!-- كبسولة 2 -->
         <div class="glow-card rounded-2xl p-4 border border-purple-500/20 cursor-pointer" onclick="toggleLetter('letter2')">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-purple-200">افتحيها لما أكون واحشك ونفسك تسمعي صوتي 🎧</span>
@@ -490,7 +487,6 @@
           </p>
         </div>
 
-        <!-- كبسولة 3 -->
         <div class="glow-card rounded-2xl p-4 border border-rose-500/20 cursor-pointer" onclick="toggleLetter('letter3')">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-rose-200">افتحيها لما نكون متخانقين وزعلانة مني 🥺</span>
@@ -501,7 +497,6 @@
           </p>
         </div>
 
-        <!-- كبسولة 4 -->
         <div class="glow-card rounded-2xl p-4 border border-indigo-500/20 cursor-pointer" onclick="toggleLetter('letter4')">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-indigo-200">افتحيها لما تكوني محتاجة تحسي إنك غالية 🌸</span>
@@ -512,7 +507,6 @@
           </p>
         </div>
 
-        <!-- كبسولة 5 -->
         <div class="glow-card rounded-2xl p-4 border border-teal-500/20 cursor-pointer" onclick="toggleLetter('letter5')">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold text-teal-200">افتحيها لما مش عارفة تنامي ودماغك بتفكر 🌙</span>
@@ -544,7 +538,6 @@
       </p>
 
       <div class="grid grid-cols-1 gap-3">
-        <!-- كوبون 1 -->
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-amber-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-amber-300">🍔 كوبون خروجة وأكلة على ذوق منمن</h3>
@@ -557,7 +550,6 @@
           </a>
         </div>
 
-        <!-- كوبون 2 -->
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-pink-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-pink-300">🎧 كوبون فضفضة بدون مقاطعة</h3>
@@ -570,20 +562,18 @@
           </a>
         </div>
 
-        <!-- كوبون 3 -->
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-rose-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-rose-300">🤍 كوبون صلح فوري (يلغي أي زعل)</h3>
             <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
           <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر ميمو يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.</p>
-          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D9%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D8%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>استخدمي الكوبون دلوقتي</span>
           </a>
         </div>
 
-        <!-- كوبون 4 -->
         <div class="glow-card rounded-2xl p-4 border-2 border-dashed border-emerald-500/40 relative">
           <div class="flex justify-between items-start mb-2">
             <h3 class="text-sm font-bold text-emerald-300">🪄 كوبون أمنية خاصة مجابة</h3>
@@ -599,74 +589,95 @@
     </div>
   </div>
 
-  <!-- ==================== صفحة جانبية 3: لعبة إحنا ومنمن ==================== -->
-  <div id="quizDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
+  <!-- ==================== صفحة جانبية 3: ساحة الألعاب وكروت الأسئلة ==================== -->
+  <div id="gamesDrawer" class="side-page fixed inset-0 z-50 bg-[#0b0714]/98 backdrop-blur-xl translate-x-full overflow-y-auto p-5 flex flex-col items-center">
     <div class="w-full max-w-[430px] flex flex-col gap-4 pb-12">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div class="flex items-center gap-2">
-          <span class="text-2xl">🎮</span>
-          <h2 class="text-base font-extrabold text-cyan-300">لعبة كويز إحنا ومنمن</h2>
+          <span class="text-2xl">🎲</span>
+          <h2 class="text-base font-extrabold text-cyan-300">ألعاب وأسئلة الكول</h2>
         </div>
-        <button onclick="closeDrawer('quizDrawer')" class="p-2 rounded-xl bg-white/10 text-gray-300 hover:text-white">
+        <button onclick="closeDrawer('gamesDrawer')" class="p-2 rounded-xl bg-white/10 text-gray-300 hover:text-white">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="flex items-center justify-between bg-black/40 p-3 rounded-2xl border border-white/5">
-        <span class="text-xs text-gray-300 font-medium">النتيجة:</span>
-        <span id="quizScore" class="text-sm font-extrabold text-cyan-400">0 من 4</span>
+      <!-- 1. كروت الأسئلة التفاعلية (20 سؤال) -->
+      <div class="glow-card rounded-3xl p-5 border border-cyan-500/30 text-center relative overflow-hidden bg-gradient-to-b from-[#0e172a] to-[#0b0f19]">
+        <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
+          <span class="text-cyan-300 font-bold flex items-center gap-1">
+            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+            <span>كروت صراحة ونكش</span>
+          </span>
+          <span id="questionCounter" class="bg-cyan-500/20 text-cyan-300 px-2.5 py-0.5 rounded-full border border-cyan-500/30 text-[10px]">
+            سؤال 1 من 20
+          </span>
+        </div>
+
+        <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/40 rounded-2xl border border-white/5 mb-4">
+          <p id="questionText" class="text-sm font-semibold text-gray-100 leading-relaxed">
+            لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍
+          </p>
+        </div>
+
+        <div class="flex gap-2">
+          <button id="nextQuestionBtn" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-extrabold text-xs flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 active:scale-95 transition-transform">
+            <i data-lucide="dices" class="w-4 h-4"></i>
+            <span>سؤال عشوائي جديد 🎲</span>
+          </button>
+        </div>
       </div>
 
-      <!-- الأسئلة -->
-      <div id="quizContainer" class="flex flex-col gap-4">
+      <!-- 2. ألعاب سريعة للكول -->
+      <h3 class="text-xs font-bold text-purple-300 flex items-center gap-1.5 mt-2">
+        <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+        <span>ألعاب نلعبها وإحنا في الكول سوا:</span>
+      </h3>
 
-        <!-- س 1 -->
-        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q1Box">
-          <h3 class="text-xs font-bold text-white mb-2.5">1. مشروب منمن الرسمي وقت الروقان والمذاكرة؟ ☕</h3>
-          <div class="flex flex-col gap-2">
-            <button onclick="answerQuiz(1, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) شاي بالنعناع أو شاي بلبن دافي ☕✨</button>
-            <button onclick="answerQuiz(1, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) قهوة سادة بدون سكر</button>
-            <button onclick="answerQuiz(1, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) عصير مانجو مع ثلج</button>
+      <div class="flex flex-col gap-3">
+        <!-- لعبة 1: مين فينا أكتر -->
+        <div class="glow-card rounded-2xl p-4 border border-purple-500/20">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>👥 لعبة "مين فينا أكتر؟"</span>
+            </h4>
+            <span class="text-[9px] bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full">تحدي النطق</span>
+          </div>
+          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
+            واحد يقول موقف، وتعدوا 1.. 2.. 3، والاتنين تنطقوا "ميمو" أو "منمن" في نفس اللحظة!
+          </p>
+          <div class="text-[10px] text-purple-300 bg-purple-950/40 p-2.5 rounded-xl border border-purple-800/30 space-y-1">
+            <p>💡 أمثلة سريعة: مين بيتعصب أسرع؟ • مين هينام الأول في الفرح؟ • مين بياكل أكتر؟ • مين بيعاند ومبيقولش آسف بسرعة؟</p>
           </div>
         </div>
 
-        <!-- س 2 -->
-        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q2Box">
-          <h3 class="text-xs font-bold text-white mb-2.5">2. لو منمن قلبت وبقت نكدية فجأة.. إيه الحل السحري لميمو؟ 🥺</h3>
-          <div class="flex flex-col gap-2">
-            <button onclick="answerQuiz(2, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) يسيبها تهدى لوحدها وميكلمهاش</button>
-            <button onclick="answerQuiz(2, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) يقولها "يا بنوتي وحقك عليا" ويدلعها فوراً 🤍</button>
-            <button onclick="answerQuiz(2, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) يقعد يناهف ويتخانق معاها</button>
+        <!-- لعبة 2: تحدي الـ 5 ثواني -->
+        <div class="glow-card rounded-2xl p-4 border border-pink-500/20">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>⏱️ لعبة الـ 5 ثواني</span>
+            </h4>
+            <span class="text-[9px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">سرعة بديهة</span>
           </div>
+          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
+            ميمو يطلب طلب (مثلاً: 3 حاجات بتخافي منها، أو 3 ممثلين بتحبيهم)، ولازم تجاوبي في 5 ثواني بس قبل ما ميمو يخلص العد!
+          </p>
         </div>
 
-        <!-- س 3 -->
-        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q3Box">
-          <h3 class="text-xs font-bold text-white mb-2.5">3. الخروجة اللي نفسنا نعملها بعد ما تدخلي ألسن إن شاء الله؟ 🎓</h3>
-          <div class="flex flex-col gap-2">
-            <button onclick="answerQuiz(3, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) نلف في شوارع القاهرة بالليل وناكل أكل بنحبه 🚗✨</button>
-            <button onclick="answerQuiz(3, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) نقعد في مكتبة نذاكر</button>
-            <button onclick="answerQuiz(3, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) نروح ملاهي أطفال</button>
+        <!-- لعبة 3: لو خيروك الإجبارية -->
+        <div class="glow-card rounded-2xl p-4 border border-indigo-500/20">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>⚖️ لعبة "لو خيّروك"</span>
+            </h4>
+            <span class="text-[9px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full">اختيار إجباري</span>
           </div>
+          <p class="text-[11px] text-gray-300 leading-relaxed mb-2">
+            تخيير بين أمرين صعبين وممنوع إجابة "ولا واحدة" أو "الاتنين" (مثلاً: تسافري باريس لوحدك ولا نقضي يوم في الزحمة سوا؟).
+          </p>
         </div>
-
-        <!-- س 4 -->
-        <div class="glow-card rounded-2xl p-4 border border-cyan-500/20" id="q4Box">
-          <h3 class="text-xs font-bold text-white mb-2.5">4. أكتر كلمة ميمو بيقولها وبتفرح قلب منمن؟ 💍</h3>
-          <div class="flex flex-col gap-2">
-            <button onclick="answerQuiz(4, true, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">أ) مراتي وبنوتي الصغيرة اللي ماليش غيرها 🤍</button>
-            <button onclick="answerQuiz(4, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ب) تمام يا ستي</button>
-            <button onclick="answerQuiz(4, false, this)" class="w-full text-right p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-gray-200 border border-white/5">ج) ماشي الحال</button>
-          </div>
-        </div>
-
       </div>
 
-      <div id="quizReward" class="hidden glow-card rounded-2xl p-4 border border-emerald-500/30 text-center animate-bounce">
-        <span class="text-3xl">🎉🤍</span>
-        <h4 class="text-sm font-bold text-emerald-300 mt-1">شطورة يا قلبي.. قفلتي كويز إحنا!</h4>
-        <p class="text-xs text-gray-200 mt-1">حافظين بعض صم وعقبال ما نفضل سوا العمر كله يارب ✨</p>
-      </div>
     </div>
   </div>
 
@@ -736,7 +747,7 @@
       });
     });
 
-    // ================= 2. التحكم في الصفحات الجانبية (Drawers) =================
+    // ================= 2. التحكم في الصفحات الجانبية =================
     function openDrawer(id) {
       const drawer = document.getElementById(id);
       drawer.classList.remove('translate-x-full');
@@ -755,35 +766,45 @@
       el.classList.toggle('hidden');
     }
 
-    // ================= 3. لعبة الكويز =================
-    let score = 0;
-    let answered = {};
+    // ================= 3. كروت الـ 20 سؤال التفاعلية =================
+    const callQuestions = [
+      "لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍",
+      "إيه أول انطباع أخدتيه عني أول ما بدأنا نتكلم، وإيه اللي اتغير فيه بعد ما عرفتيني بجد؟ 👀",
+      "لو هتوصفيني لشخص ميعرفنيش في 3 كلمات بس.. هتختاري إيه؟ ✨",
+      "إيه أكتر حاجة بعملها بتعصبك بهزار، بس في الحقيقة بتعجبك؟ 😂",
+      "لو صحيتي لقيتي نفسك دخلتي ألسن خلاص وتالتة ثانوي خلصت.. إيه أول حاجة هتعمليها في أول يوم إجازة؟ 🎓",
+      "إيه أكتر أغنية لما بتسمعيها بتحسي إنها مكتوبة عشاننا إحنا الاتنين؟ 🎶",
+      "لو طلبوا منك تقولي عيب واحد فيا بكل صراحة ومن غير مجاملة.. هيكون إيه؟ 🙈",
+      "إيه أكتر رسالة أو كلمة من ميمو عملتي لها سكرين شوت أو لسه حافظاها في قلبك؟ 💌",
+      "لو هنخرج خروجة سرية محدش يعرف عنها حاجة، تحبي نقضي اليوم إزاي، من الصبح ولا بالليل؟ 🚗",
+      "إيه الأكلة أو الحاجة الحلوة اللي لما بتاكليها مودك بيتعدل 180 درجة؟ 🍔🍰",
+      "تفتكري مين فينا بيحب التاني أكتر؟ (وبلاش إجابة 'إحنا الاتنين زي بعض'!) 💍",
+      "لو كان ليكي أمنية واحدة تتحقق دلوقتي حالا وممنوع تكون فلوس، هتتمني إيه؟ 🪄",
+      "إيه أكتر طبع فيكي حاسة إن ميمو هو الوحيد اللي فاهمه ومستحمله في الدنيا دي؟ 🤍",
+      "لما بنكون في كول ونسكت ونقول 'امممم'.. إيه أول فكرة بتيجي في دماغك وقت السكوت ده؟ 🙈",
+      "إيه أكتر موقف مضحك أو غريب حصل لك في تالتة ثانوي لحد دلوقتي ونفسك تنسيه؟ 📚",
+      "لو هنعيش في بيت أحلامنا، إيه أكتر ركن أو تفصيلة لازم تكون موجودة فيه وتخصك أنتي؟ 🏡",
+      "إيه التصرف أو الحركة اللي لو عملتها بتخليكي تبتسمي وتنسي أي زعل في ثانية؟ 🌸",
+      "لو عملوا رواية أو كتاب عن قصة تعارفنا.. تفتكري نسمي الكتاب ده إيه؟ 📖",
+      "بصراحة.. بتغيري عليا من إيه بالظبط حتى لو مش بتبيني قدامي؟ 🔥",
+      "لو ليكي عندي طلب أو سؤال محرج وممنوع أهرب من إجابته.. هتسأليني إيه دلوقتي؟ 😉"
+    ];
 
-    function answerQuiz(qNum, isCorrect, btn) {
-      if (answered[qNum]) return;
-      answered[qNum] = true;
+    let currentQIndex = 0;
+    const qTextEl = document.getElementById('questionText');
+    const qCounterEl = document.getElementById('questionCounter');
 
-      const parent = btn.parentElement;
-      const allBtns = parent.querySelectorAll('button');
-      allBtns.forEach(b => b.disabled = true);
+    document.getElementById('nextQuestionBtn').addEventListener('click', () => {
+      let nextIndex;
+      do {
+        nextIndex = Math.floor(Math.random() * callQuestions.length);
+      } while (nextIndex === currentQIndex && callQuestions.length > 1);
 
-      if (isCorrect) {
-        btn.classList.remove('bg-white/5');
-        btn.classList.add('bg-emerald-600', 'text-white', 'font-bold');
-        score++;
-        try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
-      } else {
-        btn.classList.remove('bg-white/5');
-        btn.classList.add('bg-rose-600', 'text-white');
-      }
-
-      document.getElementById('quizScore').textContent = `${score} من 4`;
-
-      if (Object.keys(answered).length === 4) {
-        document.getElementById('quizReward').classList.remove('hidden');
-        try { confetti({ particleCount: 90, spread: 70 }); } catch (e) {}
-      }
-    }
+      currentQIndex = nextIndex;
+      qTextEl.textContent = callQuestions[currentQIndex];
+      qCounterEl.textContent = `سؤال ${currentQIndex + 1} من ${callQuestions.length}`;
+      try { confetti({ particleCount: 20, spread: 45 }); } catch (e) {}
+    });
 
     // ================= 4. زرار جرعة طاقة تالتة ثانوي =================
     const motivQuotes = [
