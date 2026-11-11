@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>مملكة منمن وميمو 🤍✨ | 11:11</title>
+  <title>مملكة منمن ومودي 🤍✨ | 11:11</title>
   
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,9 +25,9 @@
       touch-action: pan-y;
     }
     .glow-card {
-      background: rgba(20, 12, 34, 0.78);
+      background: rgba(20, 12, 34, 0.82);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(244, 114, 182, 0.12);
+      border: 1px solid rgba(244, 114, 182, 0.14);
       box-shadow: 0 12px 35px -10px rgba(168, 85, 247, 0.25);
     }
     .pulse-glow {
@@ -61,10 +61,10 @@
   <!-- خلفية النجوم الرومانسية الهادئة -->
   <canvas id="starsCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- عنصر الصوت -->
+  <!-- عنصر مشغل الصوت -->
   <audio id="bgMusic" preload="auto"></audio>
 
-  <!-- ==================== شاشة الدخول الهادئة ==================== -->
+  <!-- ==================== شاشة الدخول ==================== -->
   <div id="introScreen" class="fixed inset-0 z-50 bg-[#08040d]/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
     <div class="relative mb-6">
       <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-700 via-pink-600 to-rose-500 flex items-center justify-center pulse-glow text-4xl shadow-2xl">
@@ -72,10 +72,10 @@
       </div>
     </div>
     <h2 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-200 to-indigo-200 mb-3">
-      مملكة منمن وميمو 🤍✨
+      مملكة منمن ومودي 🤍✨
     </h2>
     <p class="text-gray-300 text-sm max-w-xs mb-8 leading-relaxed">
-      مكاننا الهادي بعيد عن دوشة العالم وتعب المذاكرة.. معمولة بحب عشان تروق على قلبك 🌸
+      مكاننا الهادي بعيد عن دوشة العالم وتعب المذاكرة.. معمول مخصوص بحب عشان تروقي وتفرحي 🌸
     </p>
     <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 font-bold text-lg text-white shadow-xl shadow-purple-600/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3">
       <span>ادخلي يا روح قلبي 🎧🤍</span>
@@ -83,7 +83,7 @@
     </button>
   </div>
 
-  <!-- ==================== المحتوى الأساسي للموبايل ==================== -->
+  <!-- ==================== المحتوى الأساسي ==================== -->
   <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-16">
 
     <!-- الهيدر الشخصي -->
@@ -106,7 +106,38 @@
       <div class="text-2xl animate-pulse">💍</div>
     </header>
 
-    <!-- ==================== كارت ورسالة 11/11 الخاصة بالحب ==================== -->
+    <!-- ==================== عداد اللحظة الأولى (28 أكتوبر 2026 - 5:30 فجراً) ==================== -->
+    <section class="glow-card rounded-3xl p-4 text-center border border-pink-500/25 bg-gradient-to-b from-[#1b0d2a] to-[#0d0716] relative overflow-hidden">
+      <div class="flex items-center justify-center gap-1.5 mb-1.5">
+        <i data-lucide="heart" class="w-4 h-4 text-pink-400 fill-pink-500"></i>
+        <h3 class="text-xs font-bold text-pink-300">سوا من فجر 28 أكتوبر 2026 (5:30 ص) ⏳🤍</h3>
+      </div>
+      
+      <p class="text-[11px] text-gray-300 mb-3 leading-relaxed">
+        أحلى فجرية في حياتي.. لما بدأنا نتكلم صدفة ومكناش نعرف إنها بداية أجمل قصة حب ✨
+      </p>
+
+      <div class="grid grid-cols-4 gap-2">
+        <div class="bg-black/40 rounded-xl p-2 border border-white/5">
+          <span id="loveDays" class="block text-lg font-extrabold text-pink-400">0</span>
+          <span class="text-[9px] text-gray-400">يوم</span>
+        </div>
+        <div class="bg-black/40 rounded-xl p-2 border border-white/5">
+          <span id="loveHours" class="block text-lg font-extrabold text-purple-300">0</span>
+          <span class="text-[9px] text-gray-400">ساعة</span>
+        </div>
+        <div class="bg-black/40 rounded-xl p-2 border border-white/5">
+          <span id="loveMinutes" class="block text-lg font-extrabold text-indigo-300">0</span>
+          <span class="text-[9px] text-gray-400">دقيقة</span>
+        </div>
+        <div class="bg-black/40 rounded-xl p-2 border border-white/5">
+          <span id="loveSeconds" class="block text-lg font-extrabold text-teal-300 animate-pulse">0</span>
+          <span class="text-[9px] text-gray-400">ثانية</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== كارت ورسالة 11/11 ==================== -->
     <section class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#211033] via-[#150a24] to-[#0a0512] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -120,7 +151,6 @@
         </span>
       </div>
 
-      <!-- نص رسالة 11/11 -->
       <div class="bg-black/40 p-3.5 rounded-2xl border border-pink-500/20 text-xs text-gray-200 leading-relaxed space-y-2 mb-4 text-right">
         <p class="font-bold text-pink-300">لـ نصفي التاني وتوأم روحي منمن 🤍:</p>
         <p>11:11 مش مجرد رقم ولا تريند عابر.. في اللحظة دي بالذات الكون بيشهد إنك روحي التانية اللي كنت مستنيها طول عمري. ربنا جمعنا مش صدفة، كل تفصيلة فيكي بتطمني وبتفهمني من غير كلام.</p>
@@ -142,7 +172,7 @@
       </div>
     </section>
 
-    <!-- مشغل المزيكا -->
+    <!-- ==================== مشغل المزيكا ==================== -->
     <section class="glow-card rounded-3xl p-4 border border-white/10">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -224,7 +254,7 @@
       </button>
     </section>
 
-    <!-- ==================== لوحة نوتات المذاكرة الخاصة بـ منمن ==================== -->
+    <!-- ==================== لوحة نوتات ومذكرات منمن ==================== -->
     <section class="glow-card rounded-3xl p-5 border border-indigo-500/30">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -245,7 +275,7 @@
       </div>
     </section>
 
-    <!-- رسالة عيد الميلاد المحفوظة -->
+    <!-- ==================== رسالة عيد الميلاد المحفوظة ==================== -->
     <section id="secretMessageSection" class="glow-card rounded-3xl p-5 border border-pink-500/30 bg-gradient-to-b from-[#1f102c] to-[#0e0717] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -380,7 +410,7 @@
     <!-- Footer -->
     <footer class="text-center pt-3 pb-6">
       <p class="text-[11px] text-gray-400 font-medium tracking-wide">
-        Made with endless love by <span class="text-pink-400 font-bold">ميمو</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍✨
+        Made with endless love by <span class="text-pink-400 font-bold">مودي</span> for <span class="text-purple-300 font-bold">منمن</span> 🤍✨
       </p>
     </footer>
 
@@ -400,7 +430,7 @@
       </div>
 
       <p class="text-xs text-gray-300 leading-relaxed">
-        كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة ميمو ليكي 🤍
+        كروت صغيرة مقفولة لمشاعرك.. افتحي الكارت المناسب لإحساسك دلوقتي عشان تشوفي رسالة مودي ليكي 🤍
       </p>
 
       <div class="flex flex-col gap-3">
@@ -471,7 +501,7 @@
       </div>
 
       <p class="text-xs text-gray-300 leading-relaxed">
-        الكوبونات دي ملكك حصرياً.. دوسي على أي كوبون عشان تستخدميه ويبعت لميمو أمر تنفيذي على واتساب فوراً 😉
+        الكوبونات دي ملكك حصرياً.. دوسي على أي كوبون عشان تستخدميه ويبعت لـ مودي أمر تنفيذي على واتساب فوراً 😉
       </p>
 
       <div class="grid grid-cols-1 gap-3">
@@ -480,8 +510,8 @@
             <h3 class="text-sm font-bold text-amber-300">🍔 كوبون خروجة وأكلة على ذوق منمن</h3>
             <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">تختاري المكان ونوع الأكل اللي نفسك فيه وميمو ملزم يعزمك ويوصلك وينفذ وهو مبتسم!</p>
-          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D9%82%D8%B1%D8%B1%D8%AA%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%83%D9%84%D8%A9%20%D8%B9%D9%84%D9%89%20%D8%B0%D9%88%D9%82%D9%8A%20%F0%9F%8D%94%F0%9F%A4%AD" target="_blank" class="w-full py-2 bg-amber-500 hover:bg-amber-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+          <p class="text-xs text-gray-300 mb-3">تختاري المكان ونوع الأكل اللي نفسك فيه ومودي ملزم يعزمك ويوصلك وينفذ وهو مبتسم!</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%88%D8%AF%D9%8A%20%D8%A3%D9%86%D8%A7%20%D9%82%D8%B1%D8%B1%D8%AA%20%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%AE%D8%B1%D9%88%D8%AC%D8%A9%20%D9%88%D8%A7%D9%84%D8%A3%D9%83%D9%84%D8%A9%20%D8%B9%D9%84%D9%89%20%D8%B0%D9%88%D9%82%D9%8A%20%F0%9F%8D%94%F0%9F%A4%AD" target="_blank" class="w-full py-2 bg-amber-500 hover:bg-amber-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>استخدمي الكوبون دلوقتي</span>
           </a>
@@ -492,8 +522,8 @@
             <h3 class="text-sm font-bold text-pink-300">🎧 كوبون فضفضة بدون مقاطعة</h3>
             <span class="text-[10px] bg-pink-500/20 text-pink-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">مكالمة كاملة تفضفضي وتشتكي من العالم والدروس، وميمو يسمع بس ويطبطب وميقولش غير "حقك عليا يا قلبي".</p>
-          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%A8%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D9%81%D8%B6%D9%81%D8%B6%D8%A9%20%D8%AF%D9%84%D9%88%D9%82%D8%AA%D9%8A..%20%D9%81%D8%B6%D9%8A%20%D9%86%D9%81%D8%B3%D9%83%20%D9%84%D9%84%D9%83%D9%88%D9%84%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%F0%9F%92%96" target="_blank" class="w-full py-2 bg-pink-500 hover:bg-pink-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+          <p class="text-xs text-gray-300 mb-3">مكالمة كاملة تفضفضي وتشتكي من العالم والدروس، ومودي يسمع بس ويطبطب وميقولش غير "حقك عليا يا قلبي".</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%88%D8%AF%D9%8A%20%D8%A3%D9%86%D8%A7%20%D8%A8%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D9%81%D8%B6%D9%81%D8%B6%D8%A9%20%D8%AF%D9%84%D9%88%D9%82%D8%AA%D9%8A..%20%D9%81%D8%B6%D9%8A%20%D9%86%D9%81%D8%B3%D9%83%20%D9%84%D9%84%D9%83%D9%88%D9%84%20%F0%9F%A7%98%E2%80%8D%E2%99%80%EF%B8%8F%F0%9F%92%96" target="_blank" class="w-full py-2 bg-pink-500 hover:bg-pink-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>استخدمي الكوبون دلوقتي</span>
           </a>
@@ -504,8 +534,8 @@
             <h3 class="text-sm font-bold text-rose-300">🤍 كوبون صلح فوري (يلغي أي زعل)</h3>
             <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر ميمو يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.</p>
-          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D9%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+          <p class="text-xs text-gray-300 mb-3">كارت أحمر يلغي أي خناقة في ثانية ويجبر مودي يصالح بنوتي باعتذار ودلع فوري مهما كان السبب.</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%88%D8%AF%D9%8A%20%D8%A3%D9%86%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A7%D9%84%D8%B5%D9%84%D8%AD%20%D8%A7%D9%84%D9%81%D9%88%D8%B1%D9%8A..%20%D8%B5%D8%A7%D9%84%D8%AD%D9%86%D9%8A%20%D8%AD%D8%A7%D9%84%D8%A7%D9%8B%20%F0%9F%A5%BA%E2%9D%A4%EF%B8%8F" target="_blank" class="w-full py-2 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>استخدمي الكوبون دلوقتي</span>
           </a>
@@ -516,8 +546,8 @@
             <h3 class="text-sm font-bold text-emerald-300">🪄 كوبون أمنية خاصة مجابة</h3>
             <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full">ساري المفعول</span>
           </div>
-          <p class="text-xs text-gray-300 mb-3">طلب واحد مجاب بدون أي شروط أو مبررات.. اطلبي اللي يجي في بالك وميمو حينفذه.</p>
-          <a href="https://wa.me/201147584829?text=%D9%85%D9%8A%D9%85%D9%88%20%D9%85%D8%B9%D8%A7%D9%8A%D8%A7%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A3%D9%85%D9%86%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D8%A8%D8%A9%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AD%D8%A7%D8%AC%D8%A9%20%D9%85%D8%AA%D9%82%D9%88%D9%84%D8%B4%20%D9%84%D8%A7%20%F0%9F%A7%9A%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8" target="_blank" class="w-full py-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
+          <p class="text-xs text-gray-300 mb-3">طلب واحد مجاب بدون أي شروط أو مبررات.. اطلبي اللي يجي في بالك ومودي حينفذه.</p>
+          <a href="https://wa.me/201147584829?text=%D9%85%D9%88%D8%AF%D9%8A%20%D9%85%D8%B9%D8%A7%D9%8A%D8%A7%20%D9%83%D9%88%D8%A8%D9%88%D9%86%20%D8%A3%D9%85%D9%86%D9%8A%D8%A9%20%D9%85%D8%AC%D8%A7%D8%A8%D8%A9%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B7%D9%84%D8%A8%20%D8%AD%D8%A7%D8%AC%D8%A9%20%D9%85%D8%AA%D9%82%D9%88%D9%84%D8%B4%20%D9%84%D8%A7%20%F0%9F%A7%9A%E2%80%8D%E2%99%80%EF%B8%8F%E2%9C%A8" target="_blank" class="w-full py-2 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-black font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-transform">
             <i data-lucide="send" class="w-3.5 h-3.5"></i>
             <span>استخدمي الكوبون دلوقتي</span>
           </a>
@@ -539,7 +569,7 @@
         </button>
       </div>
 
-      <!-- أزرار التابز (Tabs) لاختيار اللعبة -->
+      <!-- أزرار التابز (Tabs) -->
       <div class="grid grid-cols-4 gap-1.5 p-1 bg-black/50 rounded-2xl border border-white/10 text-[11px] font-bold text-center">
         <button id="tabBtn1" onclick="switchGameTab('tab1')" class="py-2 rounded-xl transition-all tab-active">🎯 صراحة</button>
         <button id="tabBtn2" onclick="switchGameTab('tab2')" class="py-2 rounded-xl text-gray-400 transition-all">👥 مين فينا</button>
@@ -557,7 +587,7 @@
 
           <div class="min-h-[110px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-4">
             <p id="truthText" class="text-sm font-semibold text-gray-100 leading-relaxed">
-              لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍
+              فاكرة فجر يوم 28 أكتوبر الساعة 5:30 لما بدأنا نتكلم لأول مرة.. إيه أول حاجة خطرت في بالك أول ما شوفتي رسايلي؟ 👀🤍
             </p>
           </div>
 
@@ -576,7 +606,7 @@
             <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full border border-purple-500/30 text-[10px]">مين فينا؟</span>
           </div>
 
-          <p class="text-[11px] text-gray-300 mb-2">اقروا الموقف، وعدوا 1.. 2.. 3 وانطقوا "ميمو" أو "منمن" في نفس اللحظة:</p>
+          <p class="text-[11px] text-gray-300 mb-2">اقروا الموقف، وعدوا 1.. 2.. 3 وانطقوا "مودي" أو "منمن" في نفس اللحظة:</p>
 
           <div class="min-h-[100px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-4">
             <p id="whoText" class="text-base font-bold text-purple-200 leading-relaxed">
@@ -591,7 +621,7 @@
         </div>
       </div>
 
-      <!-- TAB 3: تحدي الـ 5 ثواني بالعداد -->
+      <!-- TAB 3: تحدي الـ 5 ثواني -->
       <div id="tabContent3" class="hidden flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-amber-500/30 text-center bg-gradient-to-b from-[#24160e] to-[#0f0a06]">
           <div class="flex items-center justify-between mb-3 text-xs text-gray-400">
@@ -601,7 +631,7 @@
 
           <div class="min-h-[85px] flex items-center justify-center p-3 bg-black/50 rounded-2xl border border-white/5 mb-3">
             <p id="fiveSecText" class="text-sm font-bold text-amber-200 leading-relaxed">
-              قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳
+              قولي 3 حاجات بتحبيها في مودي في 5 ثواني بس! ⏳
             </p>
           </div>
 
@@ -643,7 +673,7 @@
         </div>
       </div>
 
-      <!-- قسم إضافة سؤال أو تحدي من عندكم -->
+      <!-- قسم إضافة سؤال مخصص -->
       <div class="glow-card rounded-2xl p-4 border border-white/10 bg-black/40">
         <h4 class="text-xs font-bold text-pink-300 mb-2 flex items-center gap-1.5">
           <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
@@ -672,7 +702,33 @@
   <script>
     lucide.createIcons();
 
-    // ================= 1. قائمة الأغاني =================
+    // ================= 1. عداد اللحظة الأولى (28/10/2026 - 5:30 ص) =================
+    function updateLoveCounter() {
+      const startDate = new Date(2026, 9, 28, 5, 30, 0); 
+      const now = new Date();
+      const diff = now - startDate;
+      
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / 1000 / 60) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        const dEl = document.getElementById('loveDays');
+        const hEl = document.getElementById('loveHours');
+        const mEl = document.getElementById('loveMinutes');
+        const sEl = document.getElementById('loveSeconds');
+
+        if (dEl) dEl.textContent = days;
+        if (hEl) hEl.textContent = hours;
+        if (mEl) mEl.textContent = minutes;
+        if (sEl) sEl.textContent = seconds;
+      }
+    }
+    setInterval(updateLoveCounter, 1000);
+    updateLoveCounter();
+
+    // ================= 2. قائمة الأغاني =================
     const playlist = [
       { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
       { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
@@ -681,7 +737,7 @@
       { title: "عامر منيب - أيام وليالي", artist: "تراك المذاكرة والروقان ☕", file: "./song5.mp3" },
       { title: "عامر منيب - عارف", artist: "عامر منيب 🤍", file: "./song6.mp3" },
       { title: "عامر منيب - فاكرني", artist: "تراك هادي 🎶", file: "./song7.mp3" },
-      { title: "سنة حلوة يا جميل 🎂", artist: "(أغنية عيد الميلاد الرسمية 🎉 (اختيار ميمو", file: "./birthday.mp3" }
+      { title: "سنة حلوة يا جميل 🎂", artist: "أغنية عيد ميلادك 🎉", file: "./birthday.mp3" }
     ];
 
     let currentTrack = 0;
@@ -734,7 +790,7 @@
       });
     });
 
-    // ================= 2. التحكم في الصفحات الجانبية =================
+    // ================= 3. التحكم في الصفحات الجانبية =================
     function openDrawer(id) {
       const drawer = document.getElementById(id);
       drawer.classList.remove('translate-x-full');
@@ -753,7 +809,7 @@
       el.classList.toggle('hidden');
     }
 
-    // ================= 3. ميزة بوابة 11:11 =================
+    // ================= 4. ميزة بوابة 11:11 =================
     const saved1111 = localStorage.getItem('eman_1111_wish');
     if (saved1111) {
       document.getElementById('saved1111Box').classList.remove('hidden');
@@ -771,10 +827,10 @@
       }
     });
 
-    // ================= 4. الـ 30 جملة تحفيزية لتالتة ثانوي =================
+    // ================= 5. الـ 30 جملة تحفيزية لتالتة ثانوي =================
     const studyQuotes = [
       "اصحي وسمي الله.. كل سطر بتذاكريه خطوة حقيقية بتقربك من روب ألسن عين شمس 🎓🤍",
-      "متقلقيش من بكرة، ربنا شايف تعبك وميمو سهران بيدعيلك في كل سجدة ✨",
+      "متقلقيش من بكرة، ربنا شايف تعبك ومودي سهران بيدعيلك في كل سجدة ✨",
       "لما تحسي بضغط، افتكري إنك بنوتة قوية وشاطرة وهتفرحينا كلنا بمجموعك 💪",
       "تالتة ثانوي مجرد محطة، ومستقبلك وضحكتك أهم من أي ضغط، وإنتي قدها وهتعديها 🌸",
       "خدي نفس عميق واشربي شاي دافي وريحي ضهرك 5 دقايق، متضغطيش على أعصابك ☕",
@@ -786,20 +842,20 @@
       "لو كان ينفع أذاكر مكانك كنت عملتها، بس واثق إن مخ منمن أذكى من أي منهج 😉",
       "خلي ثقتك في ربنا ملهاش حدود.. تعبك ده محفوظ وهيتعوض بفرحة ملهاش آخر ✨",
       "خطوة ورا خطوة.. هانت يا بطلة، الأيام بتجري والنتيجة الحلوة مستنياكي ⏳",
-      "نامي كويس وارتاحي، السهر الكتير بيسرق التركيز، وميمو عايزك دايماً مصحصحة 😴",
+      "نامي كويس وارتاحي، السهر الكتير بيسرق التركيز، ومودي عايزك دايماً مصحصحة 😴",
       "أنتي مش ماشية لوحدك في الرحلة دي.. تعبك تعبي، ونجاحك هو أكبر فرحة لقلبي 🤍",
       "بطلي توتر وخوف، الخوف بيضيع الطاقة.. خدي نفس هادي وتوكلي على الله 🌸",
       "لما تحسي بملل.. غمضي عينك وتخيلي أول يوم ليكي في مدرجات ألسن عين شمس 🎓✨",
       "حتى لو مادة رمت عليكي ورخمت، أنتي أشطر منها وهتلميها وتجيبي الدرجة النهائية 💪",
       "متقارنيش نفسك بحد، إنتي ليكي طريقك وشطارتك، وبنوتي مميزة عن الكل في عيني 🤍",
       "كلمة 'مبروك يا إيمان' في الصيف الجاي هتمحي أي ضغط مريتي بيه السنة دي 🥹",
-      "افردي وشك القمر ده وإنتي بتذاكري، ميمو مبيحبش يشوف بنوته شايلة الهم أبداً 😘",
+      "افردي وشك القمر ده وإنتي بتذاكري، مودي مبيحبش يشوف بنوته شايلة الهم أبداً 😘",
       "كل ما تزهقي افتكري إن في حياة كاملة ومستقبل حلو مستنينا نبنيه سوا 🏡",
       "الاستمرار والمراجعة بهدوء هما سر الشطارة، خدي وقتك ومتقلقيش 📖",
       "إنتي مش بس شاطرة، إنتي عندك عزيمة وإصرار يهدوا جبال 🤍",
-      "ميمو في ضهرك، في أي ثانية تحتاجي تفضفضي أو تشتكي أنا سامعك ومستنيكي 🎧",
+      "مودي في ضهرك، في أي ثانية تحتاجي تفضفضي أو تشتكي أنا سامعك ومستنيكي 🎧",
       "المجهود عليكي والتوفيق من ربنا، وإنتي عملتي أقصى ما عندك فريحي قلبك 🤍",
-      "مفيش لغة هتقف قدامك، ديولينجو معاكي وميمو في ضهرك وألسن جاهزة ليكي 🦉✨",
+      "مفيش لغة هتقف قدامك، ديولينجو معاكي ومودي في ضهرك وألسن جاهزة ليكي 🦉✨",
       "اهتمي بصحتك وبأكلك، شطارتك محتاجة طاقة ونشاط دايماً 🍎",
       "الأيام الصعبة بتصنع شخصيات قوية، والسنة دي هتخليكي فخورة بنفسك العمر كله ✨",
       "بحبك وبثق فيكي لأبعد الحدود.. شدي حيلك يا أستاذة ألسن ونور عيني 🤍🎓"
@@ -818,7 +874,7 @@
       try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
     });
 
-    // ================= 5. نوتات ومذكرات منمن =================
+    // ================= 6. نوتات ومذكرات منمن =================
     let userNotes = JSON.parse(localStorage.getItem('eman_memo_notes') || '[]');
     const notesContainer = document.getElementById('notesContainer');
 
@@ -858,7 +914,7 @@
     }
     renderNotes();
 
-    // ================= 6. ساحة الألعاب (الأسئلة الغنية 20+) =================
+    // ================= 7. ساحة الألعاب =================
     function switchGameTab(tabId) {
       for (let i = 1; i <= 4; i++) {
         document.getElementById(`tabContent${i}`).classList.add('hidden');
@@ -876,6 +932,7 @@
     // كروت صراحة
     let truthList = JSON.parse(localStorage.getItem('custom_truth') || '[]');
     let defaultTruths = [
+      "فاكرة فجر يوم 28 أكتوبر الساعة 5:30 لما بدأنا نتكلم لأول مرة.. إيه أول حاجة خطرت في بالك أول ما شوفتي رسايلي؟ 👀🤍",
       "لو اتقال ليكي ترجعي بالزمن تعيدي يوم واحد بس عشتيه معايا، هتختاري أنهي يوم بالظبط؟ 🤍",
       "إيه أول انطباع أخدتيه عني أول ما بدأنا نتكلم، وإيه اللي اتغير فيه بعد ما عرفتيني بجد؟ 👀",
       "لو هتوصفيني لشخص ميعرفنيش في 3 كلمات بس.. هتختاري إيه؟ ✨",
@@ -883,12 +940,12 @@
       "لو صحيتي لقيتي نفسك دخلتي ألسن خلاص وتالتة ثانوي خلصت.. إيه أول حاجة هتعمليها في أول يوم إجازة؟ 🎓",
       "إيه أكتر أغنية لما بتسمعيها بتحسي إنها مكتوبة عشاننا إحنا الاتنين؟ 🎶",
       "لو طلبوا منك تقولي عيب واحد فيا بكل صراحة ومن غير مجاملة.. هيكون إيه؟ 🙈",
-      "إيه أكتر رسالة أو كلمة من ميمو عملتي لها سكرين شوت أو لسه حافظاها في قلبك؟ 💌",
+      "إيه أكتر رسالة أو كلمة من مودي عملتي لها سكرين شوت أو لسه حافظاها في قلبك؟ 💌",
       "لو هنخرج خروجة سرية محدش يعرف عنها حاجة، تحبي نقضي اليوم إزاي، من الصبح ولا بالليل؟ 🚗",
       "إيه الأكلة أو الحاجة الحلوة اللي لما بتاكليها مودك بيتعدل 180 درجة؟ 🍔🍰",
       "تفتكري مين فينا بيحب التاني أكتر؟ (وبلاش إجابة 'إحنا الاتنين زي بعض'!) 💍",
       "لو كان ليكي أمنية واحدة تتحقق دلوقتي حالا وممنوع تكون فلوس، هتتمني إيه؟ 🪄",
-      "إيه أكتر طبع فيكي حاسة إن ميمو هو الوحيد اللي فاهمه ومستحمله في الدنيا دي؟ 🤍",
+      "إيه أكتر طبع فيكي حاسة إن مودي هو الوحيد اللي فاهمه ومستحمله في الدنيا دي؟ 🤍",
       "لما بنكون في كول ونسكت ونقول 'امممم'.. إيه أول فكرة بتيجي في دماغك وقت السكوت ده؟ 🙈",
       "إيه أكتر موقف مضحك أو غريب حصل لك في تالتة ثانوي لحد دلوقتي ونفسك تنسيه؟ 📚",
       "لو هنعيش في بيت أحلامنا، إيه أكتر ركن أو تفصيلة لازم تكون موجودة فيه وتخصك أنتي؟ 🏡",
@@ -896,7 +953,6 @@
       "لو عملوا رواية أو كتاب عن قصة تعارفنا.. تفتكري نسمي الكتاب ده إيه؟ 📖",
       "بصراحة.. بتغيري عليا من إيه بالظبط حتى لو مش بتبيني قدامي؟ 🔥",
       "لو ليكي عندي طلب أو سؤال محرج وممنوع أهرب من إجابته.. هتسأليني إيه دلوقتي؟ 😉",
-      "لو خيروكي تختاري لقبي المفضل بين (ميمو، حبيبي، راجلي، بنوتي).. هتختاري تناديني إيه علطول؟ 🤍",
       "إيه أكتر حاجة في شخصيتي بتحسي إنها بتطمنك وتديكي أمان؟ ✨",
       "تفتكري لو كنا اتقابلنا من سنين زمان وإحنا صغيرين، كنا هنحب بعض بردو؟ 🥺",
       "إيه أكتر عادة بعملها وبتعرفي منها إني متضايق أو بفكر في حاجة من غير ما أنطق؟ 👀"
@@ -945,11 +1001,11 @@
     // تحدي الـ 5 ثواني
     let fiveSecList = JSON.parse(localStorage.getItem('custom_fiveSec') || '[]');
     let defaultFiveSec = [
-      "قولي 3 حاجات بتحبيها في ميمو في 5 ثواني بس! ⏳",
+      "قولي 3 حاجات بتحبيها في مودي في 5 ثواني بس! ⏳",
       "قولي 3 أكلات بتشهيكي في نص الليل في 5 ثواني! 🍔",
       "قولي 3 لغات نفسك تتعلميهم في ألسن في 5 ثواني! 🌍",
       "قولي 3 حاجات بتخافي منها موووت في 5 ثواني! 😱",
-      "قولي 3 أسماء دلع بتنادي بيهم ميمو في 5 ثواني! 🤍",
+      "قولي 3 أسماء دلع بتنادي بيهم مودي في 5 ثواني! 🤍",
       "قولي 3 حاجات بتخنقك في تالتة ثانوي في 5 ثواني! 📚",
       "قولي 3 أماكن نفسك نسافرها سوا في 5 ثواني! ✈️",
       "قولي 3 أغاني لعامر منيب أو رامي صبري في 5 ثواني! 🎧",
@@ -957,14 +1013,14 @@
       "قولي 3 حاجات بتعدل مودك في ثانية في 5 ثواني! 🌸",
       "قولي 3 ألوان تحبي تدهني بيها شقتنا في المستقبل في 5 ثواني! 🎨",
       "قولي 3 أنواع شوكولاتة بتعشقيهم في 5 ثواني! 🍫",
-      "قولي 3 مميزات شايفة إنها في ميمو ومش عند حد في 5 ثواني! ✨",
+      "قولي 3 مميزات شايفة إنها في مودي ومش عند حد في 5 ثواني! ✨",
       "قولي 3 حاجات بتاخديهم معاكي كل ما تنزلي الدرس في 5 ثواني! 🎒",
-      "قولي 3 مقالب نفسك تعمليهم في ميمو في 5 ثواني! 😜",
+      "قولي 3 مقالب نفسك تعمليهم في مودي في 5 ثواني! 😜",
       "قولي 3 كلمات بتكرريهم كتير وإنتي بتتكلمي في 5 ثواني! 🗣️",
       "قولي 3 مشروبات سخنة بتدفيكي في الشتا في 5 ثواني! ☕",
       "قولي 3 حاجات لو صحيتي لقيتيها في أوضتك هتطيري من الفرحة في 5 ثواني! 🎁",
       "قولي 3 صفات بتحبيهم في شخصيتك في 5 ثواني! 👑",
-      "قولي 3 تصرفات لو ميمو عملهم بتموتي من الضحك في 5 ثواني! 😂"
+      "قولي 3 تصرفات لو مودي عملهم بتموتي من الضحك في 5 ثواني! 😂"
     ];
     let allFiveSec = [...defaultFiveSec, ...fiveSecList];
 
@@ -1014,22 +1070,22 @@
     let wyrList = JSON.parse(localStorage.getItem('custom_wyr') || '[]');
     let defaultWyr = [
       "تسافري باريس لوحدك أسبوع كامل.. ولا نقضي يوم كامل في زحمة القاهرة سوا؟ 🚗✨",
-      "تذاكري 10 ساعات متواصلة بدون نوم.. ولا تقعدي في الكول مع ميمو وهو ساكت خالص؟ 🙈",
-      "تستغني عن الشوكولاتة سنة كاملة.. ولا تستغني عن مكالمات ميمو لمدة أسبوع؟ 🍫",
+      "تذاكري 10 ساعات متواصلة بدون نوم.. ولا تقعدي في الكول مع مودي وهو ساكت خالص؟ 🙈",
+      "تستغني عن الشوكولاتة سنة كاملة.. ولا تستغني عن مكالمات مودي لمدة أسبوع؟ 🍫",
       "تعرفي مستقبلك ومجموعك من دلوقتي.. ولا تسيبيها مفاجأة تفرحي بيها آخر السنة؟ 🎓",
-      "ميمو يطبخلك أكلة غريبة تضطري تاكليها كلها.. ولا تدفعي الحساب في أغلى مطعم؟ 😂",
-      "ميمو ميردش على رسايلك يوم كامل.. ولا يفضل يرن ويزن عليكي كل دقيقة؟ 📱",
-      "تختفي لمدة 24 ساعة ومحدش يلاقيكي.. ولا كل كلامك مع ميمو يتقال قدام العيلة؟ 😱",
+      "مودي يطبخلك أكلة غريبة تضطري تاكليها كلها.. ولا تدفعي الحساب في أغلى مطعم؟ 😂",
+      "مودي ميردش على رسايلك يوم كامل.. ولا يفضل يرن ويزن عليكي كل دقيقة؟ 📱",
+      "تختفي لمدة 24 ساعة ومحدش يلاقيكي.. ولا كل كلامك مع مودي يتقال قدام العيلة؟ 😱",
       "نعيش في كوخ هادي على البحر.. ولا في شقة واسعة وسط دوشة المدينة؟ 🌊",
-      "تبقي شايفة كل اللي بيفكر فيه ميمو.. ولا ميمو هو اللي يعرف كل اللي في سرك؟ 🔮",
+      "تبقي شايفة كل اللي بيفكر فيه مودي.. ولا مودي هو اللي يعرف كل اللي في سرك؟ 🔮",
       "تمسحي كل أبلكيشنز الموبايل ماعدا الواتساب.. ولا تسيبي كل البرامج بس من غير نت؟ 📵",
       "تنزلي خروجة بلبس البيت والبيجامة.. ولا تقعدي أسبوع كامل من غير مراية؟ 🪞",
-      "تكتشفي إن ميمو كاتبلك جواب بخط إيده 10 صفحات.. ولا يجبلك بوكيه ورد عملاق؟ 💐",
+      "تكتشفي إن مودي كاتبلك جواب بخط إيده 10 صفحات.. ولا يجبلك بوكيه ورد عملاق؟ 💐",
       "نلعب ألعاب ذكاء وتخسري دايماً.. ولا نلعب لعبة حظ وتكسبيني وتغيظيني؟ 🎯",
       "تنسي كل تفاصيل أول مكالمة بيننا.. ولا تنسي أول خناقة عدت علينا؟ 🎧",
       "تفضلي صاحية 48 ساعة متواصلة.. ولا تنامي 16 ساعة وتصحي تلاقي امتحاناتك بدأت؟ ⏰",
       "تحضري فرحنا في مكان مفتوح وسط الهوا.. ولا في قاعة كلاسيك مقفولة وفخمة؟ 🕊️",
-      "تطبخي إنتي كل يوم أكلة جديدة.. ولا ميمو يطلبلك دليفري على ذوقه كل يوم؟ 🍕",
+      "تطبخي إنتي كل يوم أكلة جديدة.. ولا مودي يطلبلك دليفري على ذوقه كل يوم؟ 🍕",
       "تكوني بتعرفي كل اللغات في العالم بطلاقة.. ولا تقدري تسافري أي مكان في ثانية؟ ✈️"
     ];
     let allWyr = [...defaultWyr, ...wyrList];
@@ -1078,7 +1134,7 @@
       try { confetti({ particleCount: 40, spread: 60 }); } catch (e) {}
     }
 
-    // ================= 7. شاشة الدخول =================
+    // ================= 8. شاشة الدخول =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -1091,7 +1147,7 @@
       try { confetti({ particleCount: 50, spread: 60 }); } catch (e) {}
     });
 
-    // ================= 8. نسخ العنوان =================
+    // ================= 9. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -1101,7 +1157,7 @@
       });
     });
 
-    // ================= 9. خلفية النجوم الرومانسية الهادئة =================
+    // ================= 10. خلفية النجوم المتحركة =================
     const canvas = document.getElementById('starsCanvas');
     const ctx = canvas.getContext('2d');
     let stars = [];
