@@ -30,6 +30,11 @@
       border: 1px solid rgba(244, 114, 182, 0.22);
       box-shadow: 0 12px 35px -8px rgba(236, 72, 153, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
+    .wrapped-card {
+      background: linear-gradient(135deg, #2d0b38 0%, #1a092b 45%, #3b0d2c 100%);
+      border: 1px solid rgba(251, 113, 133, 0.4);
+      box-shadow: 0 15px 40px -10px rgba(244, 63, 94, 0.35);
+    }
     .soft-pill-card {
       border-radius: 28px 28px 28px 8px;
     }
@@ -144,7 +149,7 @@
       مملكة منمن ومودي 🤍
     </h2>
     <p class="text-gray-300 text-xs max-w-xs mb-8 leading-relaxed">
-      مكان مليان قلوب وهدوء بعيد عن دوشة الدنيا وتعب المذاكرة.. معمول مخصوص عشان يطبطب على قلبك ويفرحك 🌸
+      مكان مليان قلوب وذكرياتنا وأسرارنا بعيد عن دوشة الدنيا وتعب المذاكرة.. معمول مخصوص عشان يطبطب على قلبك ويفرحك 🌸
     </p>
     <button id="startBtn" class="w-full max-w-xs py-4 px-6 rounded-full bg-gradient-to-r from-rose-500 via-pink-600 to-purple-600 font-extrabold text-base text-white shadow-xl shadow-pink-600/40 hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-3 border border-white/20">
       <span>ادخلي مملكتنا يا روحي 🎧💖</span>
@@ -154,7 +159,7 @@
   <!-- ==================== المحتوى الأساسي ==================== -->
   <main class="w-full max-w-[430px] min-h-screen px-4 py-6 relative z-20 flex flex-col gap-5 pb-24">
 
-    <!-- الهيدر الشخصي بتصميم جديد -->
+    <!-- الهيدر الشخصي -->
     <header class="glow-card rounded-[32px] p-4 flex items-center justify-between border border-pink-400/30 relative overflow-hidden">
       <div class="absolute -left-6 -top-6 text-6xl opacity-10 pointer-events-none select-none">💖</div>
       <div class="flex items-center gap-3.5 relative z-10">
@@ -177,7 +182,7 @@
       </div>
       <div class="flex flex-col items-center z-10">
         <span class="text-2xl heart-beat">💍</span>
-        <span class="text-[9px] text-pink-300 font-bold mt-0.5">مودي & منمن</span>
+        <span class="text-[9px] text-pink-300 font-bold mt-0.5">ميمو & منمن</span>
       </div>
     </header>
 
@@ -213,15 +218,68 @@
       </div>
     </section>
 
-    <!-- ==================== 2. كارت "مود منمن دلوقتي" التفاعلي ==================== -->
+    <!-- ==================== 2. كارت ملخص حبنا بالأرقام (Love Wrapped) ==================== -->
+    <section class="wrapped-card rounded-[32px] p-5 relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 text-7xl opacity-10 pointer-events-none select-none">📊</div>
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">📊</span>
+          <div>
+            <h3 class="text-sm font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-pink-200 to-rose-300">
+              ملخص حبنا بالأرقام (Love Wrapped)
+            </h3>
+            <p class="text-[10px] text-pink-200/75">إحصائيات حقيقية من شات ميمو ومنمن 💬✨</p>
+          </div>
+        </div>
+        <span class="text-[10px] bg-amber-400/20 text-amber-200 px-2.5 py-0.5 rounded-full border border-amber-300/30 font-bold">2026</span>
+      </div>
+
+      <!-- شبكة الأرقام الأساسية -->
+      <div class="grid grid-cols-2 gap-2.5 mb-3">
+        <div class="bg-black/45 rounded-2xl p-3 border border-pink-400/25">
+          <span class="text-xs block mb-0.5">💬</span>
+          <span class="text-lg font-black text-white">+1,340</span>
+          <span class="block text-[10px] text-pink-200/85">رسالة في أيام معدودة</span>
+        </div>
+        <div class="bg-black/45 rounded-2xl p-3 border border-rose-400/25">
+          <span class="text-xs block mb-0.5">❤️‍🔥</span>
+          <span class="text-lg font-black text-rose-400">+165 مرة</span>
+          <span class="block text-[10px] text-pink-200/85">"بحبك / بموت فيك / بعشقك"</span>
+        </div>
+        <div class="bg-black/45 rounded-2xl p-3 border border-purple-400/25">
+          <span class="text-xs block mb-0.5">🌙</span>
+          <span class="text-sm font-black text-purple-300">10 م – 2 ص & 6 ص</span>
+          <span class="block text-[10px] text-pink-200/85">أكتر أوقات سهرنا سوا</span>
+        </div>
+        <div class="bg-black/45 rounded-2xl p-3 border border-amber-400/25">
+          <span class="text-xs block mb-0.5">🏆</span>
+          <span class="text-sm font-black text-amber-300">😘 & ♥️</span>
+          <span class="block text-[10px] text-pink-200/85">أكتر إيموجيز مشتركين</span>
+        </div>
+      </div>
+
+      <!-- شريط كواليس تفاعلي -->
+      <div class="bg-black/50 rounded-2xl p-3 border border-pink-400/30 flex items-center justify-between gap-2">
+        <p id="wrappedFunFact" class="text-[11px] text-pink-100 leading-relaxed flex-1">
+          ✨ <strong>رقم قياسي:</strong> أطول كول بينا عدت ساعة و39 دقيقة ومحدش فينا حس بالوقت!
+        </p>
+        <button onclick="nextWrappedFact()" class="shrink-0 px-3 py-2 rounded-xl bg-pink-500/25 hover:bg-pink-500/40 border border-pink-400/40 text-[10px] font-bold text-pink-200 active:scale-90 transition-transform">
+          كواليس تانية 🔄
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== 3. بوت ردود مودي المباشر (Mood Bot) ==================== -->
     <section class="glow-card alt-pill-card p-4 border border-pink-400/30">
       <div class="flex items-center justify-between mb-2.5">
         <h3 class="text-xs font-extrabold text-pink-200 flex items-center gap-1.5">
-          <span>🌷</span>
-          <span>إحساسك إيه دلوقتي يا بنوتي؟</span>
+          <span>🤖💖</span>
+          <span>بوت ردود مودي (لو نايم أو في المحاضرة)</span>
         </h3>
-        <span class="text-[10px] text-pink-300/80">اختاري مودك</span>
+        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-400/30 font-bold">متصل 24/7</span>
       </div>
+
+      <p class="text-[11px] text-gray-300 mb-2.5">اختاري إحساسك دلوقتي ومودي هيرد عليكي بنفس كلامه وطريقته:</p>
 
       <div class="grid grid-cols-5 gap-1.5 mb-3">
         <button onclick="selectMood('happy')" class="mood-btn bg-black/40 hover:bg-pink-500/20 border border-white/10 rounded-2xl py-2 flex flex-col items-center gap-1 active:scale-90 transition-all">
@@ -246,28 +304,76 @@
         </button>
       </div>
 
-      <div id="moodResponseBox" class="hidden bg-gradient-to-r from-rose-950/60 to-purple-950/60 p-3 rounded-2xl border border-pink-400/30 text-xs text-pink-100 leading-relaxed">
+      <div id="moodResponseContainer" class="hidden bg-gradient-to-r from-rose-950/70 to-purple-950/70 p-3.5 rounded-2xl border border-pink-400/35 space-y-2.5">
+        <div class="flex items-center justify-between text-[10px] text-pink-300 font-bold">
+          <span>💬 ميمو بيقولك:</span>
+          <button onclick="cycleMoodReply()" class="underline hover:text-white">رد تاني من مودي 🔄</button>
+        </div>
+        <p id="moodResponseBox" class="text-xs text-white leading-relaxed font-medium"></p>
+        <a id="moodWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-xl bg-pink-500/25 hover:bg-pink-500/35 border border-pink-400/40 text-[11px] font-bold text-pink-200 flex items-center justify-center gap-1.5">
+          <span>ابعتي إحساسك لمودي على الواتساب 💌</span>
+        </a>
       </div>
     </section>
 
-    <!-- ==================== 3. برطمان السعادة (Happiness Jar) ==================== -->
+    <!-- ==================== 4. لعبة: مين فينا قال الجملة دي؟ (Who Said It?) ==================== -->
+    <section class="glow-card rounded-[32px] p-5 border border-cyan-400/35 bg-gradient-to-b from-[#131c36] to-[#0c081a] relative overflow-hidden">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">🕵️‍♀️</span>
+          <div>
+            <h3 class="text-xs font-black text-cyan-200">لعبة: مين فينا قال الجملة دي؟</h3>
+            <p class="text-[10px] text-gray-300">اختبار ذاكرة من كلامنا الحقيقي في الشات 💬</p>
+          </div>
+        </div>
+        <div class="text-left">
+          <span id="whoSaidScoreBadge" class="text-[10px] bg-cyan-500/20 text-cyan-200 px-2.5 py-1 rounded-full border border-cyan-400/30 font-extrabold">
+            السكور: 0 / 0
+          </span>
+        </div>
+      </div>
+
+      <div id="whoSaidGameArea">
+        <div class="flex items-center justify-between text-[10px] text-gray-400 mb-1.5 mt-2">
+          <span id="whoSaidProgress">سؤال 1 من 28</span>
+          <span>ركزي وافتكري 😉</span>
+        </div>
+
+        <div class="min-h-[95px] flex items-center justify-center p-4 bg-black/55 rounded-2xl border border-cyan-400/25 mb-3 text-center">
+          <p id="whoSaidQuote" class="text-sm font-bold text-white leading-relaxed">
+            "يتم الاتفاق مع براء يضرب ياسين ويونس ويمشي أختك وعيالها"
+          </p>
+        </div>
+
+        <div id="whoSaidButtons" class="grid grid-cols-2 gap-2.5">
+          <button onclick="answerWhoSaid('mody')" class="py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-95 text-white font-extrabold text-xs shadow-lg shadow-blue-600/25 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
+            <span>🤴 مودي (ميمو)</span>
+          </button>
+          <button onclick="answerWhoSaid('menmen')" class="py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:opacity-95 text-white font-extrabold text-xs shadow-lg shadow-pink-600/25 active:scale-95 transition-transform flex items-center justify-center gap-1.5">
+            <span>👸 منمن</span>
+          </button>
+        </div>
+
+        <div id="whoSaidFeedback" class="hidden mt-3 p-3 rounded-2xl text-xs font-bold text-center leading-relaxed"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. برطمان السعادة بأسرارنا وإفيهاتنا (Happiness Jar) ==================== -->
     <section class="glow-card rounded-[32px] p-5 border border-rose-400/30 text-center relative overflow-hidden">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-1.5">
           <span class="text-lg">🫙</span>
-          <h3 class="text-xs font-extrabold text-rose-200">برطمان السعادة (أسباب حبي ليكي)</h3>
+          <h3 class="text-xs font-extrabold text-rose-200">برطمان السعادة (أسرارنا وإفيهاتنا)</h3>
         </div>
-        <span class="text-[10px] bg-rose-500/20 text-rose-200 px-2.5 py-0.5 rounded-full border border-rose-400/30">اسحبي قلب</span>
+        <span class="text-[10px] bg-rose-500/20 text-rose-200 px-2.5 py-0.5 rounded-full border border-rose-400/30">اسحبي ذكرى</span>
       </div>
 
-      <p class="text-[11px] text-gray-300 mb-3">دوسي على البرطمان عشان تطلعي ورقة مطوية فيها حاجة بحبها فيكي 💖</p>
+      <p class="text-[11px] text-gray-300 mb-3">دوسي على البرطمان عشان تطلعي ذكرى أو تفصيلة من كلامنا إحنا بس 💖</p>
 
       <!-- رسمة البرطمان التفاعلي -->
       <div onclick="drawJarHeart()" class="cursor-pointer group mx-auto w-32 h-36 relative flex flex-col items-center justify-center my-2 select-none active:scale-95 transition-transform">
-        <!-- غطا البرطمان -->
         <div class="w-20 h-4 bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 rounded-t-lg border border-amber-500/50 shadow-md z-10"></div>
         <div class="w-22 h-2 bg-pink-400/80 rounded-full mb-0.5 z-10"></div>
-        <!-- جسم البرطمان -->
         <div class="w-28 h-28 rounded-b-[28px] rounded-t-[16px] bg-white/10 backdrop-blur-md border-2 border-pink-300/40 shadow-inner shadow-pink-400/20 flex flex-wrap items-center justify-center gap-1 p-2.5 relative overflow-hidden group-hover:border-pink-300 transition-colors">
           <span class="text-lg animate-bounce">💖</span>
           <span class="text-base">💗</span>
@@ -281,11 +387,11 @@
       </div>
 
       <div id="jarNoteBox" class="mt-3 p-3.5 bg-gradient-to-r from-pink-950/70 via-rose-950/60 to-purple-950/70 rounded-2xl border border-pink-400/40 text-xs text-white font-medium leading-relaxed shadow-lg">
-        💌 دوسي على البرطمان فوق عشان تفتحي أول ورقة ليكي يا منمن!
+        💌 دوسي على البرطمان فوق عشان تفتحي أول ورقة من أسرارنا يا منمن!
       </div>
     </section>
 
-    <!-- ==================== 4. مقياس الحب اللانهائي ==================== -->
+    <!-- ==================== 6. مقياس الحب اللانهائي ==================== -->
     <section class="glow-card rounded-3xl p-4 border border-pink-400/25 text-center">
       <div class="flex items-center justify-between mb-2">
         <span class="text-xs font-extrabold text-pink-200">💘 مقياس حب منمن لمودي:</span>
@@ -297,7 +403,7 @@
       </p>
     </section>
 
-    <!-- ==================== 5. كارت ورسالة 11/11 ==================== -->
+    <!-- ==================== 7. كارت ورسالة 11/11 ==================== -->
     <section class="glow-card soft-pill-card p-5 border border-pink-500/35 bg-gradient-to-b from-[#26113b] via-[#170b26] to-[#0c0514] relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -313,7 +419,7 @@
 
       <div class="bg-black/45 p-3.5 rounded-2xl border border-pink-500/20 text-xs text-gray-200 leading-relaxed space-y-2 mb-4 text-right">
         <p class="font-bold text-pink-300">لـ نصفي التاني وتوأم روحي منمن 🤍:</p>
-        <p>11:11 مش مجرد رقم.. في اللحظة دي الكون بيشهد إنك روحي التانية اللي كنت مستنيها. ربنا جمعنا مش صدفة، كل تفصيلة فيكي بتطمني وبتفهمني من غير كلام.</p>
+        <p>11:11 مش مجرد رقم.. في اللحظة دي الكون بيشهد إنك روحي التانية اللي كنت مستنيها. ربنا جمعنا مش صدفة يوم 28 أكتوبر الساعة 5:30 فجراً، كل تفصيلة فيكي بتطمني وبتفهمني من غير كلام.</p>
         <p>بتمنى نفضل سوا، وسند لبعض في كل خطوة، وتدخلي ألسن عين شمس وتكوني منورة بيتي وحياتي دايماً 💍✨</p>
       </div>
 
@@ -331,7 +437,7 @@
       </div>
     </section>
 
-    <!-- ==================== 6. مشغل المزيكا ==================== -->
+    <!-- ==================== 8. مشغل المزيكا ==================== -->
     <section class="glow-card rounded-3xl p-4 border border-pink-400/20">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
@@ -728,7 +834,7 @@
         </button>
       </div>
 
-      <!-- أزرار التابز (5 تابز شامل عجلة الحظ) -->
+      <!-- أزرار التابز -->
       <div class="grid grid-cols-5 gap-1 p-1 bg-black/55 rounded-2xl border border-white/10 text-[10px] font-bold text-center">
         <button id="tabBtn1" onclick="switchGameTab('tab1')" class="py-2 rounded-xl transition-all tab-active">🎯 صراحة</button>
         <button id="tabBtn2" onclick="switchGameTab('tab2')" class="py-2 rounded-xl text-gray-400 transition-all">👥 مين فينا</button>
@@ -833,16 +939,14 @@
         </div>
       </div>
 
-      <!-- TAB 5: عجلة الحظ الرومانسية (جديد!) -->
+      <!-- TAB 5: عجلة الحظ الرومانسية -->
       <div id="tabContent5" class="hidden flex flex-col gap-3">
         <div class="glow-card rounded-3xl p-5 border border-rose-500/35 text-center">
           <h3 class="text-sm font-extrabold text-rose-200 mb-1">🎡 عجلة الحظ الرومانسية</h3>
           <p class="text-[11px] text-gray-300 mb-4">لفي العجلة وشوفي الحكم أو المفاجأة اللي هتطلعلكم دلوقتي!</p>
 
           <div class="relative w-44 h-44 mx-auto my-2 flex items-center justify-center">
-            <!-- مؤشر السهم -->
             <div class="absolute -top-3 z-20 text-2xl drop-shadow">🔻</div>
-            <!-- قرص العجلة -->
             <div id="wheelDisc" class="w-44 h-44 rounded-full border-4 border-pink-300/60 shadow-2xl shadow-pink-500/40 relative overflow-hidden transition-transform duration-[3500ms] ease-out" style="background: conic-gradient(#f43f5e 0deg 60deg, #a855f7 60deg 120deg, #ec4899 120deg 180deg, #f59e0b 180deg 240deg, #06b6d4 240deg 300deg, #10b981 300deg 360deg);">
               <div class="w-full h-full flex items-center justify-center">
                 <div class="w-12 h-12 rounded-full bg-[#090410] border-2 border-pink-300 flex items-center justify-center text-lg shadow-inner">
@@ -950,34 +1054,173 @@
     setInterval(updateLoveCounter, 1000);
     updateLoveCounter();
 
-    // ================= 4. اختيار مود منمن دلوقتي =================
-    const moodMessages = {
-      happy: "🥰 يارب دايماً مبسوطة وضحكتك منورة الدنيا كلها! فرحتك دي هي الحاجة الوحيدة اللي بترد فيا الروح والله 🤍✨",
-      study: "📚 خدي نفس عميق وسيبي الكتاب 5 دقايق.. تعبك ده كله ربنا شايفه وهيكافئك بألسن عين شمس، ومودي في ضهرك وساندك دايماً 💪🤍",
-      sad: "🥺 حقك على قلبي يا بنوتي.. تعالي احكيلي وفضفضي من غير ما تشيلي هم أي حاجة، أنا سامعك ومش هزهق منك أبداً وموجود عشان أطبطب عليكي 🤍🫂",
-      miss: "🎧 وأنتي واحشاني أكتر بكتير والله! يلا سيبك من الموبايل وكلميني حالاً عشان أسمع صوتك حتى لو هنقعد ساكتين ونقول امممم 🙈💖",
-      sleepy: "😴 يلا شدي الغطا عليكي واطفي النور.. نامي وأنتي مطمنة إني جنبك وبحرس أحلامك، وتصبحي على ألف خير يا نور عيني 🤍💤"
+    // ================= 4. كارت Love Wrapped (كواليس الشات بالأرقام) =================
+    const wrappedFacts = [
+      "✨ <strong>رقم قياسي:</strong> أطول كول بينا عدت ساعة و39 دقيقة ومحدش فينا حس بالوقت!",
+      "💬 <strong>أشهر سؤال يومي:</strong> 'النت اشتغل؟' و'ذاكرتي؟' و'مين بيحب التاني أكتر؟' 😂",
+      "🖤 <strong>تطابق 100%:</strong> إحنا الاتنين بنحب اللون الأسود، موبايلاتنا سايلنت 24 ساعة، وبنكره دوشة الأفراح!",
+      "👶 <strong>أكتر أسماء اتذكرت:</strong> براء وياسين ويونس.. ومؤامرات مودي السرية ضدهم 😂",
+      "🍫 <strong>أكلات ومشروبات مميزة:</strong> الشاي، البطاطس بالكاتشب، تويست الفراولة، والفول السوداني بالشوكولاتة!",
+      "🎓 <strong>الهدف المشترك:</strong> تالتة ثانوي تخلص على خير وتنوري ألسن عين شمس في القاهرة 💍"
+    ];
+    let wrappedIdx = 0;
+
+    function nextWrappedFact() {
+      wrappedIdx = (wrappedIdx + 1) % wrappedFacts.length;
+      document.getElementById('wrappedFunFact').innerHTML = wrappedFacts[wrappedIdx];
+      try { confetti({ particleCount: 20, spread: 40 }); } catch (e) {}
+    }
+
+    // ================= 5. بوت ردود مودي المباشر (Mood Bot) =================
+    const modyMoodReplies = {
+      happy: [
+        "🥰 يا رب دايماً مبسوطة وضحكتك منورة الدنيا كلها! فرحتك دي هي الحاجة الوحيدة اللي بترد فيا الروح والله 🤍✨",
+        "😘 أيوه كده ابعتي القلب القطيفة ♥️ وأنا في قمة انبساطي طول ما بنوتي رايقة ومبسوطة!",
+        "💖 يا بختي بضحكتك دي.. عارفة لو قدامي دلوقتي كنت أكلتك، ربنا يديم فرحتك ليا العمر كله يا منمن 🤍"
+      ],
+      study: [
+        "📚 خدي نفس عميق وسيبي الكتاب 5 دقايق.. تعبك ده كله ربنا شايفه وهيكافئك بألسن عين شمس، ومودي في ضهرك وساندك دايماً 💪🤍",
+        "☕ قومي اعملي كوباية شاي وافردي ضهرك عشان ميوجعكيش، وافتكري إنك أشطر واحدة في عيوني وهتلمي أي مادة مهما كانت رخمة ✨",
+        "🎓 هانت يا بطلة، كلها شهور وتخلصي من النحو والتاريخ وتنوري القاهرة.. لو زهقتي تعالي نرغي 10 دقايق وارجعي كملي 😘"
+      ],
+      sad: [
+        "🥺 حقك على قلبي يا بنوتي.. تعالي احكيلي وفضفضي من غير ما تشيلي هم أي حاجة، أنا سامعك ومش هزهق منك أبداً وموجود عشان أطبطب عليكي 🤍🫂",
+        "🤍 مفيش حاجة في الدنيا تستاهل زعلك ولا دموعك.. افتكري اتفاقنا إن أي حاجة تدايقك تحكيهالي فوراً عشان نحلها سوا من غير تفكير كتير 😘",
+        "💞 لو براء أو يونس مزهقينك أو أي حد مضايقك قوليلي بس وأنا أتصرف! أهم حاجة ملامحك القمر دي متكشرش أبداً 🤍"
+      ],
+      miss: [
+        "🎧 وأنتي واحشاني أكتر بكتير والله! يلا سيبك من الموبايل وكلميني حالاً عشان أسمع صوتك حتى لو هنقعد ساكتين ونقول امممم امممم 🙈💖",
+        "🚗 نفسي أركب دلوقتي وآجي دمياط أقعد معاكي على الكورنيش.. كلها كام شهر وتنوري القاهرة ونعوض كل دقيقة بعدنا فيها 😘",
+        "💌 فتحت الشات زي العبيط مستنيكي تبعتي.. وحشتيني قد الكون كله يا مراتي المستقبلية 💍🤍"
+      ],
+      sleepy: [
+        "😴 يلا شدي الغطا عليكي واطفي النور.. نامي وأنتي مطمنة إني جنبك وبحرس أحلامك، ومتصحيش بدري عشان ترتاحي كويس 🤍💤",
+        "🌙 اعملي الموبايل ميوت ونامي فوراً بدل ما دماغك تفوّت.. وتصبحي على ألف خير يا نور عيني وأحلى حاجة في دنيتي 😘✨",
+        "🛌 لو كنت جنبك كنت نيمتك بنفسي زي ما بتنيمي ياسين.. ارتاحي يا قلبي ولما تصحي ابعتيلي علطول مستنيكي 🤍"
+      ]
     };
 
+    const moodWhatsappTexts = {
+      happy: "ميمو أنا مبسوطة أوي دلوقتي وحبيت أشاركك فرحتي 🥰💖",
+      study: "ميمو أنا مضغوطة من المذاكرة ومحتاجة جرعة تشجيع منك 📚🥺",
+      sad: "ميمو أنا مخنوقة شوية ومحتاجة أتكلم معاك وتطبطب عليا 🥺🤍",
+      miss: "ميمو أنت واحشني أوي أوي.. فاضي نتكلم؟ 🎧💖",
+      sleepy: "ميمو أنا خلاص هنام دلوقتي.. تصبح على خير يا نور عيني 😴💤"
+    };
+
+    let currentSelectedMood = 'happy';
+    let currentMoodReplyIdx = 0;
+
     function selectMood(mood) {
+      currentSelectedMood = mood;
+      currentMoodReplyIdx = 0;
+      const container = document.getElementById('moodResponseContainer');
       const box = document.getElementById('moodResponseBox');
-      box.classList.remove('hidden');
-      box.textContent = moodMessages[mood];
+      const waLink = document.getElementById('moodWhatsappLink');
+
+      container.classList.remove('hidden');
+      box.textContent = modyMoodReplies[mood][0];
+      waLink.href = `https://wa.me/201147584829?text=${encodeURIComponent(moodWhatsappTexts[mood])}`;
       try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
     }
 
-    // ================= 5. برطمان السعادة =================
+    function cycleMoodReply() {
+      const replies = modyMoodReplies[currentSelectedMood];
+      currentMoodReplyIdx = (currentMoodReplyIdx + 1) % replies.length;
+      document.getElementById('moodResponseBox').textContent = replies[currentMoodReplyIdx];
+    }
+
+    // ================= 6. لعبة: مين فينا قال الجملة دي؟ (Who Said It?) =================
+    const whoSaidQuestions = [
+      { quote: "يتم الاتفاق مع براء يضرب ياسين ويونس ويمشي أختك وعيالها", speaker: "mody", note: "مودي وهو بيغير من ولاد أختك لما بياخدوكي منه 😂" },
+      { quote: "أنا مع رفاعي السوزوكي", speaker: "menmen", note: "منمن وهي بتوصف يونس بعد ما سرحتله شعره 😂" },
+      { quote: "مسميينه أنا وصحابي القلب القطيفة", speaker: "menmen", note: "تعليقك على القلب الأحمر الكلاسيكي ♥️😂" },
+      { quote: "كنت مهكر أوميجل عشان أكلمك وهكرت قلبك عشان تبعتيلي التيك", speaker: "mody", note: "اعتراف مودي الخطير بتهكير أوميجل 😎💖" },
+      { quote: "أنا مؤسسة العنصرية.. عملتله بلوك عشان من كفر الشيخ", speaker: "menmen", note: "منمن لما حكت عن آد الفيسبوك القديم 😂" },
+      { quote: "كان عاملها جناح خاص بيها في القصر وسابته ورجعت فرنسا لجوزها", speaker: "menmen", note: "لما قلبتي الشات مكتبة تاريخ وحكيتي قصة الخديوي إسماعيل 📚" },
+      { quote: "المفروض الأغاني كل يوم أغنية عشان ننهي بآخر أغنية", speaker: "mody", note: "مودي لما اكتشف إنك سمعتي الـ 8 أغاني في أول 5 دقايق 😂" },
+      { quote: "فول سوداني بيكون متغلف بالشوكولاته.. كان طفولتي كلها", speaker: "menmen", note: "لما مودي افتكره فول مدمس بالشوكولاتة واتصدم 😂🍫" },
+      { quote: "البيت عندي زمان كان مسميني أرعن.. أروح أكب الشاي بأي طريقة", speaker: "mody", note: "ذكريات مودي في المنيا وهو صغير مع الشاي وجده 😂" },
+      { quote: "براءة اختراع خلاص.. اخترع أنا: ميمو!", speaker: "menmen", note: "اللحظة التاريخية اللي اخترعتي فيها اسم الدلع (ميمو) 🤍" },
+      { quote: "قعدت ساعة بدور على قلب.. غالباً مش بستخدمه", speaker: "mody", note: "مودي وهو بيبعتلك قلوب لأول مرة في الشات ❤️" },
+      { quote: "نفضل نقول لبعض امممم امممم وبكون في قمة انبساطي", speaker: "mody", note: "وصف مودي لأحلى لحظات السكوت في الكول 🎧🤍" },
+      { quote: "مستنية السلم يطلعني لوحده يعني", speaker: "menmen", note: "ردك الساخر لما رجعتي من الجيم ومكسلة تطلعي السلم 😂" },
+      { quote: "نرمي رامي صبري مش عايزينه عايزة ميمو بس", speaker: "menmen", note: "أحلى جملة اتقالت لما مودي قالك هجبلك رامي صبري يغنيلك 🥹💖" },
+      { quote: "أنت أكتر أيوة (بسكتك عشان أنا أكتر كده كده 😝)", speaker: "menmen", note: "محاولتك الفاشلة لتقفيل خناقة مين بيحب التاني أكتر 😂" },
+      { quote: "لو عرفت إنك دخلتي الموقع تاني هقت**", speaker: "mody", note: "غيرة مودي على أوميجل بعد ما لقاكم سوا 🤨❤️" },
+      { quote: "يا بخت الكورنيش.. أنا ليه مش معاكي", speaker: "mody", note: "مودي لما بعتيله صورتك وإنتي قاعدة قدام النيل في دمياط 🌊" },
+      { quote: "تخيل كان حد عمل سكيب بالغلط فجر يوم 28 أكتوبر", speaker: "menmen", note: "كلامك عن أحلى صدفة جمعتكم الفجر ⏳🤍" },
+      { quote: "عيال محمد علي عاملين معايا الغلط", speaker: "menmen", note: "شكوتك المستمرة من فصل التاريخ بتاع محمد علي وعياله 😂📚" },
+      { quote: "دي طريقة حب عندي إني أساعد اللي بحبه في أي حاجة", speaker: "mody", note: "كلام مودي وهو بيحكيلك ليه بيحب يعملك كل حاجة بنفسه 🤍" },
+      { quote: "ماشاءالله طور قاعد قدام محاضرة النحو", speaker: "menmen", note: "وصفك لنفسك وإنتي بتذاكري محاضرة النحو 😂" },
+      { quote: "المرة اللي فاتت بعتيها سادة.. Love u too اللي هو يلا اخلص", speaker: "mody", note: "نكش مودي عليكي عشان مبعتيش قلوب جنبها 😂" },
+      { quote: "ما أنا باكل يما أهو!", speaker: "menmen", note: "إفيهك وإنتي بتذاكري وبتاكلي في نفس الوقت 😂" },
+      { quote: "حسيتك زعلانة وبتعيطي في الحلم فصحيت بعتلك وحشتيني", speaker: "mody", note: "لما مودي صحي مفزوع من الكابوس عشان يطمن عليكي 🥺🤍" },
+      { quote: "النت اشتغل؟", speaker: "mody", note: "السؤال الرسمي لمودي كل يوم بسبب باقة الواي فاي 😂" },
+      { quote: "حاسة إن أنا قاعدة في كيدز إيريا", speaker: "menmen", note: "معاناتك في الأوضة مع براء ويونس وياسين 😂" },
+      { quote: "إنتي لو قدامي آكلك.. إنتي أحلى من أي أكل", speaker: "mody", note: "غزل مودي فيكي وهو جوعان وبيجيب عيش 😘" },
+      { quote: "هظبطلك أنا وجباتك ونحسب البروتين ونكسر الدنيا كلها", speaker: "menmen", note: "وعدك لمودي لما يتجمعوا وتظبطيله أكل الجيم 💪❤️" }
+    ];
+
+    let whoSaidIdx = 0;
+    let whoSaidScore = 0;
+    let whoSaidAnswered = 0;
+    let canAnswerWhoSaid = true;
+
+    function renderWhoSaidQuestion() {
+      const q = whoSaidQuestions[whoSaidIdx];
+      document.getElementById('whoSaidProgress').textContent = `سؤال ${whoSaidIdx + 1} من ${whoSaidQuestions.length}`;
+      document.getElementById('whoSaidQuote').textContent = `"${q.quote}"`;
+      document.getElementById('whoSaidFeedback').classList.add('hidden');
+      canAnswerWhoSaid = true;
+    }
+
+    function answerWhoSaid(choice) {
+      if (!canAnswerWhoSaid) return;
+      canAnswerWhoSaid = false;
+      whoSaidAnswered++;
+
+      const q = whoSaidQuestions[whoSaidIdx];
+      const isCorrect = choice === q.speaker;
+      if (isCorrect) whoSaidScore++;
+
+      document.getElementById('whoSaidScoreBadge').textContent = `السكور: ${whoSaidScore} / ${whoSaidAnswered}`;
+
+      const feedback = document.getElementById('whoSaidFeedback');
+      feedback.classList.remove('hidden');
+
+      if (isCorrect) {
+        feedback.className = "mt-3 p-3 rounded-2xl text-xs font-bold text-center leading-relaxed bg-emerald-500/20 border border-emerald-400/40 text-emerald-200";
+        feedback.innerHTML = `✅ شطورة يا بنوتي! صح 100%<br><span class="text-[11px] font-normal text-gray-200">${q.note}</span><button onclick="nextWhoSaidQuestion()" class="mt-2 w-full py-2 rounded-xl bg-emerald-500 text-black font-extrabold text-xs">الجملة اللي بعدها ➡️</button>`;
+        try { confetti({ particleCount: 30, spread: 50 }); } catch (e) {}
+      } else {
+        const rightName = q.speaker === 'mody' ? 'مودي (ميمو) 🤴' : 'منمن 👸';
+        feedback.className = "mt-3 p-3 rounded-2xl text-xs font-bold text-center leading-relaxed bg-rose-500/20 border border-rose-400/40 text-rose-200";
+        feedback.innerHTML = `❌ لا يا نساية! اللي قالها هو: ${rightName}<br><span class="text-[11px] font-normal text-gray-200">${q.note}</span><button onclick="nextWhoSaidQuestion()" class="mt-2 w-full py-2 rounded-xl bg-rose-500 text-white font-extrabold text-xs">الجملة اللي بعدها ➡️</button>`;
+      }
+    }
+
+    function nextWhoSaidQuestion() {
+      whoSaidIdx = (whoSaidIdx + 1) % whoSaidQuestions.length;
+      renderWhoSaidQuestion();
+    }
+
+    renderWhoSaidQuestion();
+
+    // ================= 7. برطمان السعادة بأسرارنا وإفيهاتنا =================
     const jarReasons = [
-      "بحب طريقتك وإحنا في الكول لما بنسكت ونقول لبعض 'امممم امممم' وبحس براحة ملهاش وصف 🤍",
-      "بحب قد إيه إنتي جدعة وبتتعبي عشان تحققي حلمك في ألسن عين شمس 🎓✨",
-      "بحب إنك بتفهميني من غير ما أضطر أشرح أو أتكلم كتير 💞",
-      "بحب طيبة قلبك وحنيتك اللي بتبان في أبسط كلمة بتقوليها 🌸",
-      "بحب إحساسي معاكي إني في مكاني الآمن وبعيد عن دوشة الدنيا كلها 🏡",
-      "بحب فجرية يوم 28 أكتوبر الساعة 5:30 اللي جمعتني بيكي صدفة وقلبت حياتي لأحلى حاجة ⏳💖",
-      "بحب ضحكتك اللي بتنسيني أي ضغط أو تعب عدى عليا طول اليوم 😊",
-      "بحب لما بتحاولي تحكي وتفضفضي معايا حتى لو مش متعودة، وبتطمنيني عليكي 🤍",
-      "بحب جنانك وهزارك ونكشك اللي بيخلي كلامنا عمره ما يخلص 😂❤️",
-      "بحب إنك مراتي المستقبلية وأغلى رزق ربنا بعتهولي في حياتي كلها 💍✨"
+      "فاكرة فجر يوم 28 أكتوبر الساعة 5:30 على أوميجل؟ لما كنت مفكرك اسمك 'ماري' قبل ما تقوليلي 'أنا إيمان' وتخطفيني من أول ثانية ⏳🤍",
+      "بحب طريقتك وإحنا في الكول لما بنسكت ومبنلاقيش كلام ونفضل نقول لبعض 'امممم.. امممم' وبكون في قمة انبساطي 🎧💞",
+      "حكاية 'القلب القطيفة' ♥️ اللي عرفتيني إنه أحلى قلب عندك وبتبعتيه لما تفرحي أوي من كلامي 😂❤️",
+      "لما قلبتيلي الشات مكتبة تاريخ وحكيتيلي قصة الخديوي إسماعيل وقصر الجزيرة في الزمالك ومرات نابليون اللي كرفتله 📚😂",
+      "خناقتنا المستمرة كل يوم مين بيحب التاني أكتر، لدرجة إني عملتلك صورة خبر عاجل في التلفزيون بدراسات علمية تثبت إني بحبك أكتر 📺🔬",
+      "تحالفي السري مع 'براء' ضد 'ياسين' و'يونس' ولاد أختك لما بياخدوكي مني وبتقعدي في كيدز إيريا 😂👶",
+      "تفاصيلك الصغيرة اللي حافظها: حبك للون الأسود، موبايلك اللي سايلنت 24 ساعة، الفول السوداني بالشوكولاتة، وتويست الفراولة بعد الجيم 🍫🍓",
+      "أول آد فيسبوك وأول كول سناب شات لما أخدتي إنتي الفيرست ستيب وقولتيلي 'تعالى كول' وكسرتي كل الحواجز بينا 🤍✨",
+      "لما حلمت في كابوس إنك زعلانة وبتعيطي فصحيت مفزوع من النوم وبعتلك 'وحشتيني' عشان أطمن إن بنوتي بخير 🥺💖",
+      "اختراعك لاسم الدلع الجديد 'ميمو' بعد ما عملتلك براءة اختراع لاسم 'منمن' 😍",
+      "وعدك ليا إننا لما نتجمع هتعمليلي وجبات الجيم وتحسبيلي البروتين وتعمليلي عصير مانجا وبانيه من غير ما يتحرق 🍗🥭",
+      "حلمنا الكبير إنك تخلصي تالتة ثانوي وتدخلي ألسن عين شمس وتنوري القاهرة وتبقي مراتي المستقبلية 💍🎓"
     ];
     let lastJarIdx = -1;
 
@@ -989,11 +1232,11 @@
       lastJarIdx = idx;
 
       const box = document.getElementById('jarNoteBox');
-      box.innerHTML = `<span class="text-pink-300 font-bold block text-[10px] mb-1">💖 ورقة من برطمان مودي ليكي:</span> ${jarReasons[idx]}`;
+      box.innerHTML = `<span class="text-pink-300 font-bold block text-[10px] mb-1">💖 ذكرى من برطمان ميمو ومنمن:</span> ${jarReasons[idx]}`;
       try { confetti({ particleCount: 30, spread: 55 }); } catch (e) {}
     }
 
-    // ================= 6. مقياس الحب الهربان =================
+    // ================= 8. مقياس الحب الهربان =================
     const loveSlider = document.getElementById('loveMeterSlider');
     const lovePercent = document.getElementById('loveMeterPercent');
     const loveMsg = document.getElementById('loveMeterMsg');
@@ -1010,7 +1253,7 @@
       }
     });
 
-    // ================= 7. قائمة الأغاني =================
+    // ================= 9. قائمة الأغاني =================
     const playlist = [
       { title: "عامر منيب - حلم عمري", artist: "الأغنية اللي بتحبيها 🤍", file: "./song1.mp3" },
       { title: "عامر منيب - كل ثانية معاك", artist: "روقان وهدوء 🎧", file: "./song2.mp3" },
@@ -1072,7 +1315,7 @@
       });
     });
 
-    // ================= 8. التحكم في الصفحات الجانبية =================
+    // ================= 10. التحكم في الصفحات الجانبية =================
     function openDrawer(id) {
       const drawer = document.getElementById(id);
       drawer.classList.remove('translate-x-full');
@@ -1090,7 +1333,7 @@
       document.getElementById(id).classList.toggle('hidden');
     }
 
-    // ================= 9. ميزة بوابة 11:11 =================
+    // ================= 11. ميزة بوابة 11:11 =================
     const saved1111 = localStorage.getItem('eman_1111_wish');
     if (saved1111) {
       document.getElementById('saved1111Box').classList.remove('hidden');
@@ -1108,7 +1351,7 @@
       }
     });
 
-    // ================= 10. الـ 30 جملة تحفيزية لتالتة ثانوي =================
+    // ================= 12. الـ 30 جملة تحفيزية لتالتة ثانوي =================
     const studyQuotes = [
       "اصحي وسمي الله.. كل سطر بتذاكريه خطوة حقيقية بتقربك من روب ألسن عين شمس 🎓🤍",
       "متقلقيش من بكرة، ربنا شايف تعبك ومودي سهران بيدعيلك في كل سجدة ✨",
@@ -1155,7 +1398,7 @@
       try { confetti({ particleCount: 25, spread: 45 }); } catch (e) {}
     });
 
-    // ================= 11. نوتات ومذكرات منمن =================
+    // ================= 13. نوتات ومذكرات منمن =================
     let userNotes = JSON.parse(localStorage.getItem('eman_memo_notes') || '[]');
     const notesContainer = document.getElementById('notesContainer');
 
@@ -1195,7 +1438,7 @@
     }
     renderNotes();
 
-    // ================= 12. ساحة الألعاب وعجلة الحظ =================
+    // ================= 14. ساحة الألعاب وعجلة الحظ =================
     function switchGameTab(tabId) {
       for (let i = 1; i <= 5; i++) {
         document.getElementById(`tabContent${i}`).classList.add('hidden');
@@ -1391,7 +1634,7 @@
       try { confetti({ particleCount: 40, spread: 60 }); } catch (e) {}
     }
 
-    // ================= 13. شاشة الدخول =================
+    // ================= 15. شاشة الدخول =================
     const introScreen = document.getElementById('introScreen');
     const startBtn = document.getElementById('startBtn');
 
@@ -1404,7 +1647,7 @@
       try { confetti({ particleCount: 65, spread: 70 }); } catch (e) {}
     });
 
-    // ================= 14. نسخ العنوان =================
+    // ================= 16. نسخ العنوان =================
     document.getElementById('copyAddressBtn').addEventListener('click', () => {
       const address = document.getElementById('addressContent').innerText.trim();
       navigator.clipboard.writeText(address).then(() => {
@@ -1414,7 +1657,7 @@
       });
     });
 
-    // ================= 15. خلفية القلوب والنجوم المتحركة =================
+    // ================= 17. خلفية القلوب والنجوم المتحركة =================
     const canvas = document.getElementById('heartsCanvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
